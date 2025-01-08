@@ -106,52 +106,58 @@ async def get_online_orders(orders):
     return online_orders
 
 async def process_item_data(session, item_data): #добавил session
-    if "en" in item_data and "item_name" in item_data["en"]:
-        item_name = item_data["en"]["item_name"]
-    elif "ru" in item_data and "item_name" in item_data["ru"]:
-        item_name = item_data["ru"]["item_name"]
-    else:
-        logger.warning(f"Отсутствует название предмета на русском или английском url_name: {item_data.get('url_name', 'Неизвестно')}")
+    try:
+        if "en" in item_data and "item_name" in item_data["en"]:
+            item_name = item_data["en"]["item_name"]
+        elif "ru" in item_data and "item_name" in item_data["ru"]:
+            item_name = item_data["ru"]["item_name"]
+        else:
+            logger.warning(f"Отсутствует название предмета на русском или английском url_name: {item_data.get('url_name', 'Неизвестно')}")
+            return None
+
+        orders = await get_item_orders(session, item_data["url_name"])
+        online_orders = await get_online_orders(orders)
+
+        if not online_orders:
+            logger.warning(f"Нет онлайн ордеров для {item_name}")
+            return None
+
+        buy_prices = [order["platinum"] for order in online_orders if order["order_type"] == "buy"]
+        sell_prices = [order["platinum"] for order in online_orders if order["order_type"] == "sell"]
+
+        if not buy_prices or not sell_prices:
+            logger.warning(f"Недостаточно данных о ценах для {item_name}")
+            return None
+
+        lowest_buy_price = min(buy_prices)
+        highest_sell_price = max(sell_prices)
+        price_difference = highest_sell_price - lowest_buy_price
+
+        return {
+            "item_name": item_name,
+            "lowest_buy_price": lowest_buy_price,
+            "highest_sell_price": highest_sell_price,
+            "price_difference": price_difference,
+        }
+    except aiohttp.ClientError as e:
+        logger.error(f"Ошибка при запросе к API для {item_data.get('url_name', 'неизвестный предмет')}: {e}")
+        return None  # Возвращаем None в случае ошибки
+    except Exception as e:
+        logger.exception(f"Непредвиденная ошибка при обработке {item_data.get('url_name', 'неизвестный предмет')}: {e}")
         return None
-
-    orders = await get_item_orders(session, item_data["url_name"])
-    online_orders = await get_online_orders(orders)
-
-    if not online_orders:
-        logger.warning(f"Нет онлайн ордеров для {item_name}")
-        return None
-
-    buy_prices = [order["platinum"] for order in online_orders if order["order_type"] == "buy"]
-    sell_prices = [order["platinum"] for order in online_orders if order["order_type"] == "sell"]
-
-    if not buy_prices or not sell_prices:
-        logger.warning(f"Недостаточно данных о ценах для {item_name}")
-        return None
-
-    lowest_buy_price = min(buy_prices)
-    highest_sell_price = max(sell_prices)
-    price_difference = highest_sell_price - lowest_buy_price
-
-    return {
-        "item_name": item_name,
-        "lowest_buy_price": lowest_buy_price,
-        "highest_sell_price": highest_sell_price,
-        "price_difference": price_difference,
-    }
 
 def count_items(data):
     """Рекурсивно подсчитывает количество предметов в данных."""
-    global total_items
+    count = 0
     if isinstance(data, list):
         for item in data:
-            count_items(item)
+            count += count_items(item)
     elif isinstance(data, dict):
         if "items_in_set" in data and isinstance(data["items_in_set"], list):
-            count_items(data["items_in_set"])
-        else:
-            total_items += 1
-    elif data is not None: # Добавлена проверка на None
-        total_items += 1
+            count += count_items(data["items_in_set"])
+        elif "url_name" in data:  # Проверка наличия url_name для подсчета предметов
+            count += 1
+    return count
 
 async def main():
     start_time = time.time()
@@ -160,23 +166,22 @@ async def main():
             with open("all_items_data_filtered.json", "r", encoding="utf-8") as f:
                 item_data = json.load(f)
 
-            global total_items
-            total_items = 0
-            count_items(item_data)
+            total_items = count_items(item_data)
             print(f"Найдено {total_items} предметов для обработки.")
 
             all_tasks = []
-            for item_name, item_details in item_data.items():
-                if isinstance(item_details, dict): # Проверка, что item_details - словарь
-                    if "items_in_set" in item_details and isinstance(item_details["items_in_set"], list):
-                        for item in item_details["items_in_set"]:
-                            if isinstance(item,dict): #проверка что item это словарь
-                                all_tasks.append(process_item_data(session, item))
-                    else:
-                        all_tasks.append(process_item_data(session, item_details))
+            def add_tasks(data):
+                if isinstance(data, list):
+                    for item in data:
+                        add_tasks(item)
+                elif isinstance(data, dict):
+                    if "items_in_set" in data and isinstance(data["items_in_set"], list):
+                        add_tasks(data["items_in_set"])
+                    elif "url_name" in data:
+                        all_tasks.append(process_item_data(session, data))
+            add_tasks(item_data)
 
-            processed_items_count = 0
-            results = await tqdm_asyncio.gather(*all_tasks, desc="Обработка предметов", total=total_items)
+            results = await tqdm_asyncio.gather(*all_tasks, desc="Обработка предметов", total=len(all_tasks))
             while True:
                 filtered_results = [result for result in results if result is not None]
                 processed_items_count += len(filtered_results)

@@ -141,22 +141,18 @@ async def process_item_data(session, item_data): #добавил session
         }
     except aiohttp.ClientError as e:
         logger.error(f"Ошибка при запросе к API для {item_data.get('url_name', 'неизвестный предмет')}: {e}")
-        return None  # Возвращаем None в случае ошибки
+        return None
     except Exception as e:
         logger.exception(f"Непредвиденная ошибка при обработке {item_data.get('url_name', 'неизвестный предмет')}: {e}")
         return None
 
 def count_items(data):
-    """Рекурсивно подсчитывает количество предметов в данных."""
+    """Считает количество предметов в items_in_set."""
     count = 0
-    if isinstance(data, list):
-        for item in data:
-            count += count_items(item)
-    elif isinstance(data, dict):
-        if "items_in_set" in data and isinstance(data["items_in_set"], list):
-            count += count_items(data["items_in_set"])
-        elif "url_name" in data:  # Проверка наличия url_name для подсчета предметов
-            count += 1
+    if isinstance(data, dict):
+        for key, value in data.items():
+            if isinstance(value, dict) and "items_in_set" in value and isinstance(value["items_in_set"], list):
+                count += len(value["items_in_set"])
     return count
 
 async def main():
@@ -170,16 +166,10 @@ async def main():
             print(f"Найдено {total_items} предметов для обработки.")
 
             all_tasks = []
-            def add_tasks(data):
-                if isinstance(data, list):
-                    for item in data:
-                        add_tasks(item)
-                elif isinstance(data, dict):
-                    if "items_in_set" in data and isinstance(data["items_in_set"], list):
-                        add_tasks(data["items_in_set"])
-                    elif "url_name" in data:
-                        all_tasks.append(process_item_data(session, data))
-            add_tasks(item_data)
+            for item_group in item_data.values(): # перебираем значения основного словаря
+                if isinstance(item_group, dict) and "items_in_set" in item_group and isinstance(item_group["items_in_set"], list):
+                    for item in item_group["items_in_set"]:
+                        all_tasks.append(process_item_data(session, item))
 
             results = await tqdm_asyncio.gather(*all_tasks, desc="Обработка предметов", total=len(all_tasks))
             while True:

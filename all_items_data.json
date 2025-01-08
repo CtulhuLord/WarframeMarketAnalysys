@@ -1,4 +1,1564 @@
 {
+    "sicarus_prime_set": {
+        "url_name": "sicarus_prime_set",
+        "test": "data"
+    },
+    "shedu_set": {
+        "url_name": "shedu_set",
+        "test": "data"
+    },
+    "conductive_blade": {
+        "url_name": "conductive_blade",
+        "test": "data"
+    },
+    "meso_f3_relic": {
+        "url_name": "meso_f3_relic",
+        "test": "data"
+    },
+    "lith_v9_relic": {
+        "url_name": "lith_v9_relic",
+        "test": "data"
+    },
+    "grinloked": {
+        "url_name": "grinloked",
+        "test": "data"
+    },
+    "shedu_chassis": {
+        "url_name": "shedu_chassis",
+        "test": "data"
+    },
+    "zephyr_prime_neuroptics_blueprint": {
+        "url_name": "zephyr_prime_neuroptics_blueprint",
+        "test": "data"
+    },
+    "meso_e1_relic": {
+        "url_name": "meso_e1_relic",
+        "test": "data"
+    },
+    "lith_b10_relic": {
+        "url_name": "lith_b10_relic",
+        "test": "data"
+    },
+    "arcane_victory": {
+        "url_name": "arcane_victory",
+        "test": "data"
+    },
+    "void_cloak": {
+        "url_name": "void_cloak",
+        "test": "data"
+    },
+    "zephyr_prime_set": {
+        "url_name": "zephyr_prime_set",
+        "test": "data"
+    },
+    "meso_n2_relic": {
+        "url_name": "meso_n2_relic",
+        "test": "data"
+    },
+    "neo_a7_relic": {
+        "url_name": "neo_a7_relic",
+        "test": "data"
+    },
+    "hastened_steps": {
+        "url_name": "hastened_steps",
+        "test": "data"
+    },
+    "squad_renew": {
+        "url_name": "squad_renew",
+        "test": "data"
+    },
+    "gnashing_payara": {
+        "url_name": "gnashing_payara",
+        "test": "data"
+    },
+    "meso_v2_relic": {
+        "url_name": "meso_v2_relic",
+        "test": "data"
+    },
+    "axi_g9_relic": {
+        "url_name": "axi_g9_relic",
+        "test": "data"
+    },
+    "lie_in_wait": {
+        "url_name": "lie_in_wait",
+        "test": "data"
+    },
+    "section_density": {
+        "url_name": "section_density",
+        "test": "data"
+    },
+    "kronen_prime_blueprint": {
+        "url_name": "kronen_prime_blueprint",
+        "test": "data"
+    },
+    "meso_r1_relic": {
+        "url_name": "meso_r1_relic",
+        "test": "data"
+    },
+    "baruuk_prime_systems_blueprint": {
+        "url_name": "baruuk_prime_systems_blueprint",
+        "test": "data"
+    },
+    "boltor_prime_receiver": {
+        "url_name": "boltor_prime_receiver",
+        "test": "data"
+    },
+    "flow_burn": {
+        "url_name": "flow_burn",
+        "test": "data"
+    },
+    "tiberon_prime_barrel": {
+        "url_name": "tiberon_prime_barrel",
+        "test": "data"
+    },
+    "meso_d3_relic": {
+        "url_name": "meso_d3_relic",
+        "test": "data"
+    },
+    "neo_d6_relic": {
+        "url_name": "neo_d6_relic",
+        "test": "data"
+    },
+    "boltor_prime_stock": {
+        "url_name": "boltor_prime_stock",
+        "test": "data"
+    },
+    "surging_dash": {
+        "url_name": "surging_dash",
+        "test": "data"
+    },
+    "kronen_prime_blade": {
+        "url_name": "kronen_prime_blade",
+        "test": "data"
+    },
+    "meso_t3_relic": {
+        "url_name": "meso_t3_relic",
+        "test": "data"
+    },
+    "axi_f1_relic": {
+        "url_name": "axi_f1_relic",
+        "test": "data"
+    },
+    "night_stalker": {
+        "url_name": "night_stalker",
+        "test": "data"
+    },
+    "conductor": {
+        "url_name": "conductor",
+        "test": "data"
+    },
+    "winds_of_purity": {
+        "url_name": "winds_of_purity",
+        "test": "data"
+    },
+    "meso_s8_relic": {
+        "url_name": "meso_s8_relic",
+        "test": "data"
+    },
+    "baruuk_prime_neuroptics_blueprint": {
+        "url_name": "baruuk_prime_neuroptics_blueprint",
+        "test": "data"
+    },
+    "synoid_heliocor": {
+        "url_name": "synoid_heliocor",
+        "test": "data"
+    },
+    "accumulating_whipclaw": {
+        "url_name": "accumulating_whipclaw",
+        "test": "data"
+    },
+    "retribution": {
+        "url_name": "retribution",
+        "test": "data"
+    },
+    "meso_c1_relic": {
+        "url_name": "meso_c1_relic",
+        "test": "data"
+    },
+    "meso_r5_relic": {
+        "url_name": "meso_r5_relic",
+        "test": "data"
+    },
+    "elytron_systems_blueprint": {
+        "url_name": "elytron_systems_blueprint",
+        "test": "data"
+    },
+    "heart_noctrul": {
+        "url_name": "heart_noctrul",
+        "test": "data"
+    },
+    "live_wire": {
+        "url_name": "live_wire",
+        "test": "data"
+    },
+    "meso_e5_relic": {
+        "url_name": "meso_e5_relic",
+        "test": "data"
+    },
+    "lith_a5_relic": {
+        "url_name": "lith_a5_relic",
+        "test": "data"
+    },
+    "steel_meridian_augment_mod": {
+        "url_name": "steel_meridian_augment_mod",
+        "test": "data"
+    },
+    "photon_repeater": {
+        "url_name": "photon_repeater",
+        "test": "data"
+    },
+    "ivara_prime_set": {
+        "url_name": "ivara_prime_set",
+        "test": "data"
+    },
+    "meso_n1_relic": {
+        "url_name": "meso_n1_relic",
+        "test": "data"
+    },
+    "baruuk_prime_set": {
+        "url_name": "baruuk_prime_set",
+        "test": "data"
+    },
+    "shadow_harvest": {
+        "url_name": "shadow_harvest",
+        "test": "data"
+    },
+    "redeemer_prime_set": {
+        "url_name": "redeemer_prime_set",
+        "test": "data"
+    },
+    "proof_fragment": {
+        "url_name": "proof_fragment",
+        "test": "data"
+    },
+    "meso_e3_relic": {
+        "url_name": "meso_e3_relic",
+        "test": "data"
+    },
+    "lith_h7_relic": {
+        "url_name": "lith_h7_relic",
+        "test": "data"
+    },
+    "argent_scourge": {
+        "url_name": "argent_scourge",
+        "test": "data"
+    },
+    "hypothermic_shell": {
+        "url_name": "hypothermic_shell",
+        "test": "data"
+    },
+    "empowered_quiver": {
+        "url_name": "empowered_quiver",
+        "test": "data"
+    },
+    "meso_d4_relic": {
+        "url_name": "meso_d4_relic",
+        "test": "data"
+    },
+    "cobra_and_crane_prime_guard": {
+        "url_name": "cobra_and_crane_prime_guard",
+        "test": "data"
+    },
+    "tigris_prime_barrel": {
+        "url_name": "tigris_prime_barrel",
+        "test": "data"
+    },
+    "warhead": {
+        "url_name": "warhead",
+        "test": "data"
+    },
+    "insatiable": {
+        "url_name": "insatiable",
+        "test": "data"
+    },
+    "meso_w1_relic": {
+        "url_name": "meso_w1_relic",
+        "test": "data"
+    },
+    "afuris_prime_barrel": {
+        "url_name": "afuris_prime_barrel",
+        "test": "data"
+    },
+    "eject_magazine": {
+        "url_name": "eject_magazine",
+        "test": "data"
+    },
+    "battle_stations": {
+        "url_name": "battle_stations",
+        "test": "data"
+    },
+    "vigorous_swap": {
+        "url_name": "vigorous_swap",
+        "test": "data"
+    },
+    "meso_v6_relic": {
+        "url_name": "meso_v6_relic",
+        "test": "data"
+    },
+    "afuris_prime_set": {
+        "url_name": "afuris_prime_set",
+        "test": "data"
+    },
+    "plan_b": {
+        "url_name": "plan_b",
+        "test": "data"
+    },
+    "countermeasures": {
+        "url_name": "countermeasures",
+        "test": "data"
+    },
+    "anemic_agility": {
+        "url_name": "anemic_agility",
+        "test": "data"
+    },
+    "meso_s9_relic": {
+        "url_name": "meso_s9_relic",
+        "test": "data"
+    },
+    "afuris_prime_link": {
+        "url_name": "afuris_prime_link",
+        "test": "data"
+    },
+    "burning_wasp": {
+        "url_name": "burning_wasp",
+        "test": "data"
+    },
+    "blood_forge": {
+        "url_name": "blood_forge",
+        "test": "data"
+    },
+    "rolling_guard": {
+        "url_name": "rolling_guard",
+        "test": "data"
+    },
+    "meso_d1_relic": {
+        "url_name": "meso_d1_relic",
+        "test": "data"
+    },
+    "cobra_and_crane_prime_blueprint": {
+        "url_name": "cobra_and_crane_prime_blueprint",
+        "test": "data"
+    },
+    "sharpened_bullets": {
+        "url_name": "sharpened_bullets",
+        "test": "data"
+    },
+    "balefire_surge": {
+        "url_name": "balefire_surge",
+        "test": "data"
+    },
+    "muzzle_flash": {
+        "url_name": "muzzle_flash",
+        "test": "data"
+    },
+    "lith_h2_relic": {
+        "url_name": "lith_h2_relic",
+        "test": "data"
+    },
+    "afuris_prime_blueprint": {
+        "url_name": "afuris_prime_blueprint",
+        "test": "data"
+    },
+    "ripper_rounds": {
+        "url_name": "ripper_rounds",
+        "test": "data"
+    },
+    "sentient_basin_scene": {
+        "url_name": "sentient_basin_scene",
+        "test": "data"
+    },
+    "grineer_forest_water_pump_scene": {
+        "url_name": "grineer_forest_water_pump_scene",
+        "test": "data"
+    },
+    "lith_z1_relic": {
+        "url_name": "lith_z1_relic",
+        "test": "data"
+    },
+    "cobra_and_crane_prime_blade": {
+        "url_name": "cobra_and_crane_prime_blade",
+        "test": "data"
+    },
+    "soma_prime_receiver": {
+        "url_name": "soma_prime_receiver",
+        "test": "data"
+    },
+    "sentient_balcony_scene": {
+        "url_name": "sentient_balcony_scene",
+        "test": "data"
+    },
+    "exodia_might": {
+        "url_name": "exodia_might",
+        "test": "data"
+    },
+    "lith_b1_relic": {
+        "url_name": "lith_b1_relic",
+        "test": "data"
+    },
+    "cobra_and_crane_prime_hilt": {
+        "url_name": "cobra_and_crane_prime_hilt",
+        "test": "data"
+    },
+    "reaping_spiral": {
+        "url_name": "reaping_spiral",
+        "test": "data"
+    },
+    "endless_lullaby": {
+        "url_name": "endless_lullaby",
+        "test": "data"
+    },
+    "avenging_truth": {
+        "url_name": "avenging_truth",
+        "test": "data"
+    },
+    "lith_a2_relic": {
+        "url_name": "lith_a2_relic",
+        "test": "data"
+    },
+    "cobra_and_crane_prime_set": {
+        "url_name": "cobra_and_crane_prime_set",
+        "test": "data"
+    },
+    "soma_prime_stock": {
+        "url_name": "soma_prime_stock",
+        "test": "data"
+    },
+    "magus_accelerant": {
+        "url_name": "magus_accelerant",
+        "test": "data"
+    },
+    "mirage_prime_neuroptics_blueprint": {
+        "url_name": "mirage_prime_neuroptics_blueprint",
+        "test": "data"
+    },
+    "lith_l1_relic": {
+        "url_name": "lith_l1_relic",
+        "test": "data"
+    },
+    "afuris_prime_receiver": {
+        "url_name": "afuris_prime_receiver",
+        "test": "data"
+    },
+    "sharpened_blade": {
+        "url_name": "sharpened_blade",
+        "test": "data"
+    },
+    "galatine_prime_blueprint": {
+        "url_name": "galatine_prime_blueprint",
+        "test": "data"
+    },
+    "teshins_refuge_scene": {
+        "url_name": "teshins_refuge_scene",
+        "test": "data"
+    },
+    "lith_w1_relic": {
+        "url_name": "lith_w1_relic",
+        "test": "data"
+    },
+    "corufell_receiver": {
+        "url_name": "corufell_receiver",
+        "test": "data"
+    },
+    "strafing_slide": {
+        "url_name": "strafing_slide",
+        "test": "data"
+    },
+    "aerial_ace": {
+        "url_name": "aerial_ace",
+        "test": "data"
+    },
+    "ballistica_prime_upper_limb": {
+        "url_name": "ballistica_prime_upper_limb",
+        "test": "data"
+    },
+    "lith_v4_relic": {
+        "url_name": "lith_v4_relic",
+        "test": "data"
+    },
+    "primary_plated_round": {
+        "url_name": "primary_plated_round",
+        "test": "data"
+    },
+    "scimitar_set": {
+        "url_name": "scimitar_set",
+        "test": "data"
+    },
+    "energizing_shot": {
+        "url_name": "energizing_shot",
+        "test": "data"
+    },
+    "dual_rounds": {
+        "url_name": "dual_rounds",
+        "test": "data"
+    },
+    "lith_s6_relic": {
+        "url_name": "lith_s6_relic",
+        "test": "data"
+    },
+    "shattered_storm": {
+        "url_name": "shattered_storm",
+        "test": "data"
+    },
+    "surplus_diverters": {
+        "url_name": "surplus_diverters",
+        "test": "data"
+    },
+    "anchored_glide": {
+        "url_name": "anchored_glide",
+        "test": "data"
+    },
+    "orvius_blade": {
+        "url_name": "orvius_blade",
+        "test": "data"
+    },
+    "lith_n3_relic": {
+        "url_name": "lith_n3_relic",
+        "test": "data"
+    },
+    "cathode_current": {
+        "url_name": "cathode_current",
+        "test": "data"
+    },
+    "cataclysmic_continuum": {
+        "url_name": "cataclysmic_continuum",
+        "test": "data"
+    },
+    "venomous_clip": {
+        "url_name": "venomous_clip",
+        "test": "data"
+    },
+    "burdened_magazine": {
+        "url_name": "burdened_magazine",
+        "test": "data"
+    },
+    "lith_n4_relic": {
+        "url_name": "lith_n4_relic",
+        "test": "data"
+    },
+    "arcane_steadfast": {
+        "url_name": "arcane_steadfast",
+        "test": "data"
+    },
+    "braton_prime_set": {
+        "url_name": "braton_prime_set",
+        "test": "data"
+    },
+    "dera_vandal_barrel": {
+        "url_name": "dera_vandal_barrel",
+        "test": "data"
+    },
+    "nami_skyla_prime_blueprint": {
+        "url_name": "nami_skyla_prime_blueprint",
+        "test": "data"
+    },
+    "lith_m5_relic": {
+        "url_name": "lith_m5_relic",
+        "test": "data"
+    },
+    "lith_d5_relic": {
+        "url_name": "lith_d5_relic",
+        "test": "data"
+    },
+    "relentless_assault": {
+        "url_name": "relentless_assault",
+        "test": "data"
+    },
+    "counterweight": {
+        "url_name": "counterweight",
+        "test": "data"
+    },
+    "sonic_boost": {
+        "url_name": "sonic_boost",
+        "test": "data"
+    },
+    "lith_c6_relic": {
+        "url_name": "lith_c6_relic",
+        "test": "data"
+    },
+    "steflos_barrel": {
+        "url_name": "steflos_barrel",
+        "test": "data"
+    },
+    "silva_and_aegis_prime_hilt": {
+        "url_name": "silva_and_aegis_prime_hilt",
+        "test": "data"
+    },
+    "anti_grav_grenade": {
+        "url_name": "anti_grav_grenade",
+        "test": "data"
+    },
+    "pax_bolt": {
+        "url_name": "pax_bolt",
+        "test": "data"
+    },
+    "lith_c5_relic": {
+        "url_name": "lith_c5_relic",
+        "test": "data"
+    },
+    "steflos_stock": {
+        "url_name": "steflos_stock",
+        "test": "data"
+    },
+    "calculated_spring": {
+        "url_name": "calculated_spring",
+        "test": "data"
+    },
+    "brief_respite": {
+        "url_name": "brief_respite",
+        "test": "data"
+    },
+    "akjagara_prime_set": {
+        "url_name": "akjagara_prime_set",
+        "test": "data"
+    },
+    "lith_v6_relic": {
+        "url_name": "lith_v6_relic",
+        "test": "data"
+    },
+    "steflos_set": {
+        "url_name": "steflos_set",
+        "test": "data"
+    },
+    "comet_rounds": {
+        "url_name": "comet_rounds",
+        "test": "data"
+    },
+    "orthos_prime_set": {
+        "url_name": "orthos_prime_set",
+        "test": "data"
+    },
+    "akjagara_prime_link": {
+        "url_name": "akjagara_prime_link",
+        "test": "data"
+    },
+    "lith_v3_relic": {
+        "url_name": "lith_v3_relic",
+        "test": "data"
+    },
+    "corufell_set": {
+        "url_name": "corufell_set",
+        "test": "data"
+    },
+    "hydroid_prime_chassis_blueprint": {
+        "url_name": "hydroid_prime_chassis_blueprint",
+        "test": "data"
+    },
+    "hysterical_assault": {
+        "url_name": "hysterical_assault",
+        "test": "data"
+    },
+    "magus_melt": {
+        "url_name": "magus_melt",
+        "test": "data"
+    },
+    "lith_b4_relic": {
+        "url_name": "lith_b4_relic",
+        "test": "data"
+    },
+    "corufell_handle": {
+        "url_name": "corufell_handle",
+        "test": "data"
+    },
+    "aklex_prime_blueprint": {
+        "url_name": "aklex_prime_blueprint",
+        "test": "data"
+    },
+    "adept_surge": {
+        "url_name": "adept_surge",
+        "test": "data"
+    },
+    "resolute_focus": {
+        "url_name": "resolute_focus",
+        "test": "data"
+    },
+    "lith_n2_relic": {
+        "url_name": "lith_n2_relic",
+        "test": "data"
+    },
+    "lith_p7_relic": {
+        "url_name": "lith_p7_relic",
+        "test": "data"
+    },
+    "aklex_prime_set": {
+        "url_name": "aklex_prime_set",
+        "test": "data"
+    },
+    "gorgon_frenzy": {
+        "url_name": "gorgon_frenzy",
+        "test": "data"
+    },
+    "magus_firewall": {
+        "url_name": "magus_firewall",
+        "test": "data"
+    },
+    "lith_g1_relic": {
+        "url_name": "lith_g1_relic",
+        "test": "data"
+    },
+    "arcane_double_back": {
+        "url_name": "arcane_double_back",
+        "test": "data"
+    },
+    "ballistica_prime_blueprint": {
+        "url_name": "ballistica_prime_blueprint",
+        "test": "data"
+    },
+    "volt_prime_set": {
+        "url_name": "volt_prime_set",
+        "test": "data"
+    },
+    "magus_destruct": {
+        "url_name": "magus_destruct",
+        "test": "data"
+    },
+    "lith_i1_relic": {
+        "url_name": "lith_i1_relic",
+        "test": "data"
+    },
+    "secondary_kinship": {
+        "url_name": "secondary_kinship",
+        "test": "data"
+    },
+    "tranquil_cleave": {
+        "url_name": "tranquil_cleave",
+        "test": "data"
+    },
+    "esher_devar": {
+        "url_name": "esher_devar",
+        "test": "data"
+    },
+    "desiccations_curse": {
+        "url_name": "desiccations_curse",
+        "test": "data"
+    },
+    "lith_t5_relic": {
+        "url_name": "lith_t5_relic",
+        "test": "data"
+    },
+    "steflos_receiver": {
+        "url_name": "steflos_receiver",
+        "test": "data"
+    },
+    "link_vitality": {
+        "url_name": "link_vitality",
+        "test": "data"
+    },
+    "banshee_prime_neuroptics_blueprint": {
+        "url_name": "banshee_prime_neuroptics_blueprint",
+        "test": "data"
+    },
+    "stradavar_prime_barrel": {
+        "url_name": "stradavar_prime_barrel",
+        "test": "data"
+    },
+    "lith_g3_relic": {
+        "url_name": "lith_g3_relic",
+        "test": "data"
+    },
+    "merulina_guardian": {
+        "url_name": "merulina_guardian",
+        "test": "data"
+    },
+    "pack_leader": {
+        "url_name": "pack_leader",
+        "test": "data"
+    },
+    "electro_pulse": {
+        "url_name": "electro_pulse",
+        "test": "data"
+    },
+    "stradavar_prime_stock": {
+        "url_name": "stradavar_prime_stock",
+        "test": "data"
+    },
+    "lith_b8_relic": {
+        "url_name": "lith_b8_relic",
+        "test": "data"
+    },
+    "mesmer_shield": {
+        "url_name": "mesmer_shield",
+        "test": "data"
+    },
+    "soul_survivor": {
+        "url_name": "soul_survivor",
+        "test": "data"
+    },
+    "neutralize": {
+        "url_name": "neutralize",
+        "test": "data"
+    },
+    "repair_kit": {
+        "url_name": "repair_kit",
+        "test": "data"
+    },
+    "lith_d4_relic": {
+        "url_name": "lith_d4_relic",
+        "test": "data"
+    },
+    "neo_r5_relic": {
+        "url_name": "neo_r5_relic",
+        "test": "data"
+    },
+    "thumper": {
+        "url_name": "thumper",
+        "test": "data"
+    },
+    "retrieve": {
+        "url_name": "retrieve",
+        "test": "data"
+    },
+    "aero_periphery": {
+        "url_name": "aero_periphery",
+        "test": "data"
+    },
+    "lith_t3_relic": {
+        "url_name": "lith_t3_relic",
+        "test": "data"
+    },
+    "secondary_encumber": {
+        "url_name": "secondary_encumber",
+        "test": "data"
+    },
+    "rush": {
+        "url_name": "rush",
+        "test": "data"
+    },
+    "imperator_vandal_receiver": {
+        "url_name": "imperator_vandal_receiver",
+        "test": "data"
+    },
+    "anti_grav_array": {
+        "url_name": "anti_grav_array",
+        "test": "data"
+    },
+    "lith_s9_relic": {
+        "url_name": "lith_s9_relic",
+        "test": "data"
+    },
+    "neo_a9_relic": {
+        "url_name": "neo_a9_relic",
+        "test": "data"
+    },
+    "infected_clip": {
+        "url_name": "infected_clip",
+        "test": "data"
+    },
+    "secura_lecta": {
+        "url_name": "secura_lecta",
+        "test": "data"
+    },
+    "aero_agility": {
+        "url_name": "aero_agility",
+        "test": "data"
+    },
+    "lith_s5_relic": {
+        "url_name": "lith_s5_relic",
+        "test": "data"
+    },
+    "meso_l2_relic": {
+        "url_name": "meso_l2_relic",
+        "test": "data"
+    },
+    "cleanse_infested": {
+        "url_name": "cleanse_infested",
+        "test": "data"
+    },
+    "amesha_systems_blueprint": {
+        "url_name": "amesha_systems_blueprint",
+        "test": "data"
+    },
+    "kavats_grace": {
+        "url_name": "kavats_grace",
+        "test": "data"
+    },
+    "lith_c7_relic": {
+        "url_name": "lith_c7_relic",
+        "test": "data"
+    },
+    "axi_m4_relic": {
+        "url_name": "axi_m4_relic",
+        "test": "data"
+    },
+    "blaze": {
+        "url_name": "blaze",
+        "test": "data"
+    },
+    "amesha_wings_blueprint": {
+        "url_name": "amesha_wings_blueprint",
+        "test": "data"
+    },
+    "stasis_field": {
+        "url_name": "stasis_field",
+        "test": "data"
+    },
+    "lith_k4_relic": {
+        "url_name": "lith_k4_relic",
+        "test": "data"
+    },
+    "citrines_last_wish_factory_scene": {
+        "url_name": "citrines_last_wish_factory_scene",
+        "test": "data"
+    },
+    "vacuum": {
+        "url_name": "vacuum",
+        "test": "data"
+    },
+    "amesha_harness_blueprint": {
+        "url_name": "amesha_harness_blueprint",
+        "test": "data"
+    },
+    "tractor_beam": {
+        "url_name": "tractor_beam",
+        "test": "data"
+    },
+    "lith_t4_relic": {
+        "url_name": "lith_t4_relic",
+        "test": "data"
+    },
+    "corufell_barrel": {
+        "url_name": "corufell_barrel",
+        "test": "data"
+    },
+    "energy_generator": {
+        "url_name": "energy_generator",
+        "test": "data"
+    },
+    "amesha_set": {
+        "url_name": "amesha_set",
+        "test": "data"
+    },
+    "proton_snap": {
+        "url_name": "proton_snap",
+        "test": "data"
+    },
+    "lith_n6_relic": {
+        "url_name": "lith_n6_relic",
+        "test": "data"
+    },
+    "hildryn_prime_blueprint": {
+        "url_name": "hildryn_prime_blueprint",
+        "test": "data"
+    },
+    "scarlet_hurricane": {
+        "url_name": "scarlet_hurricane",
+        "test": "data"
+    },
+    "elytron_harness_blueprint": {
+        "url_name": "elytron_harness_blueprint",
+        "test": "data"
+    },
+    "ventkids_clubhouse_scene": {
+        "url_name": "ventkids_clubhouse_scene",
+        "test": "data"
+    },
+    "lith_b7_relic": {
+        "url_name": "lith_b7_relic",
+        "test": "data"
+    },
+    "hildryn_prime_systems_blueprint": {
+        "url_name": "hildryn_prime_systems_blueprint",
+        "test": "data"
+    },
+    "vicious_approach": {
+        "url_name": "vicious_approach",
+        "test": "data"
+    },
+    "elytron_set": {
+        "url_name": "elytron_set",
+        "test": "data"
+    },
+    "gas_city_lower_foyer_scene": {
+        "url_name": "gas_city_lower_foyer_scene",
+        "test": "data"
+    },
+    "lith_p5_relic": {
+        "url_name": "lith_p5_relic",
+        "test": "data"
+    },
+    "shade_prime_blueprint": {
+        "url_name": "shade_prime_blueprint",
+        "test": "data"
+    },
+    "frost_jaw": {
+        "url_name": "frost_jaw",
+        "test": "data"
+    },
+    "itzal_systems_blueprint": {
+        "url_name": "itzal_systems_blueprint",
+        "test": "data"
+    },
+    "gas_city_corridors_scene": {
+        "url_name": "gas_city_corridors_scene",
+        "test": "data"
+    },
+    "lith_d3_relic": {
+        "url_name": "lith_d3_relic",
+        "test": "data"
+    },
+    "hildryn_prime_set": {
+        "url_name": "hildryn_prime_set",
+        "test": "data"
+    },
+    "shock_collar": {
+        "url_name": "shock_collar",
+        "test": "data"
+    },
+    "itzal_wings_blueprint": {
+        "url_name": "itzal_wings_blueprint",
+        "test": "data"
+    },
+    "gas_city_regulators_scene": {
+        "url_name": "gas_city_regulators_scene",
+        "test": "data"
+    },
+    "lith_n5_relic": {
+        "url_name": "lith_n5_relic",
+        "test": "data"
+    },
+    "shade_prime_systems": {
+        "url_name": "shade_prime_systems",
+        "test": "data"
+    },
+    "thrash_landing": {
+        "url_name": "thrash_landing",
+        "test": "data"
+    },
+    "itzal_harness_blueprint": {
+        "url_name": "itzal_harness_blueprint",
+        "test": "data"
+    },
+    "primed_chamber": {
+        "url_name": "primed_chamber",
+        "test": "data"
+    },
+    "lith_p4_relic": {
+        "url_name": "lith_p4_relic",
+        "test": "data"
+    },
+    "larkspur_prime_set": {
+        "url_name": "larkspur_prime_set",
+        "test": "data"
+    },
+    "motus_impact": {
+        "url_name": "motus_impact",
+        "test": "data"
+    },
+    "itzal_set": {
+        "url_name": "itzal_set",
+        "test": "data"
+    },
+    "odonata_prime_wings_blueprint": {
+        "url_name": "odonata_prime_wings_blueprint",
+        "test": "data"
+    },
+    "lith_s4_relic": {
+        "url_name": "lith_s4_relic",
+        "test": "data"
+    },
+    "hildryn_prime_neuroptics_blueprint": {
+        "url_name": "hildryn_prime_neuroptics_blueprint",
+        "test": "data"
+    },
+    "aero_vantage": {
+        "url_name": "aero_vantage",
+        "test": "data"
+    },
+    "ayatan_vaya_sculpture": {
+        "url_name": "ayatan_vaya_sculpture",
+        "test": "data"
+    },
+    "seeking_fury": {
+        "url_name": "seeking_fury",
+        "test": "data"
+    },
+    "lith_s7_relic": {
+        "url_name": "lith_s7_relic",
+        "test": "data"
+    },
+    "larkspur_prime_barrel": {
+        "url_name": "larkspur_prime_barrel",
+        "test": "data"
+    },
+    "motus_setup": {
+        "url_name": "motus_setup",
+        "test": "data"
+    },
+    "the_perrin_sequence_augment_mod": {
+        "url_name": "the_perrin_sequence_augment_mod",
+        "test": "data"
+    },
+    "eidolon_naramon_lens": {
+        "url_name": "eidolon_naramon_lens",
+        "test": "data"
+    },
+    "lith_c2_relic": {
+        "url_name": "lith_c2_relic",
+        "test": "data"
+    },
+    "shade_prime_cerebrum": {
+        "url_name": "shade_prime_cerebrum",
+        "test": "data"
+    },
+    "gale_kick": {
+        "url_name": "gale_kick",
+        "test": "data"
+    },
+    "new_loka_augment_mod": {
+        "url_name": "new_loka_augment_mod",
+        "test": "data"
+    },
+    "meteor_crash": {
+        "url_name": "meteor_crash",
+        "test": "data"
+    },
+    "lith_k2_relic": {
+        "url_name": "lith_k2_relic",
+        "test": "data"
+    },
+    "shade_prime_set": {
+        "url_name": "shade_prime_set",
+        "test": "data"
+    },
+    "motus_signal": {
+        "url_name": "motus_signal",
+        "test": "data"
+    },
+    "arbiters_of_hexis_augment_mod": {
+        "url_name": "arbiters_of_hexis_augment_mod",
+        "test": "data"
+    },
+    "tiberon_prime_stock": {
+        "url_name": "tiberon_prime_stock",
+        "test": "data"
+    },
+    "lith_b6_relic": {
+        "url_name": "lith_b6_relic",
+        "test": "data"
+    },
+    "larkspur_prime_stock": {
+        "url_name": "larkspur_prime_stock",
+        "test": "data"
+    },
+    "deck_12_scene": {
+        "url_name": "deck_12_scene",
+        "test": "data"
+    },
+    "charm": {
+        "url_name": "charm",
+        "test": "data"
+    },
+    "magus_husk": {
+        "url_name": "magus_husk",
+        "test": "data"
+    },
+    "lith_m3_relic": {
+        "url_name": "lith_m3_relic",
+        "test": "data"
+    },
+    "hildryn_prime_chassis_blueprint": {
+        "url_name": "hildryn_prime_chassis_blueprint",
+        "test": "data"
+    },
+    "ninkondi_prime_blueprint": {
+        "url_name": "ninkondi_prime_blueprint",
+        "test": "data"
+    },
+    "cats_eye": {
+        "url_name": "cats_eye",
+        "test": "data"
+    },
+    "magus_elevate": {
+        "url_name": "magus_elevate",
+        "test": "data"
+    },
+    "lith_c4_relic": {
+        "url_name": "lith_c4_relic",
+        "test": "data"
+    },
+    "larkspur_prime_receiver": {
+        "url_name": "larkspur_prime_receiver",
+        "test": "data"
+    },
+    "zhuge_prime_barrel": {
+        "url_name": "zhuge_prime_barrel",
+        "test": "data"
+    },
+    "medi_pet_kit": {
+        "url_name": "medi_pet_kit",
+        "test": "data"
+    },
+    "hunter_recovery": {
+        "url_name": "hunter_recovery",
+        "test": "data"
+    },
+    "lith_m2_relic": {
+        "url_name": "lith_m2_relic",
+        "test": "data"
+    },
+    "shade_prime_carapace": {
+        "url_name": "shade_prime_carapace",
+        "test": "data"
+    },
+    "ninkondi_prime_handle": {
+        "url_name": "ninkondi_prime_handle",
+        "test": "data"
+    },
+    "reaper_prime_handle": {
+        "url_name": "reaper_prime_handle",
+        "test": "data"
+    },
+    "guardian": {
+        "url_name": "guardian",
+        "test": "data"
+    },
+    "lith_v2_relic": {
+        "url_name": "lith_v2_relic",
+        "test": "data"
+    },
+    "larkspur_prime_blueprint": {
+        "url_name": "larkspur_prime_blueprint",
+        "test": "data"
+    },
+    "ninkondi_prime_set": {
+        "url_name": "ninkondi_prime_set",
+        "test": "data"
+    },
+    "sicarus_prime_barrel": {
+        "url_name": "sicarus_prime_barrel",
+        "test": "data"
+    },
+    "mirage_prime_set": {
+        "url_name": "mirage_prime_set",
+        "test": "data"
+    },
+    "lith_o2_relic": {
+        "url_name": "lith_o2_relic",
+        "test": "data"
+    },
+    "lith_s15_relic": {
+        "url_name": "lith_s15_relic",
+        "test": "data"
+    },
+    "wukong_prime_set": {
+        "url_name": "wukong_prime_set",
+        "test": "data"
+    },
+    "braton_prime_barrel": {
+        "url_name": "braton_prime_barrel",
+        "test": "data"
+    },
+    "smoke_shadow": {
+        "url_name": "smoke_shadow",
+        "test": "data"
+    },
+    "lith_p1_relic": {
+        "url_name": "lith_p1_relic",
+        "test": "data"
+    },
+    "meso_n14_relic": {
+        "url_name": "meso_n14_relic",
+        "test": "data"
+    },
+    "scindo_prime_handle": {
+        "url_name": "scindo_prime_handle",
+        "test": "data"
+    },
+    "purifying_flames": {
+        "url_name": "purifying_flames",
+        "test": "data"
+    },
+    "spectra_vandal_handle": {
+        "url_name": "spectra_vandal_handle",
+        "test": "data"
+    },
+    "lith_t2_relic": {
+        "url_name": "lith_t2_relic",
+        "test": "data"
+    },
+    "lith_r3_relic": {
+        "url_name": "lith_r3_relic",
+        "test": "data"
+    },
+    "vile_precision": {
+        "url_name": "vile_precision",
+        "test": "data"
+    },
+    "overcharged": {
+        "url_name": "overcharged",
+        "test": "data"
+    },
+    "spectra_vandal_blueprint": {
+        "url_name": "spectra_vandal_blueprint",
+        "test": "data"
+    },
+    "lith_v5_relic": {
+        "url_name": "lith_v5_relic",
+        "test": "data"
+    },
+    "meso_d7_relic": {
+        "url_name": "meso_d7_relic",
+        "test": "data"
+    },
+    "parallax_scope": {
+        "url_name": "parallax_scope",
+        "test": "data"
+    },
+    "elytron_wings_blueprint": {
+        "url_name": "elytron_wings_blueprint",
+        "test": "data"
+    },
+    "shatter_burst": {
+        "url_name": "shatter_burst",
+        "test": "data"
+    },
+    "lith_b3_relic": {
+        "url_name": "lith_b3_relic",
+        "test": "data"
+    },
+    "axi_h6_relic": {
+        "url_name": "axi_h6_relic",
+        "test": "data"
+    },
+    "vitality": {
+        "url_name": "vitality",
+        "test": "data"
+    },
+    "mischief": {
+        "url_name": "mischief",
+        "test": "data"
+    },
+    "breach_quanta": {
+        "url_name": "breach_quanta",
+        "test": "data"
+    },
+    "lith_n1_relic": {
+        "url_name": "lith_n1_relic",
+        "test": "data"
+    },
+    "lith_b11_relic": {
+        "url_name": "lith_b11_relic",
+        "test": "data"
+    },
+    "sniper_scavenger": {
+        "url_name": "sniper_scavenger",
+        "test": "data"
+    },
+    "tigris_prime_set": {
+        "url_name": "tigris_prime_set",
+        "test": "data"
+    },
+    "tether": {
+        "url_name": "tether",
+        "test": "data"
+    },
+    "lith_k1_relic": {
+        "url_name": "lith_k1_relic",
+        "test": "data"
+    },
+    "meso_s12_relic": {
+        "url_name": "meso_s12_relic",
+        "test": "data"
+    },
+    "sunika_kubrow_imprint": {
+        "url_name": "sunika_kubrow_imprint",
+        "test": "data"
+    },
+    "shield_charger": {
+        "url_name": "shield_charger",
+        "test": "data"
+    },
+    "prisma_twin_gremlins": {
+        "url_name": "prisma_twin_gremlins",
+        "test": "data"
+    },
+    "lith_c1_relic": {
+        "url_name": "lith_c1_relic",
+        "test": "data"
+    },
+    "lith_h8_relic": {
+        "url_name": "lith_h8_relic",
+        "test": "data"
+    },
+    "adarza_kavat_imprint": {
+        "url_name": "adarza_kavat_imprint",
+        "test": "data"
+    },
+    "rakta_dark_dagger": {
+        "url_name": "rakta_dark_dagger",
+        "test": "data"
+    },
+    "celestial_nightfall": {
+        "url_name": "celestial_nightfall",
+        "test": "data"
+    },
+    "lith_w2_relic": {
+        "url_name": "lith_w2_relic",
+        "test": "data"
+    },
+    "meso_h4_relic": {
+        "url_name": "meso_h4_relic",
+        "test": "data"
+    },
+    "rubico_prime_barrel": {
+        "url_name": "rubico_prime_barrel",
+        "test": "data"
+    },
+    "static_discharge": {
+        "url_name": "static_discharge",
+        "test": "data"
+    },
+    "primed_charged_shell": {
+        "url_name": "primed_charged_shell",
+        "test": "data"
+    },
+    "lith_s10_relic": {
+        "url_name": "lith_s10_relic",
+        "test": "data"
+    },
+    "axi_g10_relic": {
+        "url_name": "axi_g10_relic",
+        "test": "data"
+    },
+    "stormbringer": {
+        "url_name": "stormbringer",
+        "test": "data"
+    },
+    "pain_threshold": {
+        "url_name": "pain_threshold",
+        "test": "data"
+    },
+    "akjagara_prime_barrel": {
+        "url_name": "akjagara_prime_barrel",
+        "test": "data"
+    },
+    "lith_p3_relic": {
+        "url_name": "lith_p3_relic",
+        "test": "data"
+    },
+    "axi_a16_relic": {
+        "url_name": "axi_a16_relic",
+        "test": "data"
+    },
+    "arcane_eruption": {
+        "url_name": "arcane_eruption",
+        "test": "data"
+    },
+    "paris_prime_string": {
+        "url_name": "paris_prime_string",
+        "test": "data"
+    },
+    "charged_bullets": {
+        "url_name": "charged_bullets",
+        "test": "data"
+    },
+    "lith_d2_relic": {
+        "url_name": "lith_d2_relic",
+        "test": "data"
+    },
+    "neo_s17_relic": {
+        "url_name": "neo_s17_relic",
+        "test": "data"
+    },
+    "arcane_vespa_helmet": {
+        "url_name": "arcane_vespa_helmet",
+        "test": "data"
+    },
+    "double_barrel_drift": {
+        "url_name": "double_barrel_drift",
+        "test": "data"
+    },
+    "particle_ram": {
+        "url_name": "particle_ram",
+        "test": "data"
+    },
+    "lith_m6_relic": {
+        "url_name": "lith_m6_relic",
+        "test": "data"
+    },
+    "neo_n22_relic": {
+        "url_name": "neo_n22_relic",
+        "test": "data"
+    },
+    "escape_velocity": {
+        "url_name": "escape_velocity",
+        "test": "data"
+    },
+    "gorgon_wraith_blueprint": {
+        "url_name": "gorgon_wraith_blueprint",
+        "test": "data"
+    },
+    "blackout_pulse": {
+        "url_name": "blackout_pulse",
+        "test": "data"
+    },
+    "lith_s3_relic": {
+        "url_name": "lith_s3_relic",
+        "test": "data"
+    },
+    "axi_b6_relic": {
+        "url_name": "axi_b6_relic",
+        "test": "data"
+    },
+    "expel_infested": {
+        "url_name": "expel_infested",
+        "test": "data"
+    },
+    "argon_scope": {
+        "url_name": "argon_scope",
+        "test": "data"
+    },
+    "sabot_rounds": {
+        "url_name": "sabot_rounds",
+        "test": "data"
+    },
+    "lith_h1_relic": {
+        "url_name": "lith_h1_relic",
+        "test": "data"
+    },
+    "axi_k11_relic": {
+        "url_name": "axi_k11_relic",
+        "test": "data"
+    },
+    "gas_city_cloud_vista_scene": {
+        "url_name": "gas_city_cloud_vista_scene",
+        "test": "data"
+    },
+    "explosive_demise": {
+        "url_name": "explosive_demise",
+        "test": "data"
+    },
+    "rubico_prime_receiver": {
+        "url_name": "rubico_prime_receiver",
+        "test": "data"
+    },
+    "lith_b2_relic": {
+        "url_name": "lith_b2_relic",
+        "test": "data"
+    },
+    "lith_k10_relic": {
+        "url_name": "lith_k10_relic",
+        "test": "data"
+    },
+    "combustion_rounds": {
+        "url_name": "combustion_rounds",
+        "test": "data"
+    },
+    "sicarus_prime_receiver": {
+        "url_name": "sicarus_prime_receiver",
+        "test": "data"
+    },
+    "galatine_prime_blade": {
+        "url_name": "galatine_prime_blade",
+        "test": "data"
+    },
+    "lith_t1_relic": {
+        "url_name": "lith_t1_relic",
+        "test": "data"
+    },
+    "neo_l2_relic": {
+        "url_name": "neo_l2_relic",
+        "test": "data"
+    },
     "sniper_ammo_mutation": {
         "url_name": "sniper_ammo_mutation",
         "test": "data"
@@ -2159,10 +3719,6 @@
         "url_name": "neo_k7_relic",
         "test": "data"
     },
-    "secura_dual_cestra": {
-        "url_name": "secura_dual_cestra",
-        "test": "data"
-    },
     "air_time": {
         "url_name": "air_time",
         "test": "data"
@@ -2181,10 +3737,6 @@
     },
     "neo_k6_relic": {
         "url_name": "neo_k6_relic",
-        "test": "data"
-    },
-    "creeping_bullseye": {
-        "url_name": "creeping_bullseye",
         "test": "data"
     },
     "rail_guards": {
@@ -2207,10 +3759,6 @@
         "url_name": "neo_s18_relic",
         "test": "data"
     },
-    "mutalist_alad_v_assassinate_key": {
-        "url_name": "mutalist_alad_v_assassinate_key",
-        "test": "data"
-    },
     "assault_mode": {
         "url_name": "assault_mode",
         "test": "data"
@@ -2229,10 +3777,6 @@
     },
     "neo_z10_relic": {
         "url_name": "neo_z10_relic",
-        "test": "data"
-    },
-    "irradiating_disarm": {
-        "url_name": "irradiating_disarm",
         "test": "data"
     },
     "mag_locks": {
@@ -2255,10 +3799,6 @@
         "url_name": "meso_w3_relic",
         "test": "data"
     },
-    "antimatter_absorb": {
-        "url_name": "antimatter_absorb",
-        "test": "data"
-    },
     "inertia_dampeners": {
         "url_name": "inertia_dampeners",
         "test": "data"
@@ -2277,10 +3817,6 @@
     },
     "meso_c9_relic": {
         "url_name": "meso_c9_relic",
-        "test": "data"
-    },
-    "arcane_barrier": {
-        "url_name": "arcane_barrier",
         "test": "data"
     },
     "akvasto_prime_set": {
@@ -2303,10 +3839,6 @@
         "url_name": "meso_p14_relic",
         "test": "data"
     },
-    "arcane_ice": {
-        "url_name": "arcane_ice",
-        "test": "data"
-    },
     "perpetual_agony": {
         "url_name": "perpetual_agony",
         "test": "data"
@@ -2325,10 +3857,6 @@
     },
     "meso_b8_relic": {
         "url_name": "meso_b8_relic",
-        "test": "data"
-    },
-    "telos_boltor": {
-        "url_name": "telos_boltor",
         "test": "data"
     },
     "armored_agility": {
@@ -2351,10 +3879,6 @@
         "url_name": "meso_m4_relic",
         "test": "data"
     },
-    "frost_prime_set": {
-        "url_name": "frost_prime_set",
-        "test": "data"
-    },
     "body_count": {
         "url_name": "body_count",
         "test": "data"
@@ -2373,10 +3897,6 @@
     },
     "lith_n14_relic": {
         "url_name": "lith_n14_relic",
-        "test": "data"
-    },
-    "catalyzer_link": {
-        "url_name": "catalyzer_link",
         "test": "data"
     },
     "arcane_deflection": {
@@ -2399,10 +3919,6 @@
         "url_name": "lith_t10_relic",
         "test": "data"
     },
-    "targeting_subsystem": {
-        "url_name": "targeting_subsystem",
-        "test": "data"
-    },
     "weeping_wounds": {
         "url_name": "weeping_wounds",
         "test": "data"
@@ -2421,10 +3937,6 @@
     },
     "lith_c10_relic": {
         "url_name": "lith_c10_relic",
-        "test": "data"
-    },
-    "strun_wraith_receiver": {
-        "url_name": "strun_wraith_receiver",
         "test": "data"
     },
     "akbronco_prime_link": {
@@ -2447,10 +3959,6 @@
         "url_name": "lith_r4_relic",
         "test": "data"
     },
-    "tectonic_fracture": {
-        "url_name": "tectonic_fracture",
-        "test": "data"
-    },
     "vermillion_storm": {
         "url_name": "vermillion_storm",
         "test": "data"
@@ -2469,10 +3977,6 @@
     },
     "lith_g8_relic": {
         "url_name": "lith_g8_relic",
-        "test": "data"
-    },
-    "mantis_set": {
-        "url_name": "mantis_set",
         "test": "data"
     },
     "maiming_strike": {
@@ -2495,10 +3999,6 @@
         "url_name": "grendel_prime_set",
         "test": "data"
     },
-    "acid_shells": {
-        "url_name": "acid_shells",
-        "test": "data"
-    },
     "investigator": {
         "url_name": "investigator",
         "test": "data"
@@ -2517,10 +4017,6 @@
     },
     "grendel_prime_blueprint": {
         "url_name": "grendel_prime_blueprint",
-        "test": "data"
-    },
-    "nightwatch_napalm": {
-        "url_name": "nightwatch_napalm",
         "test": "data"
     },
     "firewalker": {
@@ -2543,10 +4039,6 @@
         "url_name": "grendel_prime_neuroptics_blueprint",
         "test": "data"
     },
-    "quasar_drill": {
-        "url_name": "quasar_drill",
-        "test": "data"
-    },
     "hydraulic_crosshairs": {
         "url_name": "hydraulic_crosshairs",
         "test": "data"
@@ -2565,10 +4057,6 @@
     },
     "grendel_prime_chassis_blueprint": {
         "url_name": "grendel_prime_chassis_blueprint",
-        "test": "data"
-    },
-    "comet_blast": {
-        "url_name": "comet_blast",
         "test": "data"
     },
     "toxic_flight": {
@@ -2591,10 +4079,6 @@
         "url_name": "grendel_prime_systems_blueprint",
         "test": "data"
     },
-    "nebula_bore": {
-        "url_name": "nebula_bore",
-        "test": "data"
-    },
     "laser_sight": {
         "url_name": "laser_sight",
         "test": "data"
@@ -2613,10 +4097,6 @@
     },
     "masseter_prime_set": {
         "url_name": "masseter_prime_set",
-        "test": "data"
-    },
-    "kaszas_blade": {
-        "url_name": "kaszas_blade",
         "test": "data"
     },
     "smite_infested": {
@@ -2639,10 +4119,6 @@
         "url_name": "masseter_prime_blueprint",
         "test": "data"
     },
-    "velocitus_receiver": {
-        "url_name": "velocitus_receiver",
-        "test": "data"
-    },
     "venom_dose": {
         "url_name": "venom_dose",
         "test": "data"
@@ -2661,10 +4137,6 @@
     },
     "masseter_prime_blade": {
         "url_name": "masseter_prime_blade",
-        "test": "data"
-    },
-    "fluctus_barrel": {
-        "url_name": "fluctus_barrel",
         "test": "data"
     },
     "rending_turn": {
@@ -2687,10 +4159,6 @@
         "url_name": "masseter_prime_handle",
         "test": "data"
     },
-    "fluctus_limbs": {
-        "url_name": "fluctus_limbs",
-        "test": "data"
-    },
     "seismic_wave": {
         "url_name": "seismic_wave",
         "test": "data"
@@ -2709,10 +4177,6 @@
     },
     "zylok_prime_set": {
         "url_name": "zylok_prime_set",
-        "test": "data"
-    },
-    "fluctus_stock": {
-        "url_name": "fluctus_stock",
         "test": "data"
     },
     "dakra_prime_handle": {
@@ -2735,10 +4199,6 @@
         "url_name": "zylok_prime_blueprint",
         "test": "data"
     },
-    "decurion_barrel": {
-        "url_name": "decurion_barrel",
-        "test": "data"
-    },
     "expel_grineer": {
         "url_name": "expel_grineer",
         "test": "data"
@@ -2757,10 +4217,6 @@
     },
     "zylok_prime_barrel": {
         "url_name": "zylok_prime_barrel",
-        "test": "data"
-    },
-    "hydroid_prime_set": {
-        "url_name": "hydroid_prime_set",
         "test": "data"
     },
     "soma_prime_barrel": {
@@ -2783,10 +4239,6 @@
         "url_name": "zylok_prime_receiver",
         "test": "data"
     },
-    "cleanse_corrupted": {
-        "url_name": "cleanse_corrupted",
-        "test": "data"
-    },
     "mag_prime_neuroptics_blueprint": {
         "url_name": "mag_prime_neuroptics_blueprint",
         "test": "data"
@@ -2805,10 +4257,6 @@
     },
     "catalyzing_shields": {
         "url_name": "catalyzing_shields",
-        "test": "data"
-    },
-    "kappa_beacon": {
-        "url_name": "kappa_beacon",
         "test": "data"
     },
     "primed_fast_hands": {
@@ -2831,10 +4279,6 @@
         "url_name": "astral_bond",
         "test": "data"
     },
-    "star_crimzian": {
-        "url_name": "star_crimzian",
-        "test": "data"
-    },
     "furax_wraith_set": {
         "url_name": "furax_wraith_set",
         "test": "data"
@@ -2853,10 +4297,6 @@
     },
     "duplex_bond": {
         "url_name": "duplex_bond",
-        "test": "data"
-    },
-    "virtuos_strike": {
-        "url_name": "virtuos_strike",
         "test": "data"
     },
     "dead_eye": {
@@ -2879,10 +4319,6 @@
         "url_name": "tenacious_bond",
         "test": "data"
     },
-    "hunter_adrenaline": {
-        "url_name": "hunter_adrenaline",
-        "test": "data"
-    },
     "melee_riven_mod_(veiled)": {
         "url_name": "melee_riven_mod_(veiled)",
         "test": "data"
@@ -2901,10 +4337,6 @@
     },
     "tandem_bond": {
         "url_name": "tandem_bond",
-        "test": "data"
-    },
-    "viper_wraith": {
-        "url_name": "viper_wraith",
         "test": "data"
     },
     "corrosive_projection": {
@@ -2927,10 +4359,6 @@
         "url_name": "contagious_bond",
         "test": "data"
     },
-    "orokin_derelict_plaza_scene": {
-        "url_name": "orokin_derelict_plaza_scene",
-        "test": "data"
-    },
     "pistol_riven_mod_(veiled)": {
         "url_name": "pistol_riven_mod_(veiled)",
         "test": "data"
@@ -2949,10 +4377,6 @@
     },
     "mystic_bond": {
         "url_name": "mystic_bond",
-        "test": "data"
-    },
-    "grineer_shipyards_manufactory_scene": {
-        "url_name": "grineer_shipyards_manufactory_scene",
         "test": "data"
     },
     "heavy_trauma": {
@@ -2975,10 +4399,6 @@
         "url_name": "covert_bond",
         "test": "data"
     },
-    "infested_ship_bridge_scene": {
-        "url_name": "infested_ship_bridge_scene",
-        "test": "data"
-    },
     "exodia_valor": {
         "url_name": "exodia_valor",
         "test": "data"
@@ -2997,10 +4417,6 @@
     },
     "restorative_bond": {
         "url_name": "restorative_bond",
-        "test": "data"
-    },
-    "lua_nursery_scene": {
-        "url_name": "lua_nursery_scene",
         "test": "data"
     },
     "charged_chamber": {
@@ -3023,10 +4439,6 @@
         "url_name": "momentous_bond",
         "test": "data"
     },
-    "corpus_gas_city_conduit_scene": {
-        "url_name": "corpus_gas_city_conduit_scene",
-        "test": "data"
-    },
     "tidal_impunity": {
         "url_name": "tidal_impunity",
         "test": "data"
@@ -3045,10 +4457,6 @@
     },
     "aerial_bond": {
         "url_name": "aerial_bond",
-        "test": "data"
-    },
-    "grineer_settlement_reactor_scene": {
-        "url_name": "grineer_settlement_reactor_scene",
         "test": "data"
     },
     "piercing_caliber": {
@@ -3071,10 +4479,6 @@
         "url_name": "manifold_bond",
         "test": "data"
     },
-    "corpus_ice_planet_wreckage_scene": {
-        "url_name": "corpus_ice_planet_wreckage_scene",
-        "test": "data"
-    },
     "arcane_backdraft_helmet": {
         "url_name": "arcane_backdraft_helmet",
         "test": "data"
@@ -3093,10 +4497,6 @@
     },
     "vicious_bond": {
         "url_name": "vicious_bond",
-        "test": "data"
-    },
-    "eidolon_madurai_lens": {
-        "url_name": "eidolon_madurai_lens",
         "test": "data"
     },
     "adhesive_blast": {
@@ -3119,10 +4519,6 @@
         "url_name": "seismic_bond",
         "test": "data"
     },
-    "eidolon_vazarin_lens": {
-        "url_name": "eidolon_vazarin_lens",
-        "test": "data"
-    },
     "kinetic_collision": {
         "url_name": "kinetic_collision",
         "test": "data"
@@ -3141,10 +4537,6 @@
     },
     "reinforced_bond": {
         "url_name": "reinforced_bond",
-        "test": "data"
-    },
-    "eidolon_unairu_lens": {
-        "url_name": "eidolon_unairu_lens",
         "test": "data"
     },
     "thundermiter": {
@@ -3167,10 +4559,6 @@
         "url_name": "abyssal_beacon",
         "test": "data"
     },
-    "zephyr_prime_chassis_blueprint": {
-        "url_name": "zephyr_prime_chassis_blueprint",
-        "test": "data"
-    },
     "finishing_touch": {
         "url_name": "finishing_touch",
         "test": "data"
@@ -3189,10 +4577,6 @@
     },
     "gotva_prime": {
         "url_name": "gotva_prime",
-        "test": "data"
-    },
-    "mycona_colony_scene": {
-        "url_name": "mycona_colony_scene",
         "test": "data"
     },
     "static_alacrity": {
@@ -3215,10 +4599,6 @@
         "url_name": "neo_t8_relic",
         "test": "data"
     },
-    "pax_soar": {
-        "url_name": "pax_soar",
-        "test": "data"
-    },
     "ash_prime_chassis_blueprint": {
         "url_name": "ash_prime_chassis_blueprint",
         "test": "data"
@@ -3237,10 +4617,6 @@
     },
     "albrecht’s_archive_scene": {
         "url_name": "albrecht’s_archive_scene",
-        "test": "data"
-    },
-    "redeemer_prime_blade": {
-        "url_name": "redeemer_prime_blade",
         "test": "data"
     },
     "tigris_prime_blueprint": {
@@ -3263,10 +4639,6 @@
         "url_name": "albrecht’s_bureau_scene",
         "test": "data"
     },
-    "akjagara_prime_receiver": {
-        "url_name": "akjagara_prime_receiver",
-        "test": "data"
-    },
     "emergent_aftermath": {
         "url_name": "emergent_aftermath",
         "test": "data"
@@ -3285,10 +4657,6 @@
     },
     "sanctum_anatomica_scene": {
         "url_name": "sanctum_anatomica_scene",
-        "test": "data"
-    },
-    "kitgun_riven_mod_(veiled)": {
-        "url_name": "kitgun_riven_mod_(veiled)",
         "test": "data"
     },
     "fortitude": {
@@ -7631,6 +8999,10 @@
         "url_name": "axi_o6_relic",
         "test": "data"
     },
+    "secura_dual_cestra": {
+        "url_name": "secura_dual_cestra",
+        "test": "data"
+    },
     "modified_munitions": {
         "url_name": "modified_munitions",
         "test": "data"
@@ -7799,6 +9171,10 @@
         "url_name": "meso_f5_relic",
         "test": "data"
     },
+    "creeping_bullseye": {
+        "url_name": "creeping_bullseye",
+        "test": "data"
+    },
     "pyrana_prime_receiver": {
         "url_name": "pyrana_prime_receiver",
         "test": "data"
@@ -7821,6 +9197,10 @@
     },
     "meso_a7_relic": {
         "url_name": "meso_a7_relic",
+        "test": "data"
+    },
+    "mutalist_alad_v_assassinate_key": {
+        "url_name": "mutalist_alad_v_assassinate_key",
         "test": "data"
     },
     "pyrana_prime_barrel": {
@@ -7847,6 +9227,10 @@
         "url_name": "meso_h7_relic",
         "test": "data"
     },
+    "irradiating_disarm": {
+        "url_name": "irradiating_disarm",
+        "test": "data"
+    },
     "destreza_prime_set": {
         "url_name": "destreza_prime_set",
         "test": "data"
@@ -7869,6 +9253,10 @@
     },
     "meso_n17_relic": {
         "url_name": "meso_n17_relic",
+        "test": "data"
+    },
+    "antimatter_absorb": {
+        "url_name": "antimatter_absorb",
         "test": "data"
     },
     "primed_expel_grineer": {
@@ -7895,6 +9283,10 @@
         "url_name": "lith_g12_relic",
         "test": "data"
     },
+    "arcane_barrier": {
+        "url_name": "arcane_barrier",
+        "test": "data"
+    },
     "primed_expel_corpus": {
         "url_name": "primed_expel_corpus",
         "test": "data"
@@ -7917,6 +9309,10 @@
     },
     "lith_n15_relic": {
         "url_name": "lith_n15_relic",
+        "test": "data"
+    },
+    "arcane_ice": {
+        "url_name": "arcane_ice",
         "test": "data"
     },
     "primed_expel_infested": {
@@ -7943,6 +9339,10 @@
         "url_name": "lith_w4_relic",
         "test": "data"
     },
+    "telos_boltor": {
+        "url_name": "telos_boltor",
+        "test": "data"
+    },
     "primed_expel_corrupted": {
         "url_name": "primed_expel_corrupted",
         "test": "data"
@@ -7965,6 +9365,10 @@
     },
     "lith_c12_relic": {
         "url_name": "lith_c12_relic",
+        "test": "data"
+    },
+    "frost_prime_set": {
+        "url_name": "frost_prime_set",
         "test": "data"
     },
     "quaking_hand": {
@@ -7995,6 +9399,10 @@
         "url_name": "flame_gland",
         "test": "data"
     },
+    "catalyzer_link": {
+        "url_name": "catalyzer_link",
+        "test": "data"
+    },
     "hushed_invisibility": {
         "url_name": "hushed_invisibility",
         "test": "data"
@@ -8013,6 +9421,10 @@
     },
     "epitaph_prime_blueprint": {
         "url_name": "epitaph_prime_blueprint",
+        "test": "data"
+    },
+    "targeting_subsystem": {
+        "url_name": "targeting_subsystem",
         "test": "data"
     },
     "dividing_blades": {
@@ -8039,6 +9451,10 @@
         "url_name": "epitaph_prime_barrel",
         "test": "data"
     },
+    "strun_wraith_receiver": {
+        "url_name": "strun_wraith_receiver",
+        "test": "data"
+    },
     "smooth_phasmin": {
         "url_name": "smooth_phasmin",
         "test": "data"
@@ -8061,6 +9477,10 @@
     },
     "epitaph_prime_receiver": {
         "url_name": "epitaph_prime_receiver",
+        "test": "data"
+    },
+    "tectonic_fracture": {
+        "url_name": "tectonic_fracture",
         "test": "data"
     },
     "arcane_pulse": {
@@ -8087,6 +9507,10 @@
         "url_name": "nautilus_prime_set",
         "test": "data"
     },
+    "mantis_set": {
+        "url_name": "mantis_set",
+        "test": "data"
+    },
     "sudden_justice": {
         "url_name": "sudden_justice",
         "test": "data"
@@ -8109,6 +9533,10 @@
     },
     "nautilus_prime_blueprint": {
         "url_name": "nautilus_prime_blueprint",
+        "test": "data"
+    },
+    "acid_shells": {
+        "url_name": "acid_shells",
         "test": "data"
     },
     "blood_rush": {
@@ -8135,6 +9563,10 @@
         "url_name": "nautilus_prime_cerebrum",
         "test": "data"
     },
+    "nightwatch_napalm": {
+        "url_name": "nightwatch_napalm",
+        "test": "data"
+    },
     "shrapnel_shot": {
         "url_name": "shrapnel_shot",
         "test": "data"
@@ -8157,6 +9589,10 @@
     },
     "nautilus_prime_carapace": {
         "url_name": "nautilus_prime_carapace",
+        "test": "data"
+    },
+    "quasar_drill": {
+        "url_name": "quasar_drill",
         "test": "data"
     },
     "coolant_leak": {
@@ -8183,6 +9619,10 @@
         "url_name": "nautilus_prime_systems",
         "test": "data"
     },
+    "comet_blast": {
+        "url_name": "comet_blast",
+        "test": "data"
+    },
     "ward_recovery": {
         "url_name": "ward_recovery",
         "test": "data"
@@ -8205,6 +9645,10 @@
     },
     "burning_hate": {
         "url_name": "burning_hate",
+        "test": "data"
+    },
+    "nebula_bore": {
+        "url_name": "nebula_bore",
         "test": "data"
     },
     "primed_heated_charge": {
@@ -8231,6 +9675,10 @@
         "url_name": "unseen_dread",
         "test": "data"
     },
+    "kaszas_blade": {
+        "url_name": "kaszas_blade",
+        "test": "data"
+    },
     "neutron_star": {
         "url_name": "neutron_star",
         "test": "data"
@@ -8253,6 +9701,10 @@
     },
     "prey_of_dynar": {
         "url_name": "prey_of_dynar",
+        "test": "data"
+    },
+    "velocitus_receiver": {
+        "url_name": "velocitus_receiver",
         "test": "data"
     },
     "skull_shots": {
@@ -8279,6 +9731,10 @@
         "url_name": "aegis_gale",
         "test": "data"
     },
+    "fluctus_barrel": {
+        "url_name": "fluctus_barrel",
+        "test": "data"
+    },
     "loki_prime_neuroptics_blueprint": {
         "url_name": "loki_prime_neuroptics_blueprint",
         "test": "data"
@@ -8301,6 +9757,10 @@
     },
     "coil_recharge": {
         "url_name": "coil_recharge",
+        "test": "data"
+    },
+    "fluctus_limbs": {
+        "url_name": "fluctus_limbs",
         "test": "data"
     },
     "vigilante_fervor": {
@@ -8327,6 +9787,10 @@
         "url_name": "gastro",
         "test": "data"
     },
+    "fluctus_stock": {
+        "url_name": "fluctus_stock",
+        "test": "data"
+    },
     "ankyros_prime_blade": {
         "url_name": "ankyros_prime_blade",
         "test": "data"
@@ -8349,6 +9813,10 @@
     },
     "higasa_serration": {
         "url_name": "higasa_serration",
+        "test": "data"
+    },
+    "decurion_barrel": {
+        "url_name": "decurion_barrel",
         "test": "data"
     },
     "ankyros_prime_gauntlet": {
@@ -8375,6 +9843,10 @@
         "url_name": "amanata_pressure",
         "test": "data"
     },
+    "hydroid_prime_set": {
+        "url_name": "hydroid_prime_set",
+        "test": "data"
+    },
     "bo_prime_blueprint": {
         "url_name": "bo_prime_blueprint",
         "test": "data"
@@ -8397,6 +9869,10 @@
     },
     "sepsis_claws": {
         "url_name": "sepsis_claws",
+        "test": "data"
+    },
+    "cleanse_corrupted": {
+        "url_name": "cleanse_corrupted",
         "test": "data"
     },
     "silva_and_aegis_prime_guard": {
@@ -8423,6 +9899,10 @@
         "url_name": "burning_claws",
         "test": "data"
     },
+    "kappa_beacon": {
+        "url_name": "kappa_beacon",
+        "test": "data"
+    },
     "vicious_frost": {
         "url_name": "vicious_frost",
         "test": "data"
@@ -8445,6 +9925,10 @@
     },
     "shocking_claws": {
         "url_name": "shocking_claws",
+        "test": "data"
+    },
+    "star_crimzian": {
+        "url_name": "star_crimzian",
         "test": "data"
     },
     "jagged_edge": {
@@ -8471,6 +9955,10 @@
         "url_name": "chilling_claws",
         "test": "data"
     },
+    "virtuos_strike": {
+        "url_name": "virtuos_strike",
+        "test": "data"
+    },
     "shield_disruption": {
         "url_name": "shield_disruption",
         "test": "data"
@@ -8493,6 +9981,10 @@
     },
     "assassin_posture": {
         "url_name": "assassin_posture",
+        "test": "data"
+    },
+    "hunter_adrenaline": {
+        "url_name": "hunter_adrenaline",
         "test": "data"
     },
     "magus_vigor": {
@@ -8519,6 +10011,10 @@
         "url_name": "frenzied_posture",
         "test": "data"
     },
+    "viper_wraith": {
+        "url_name": "viper_wraith",
+        "test": "data"
+    },
     "shotgun_barrage": {
         "url_name": "shotgun_barrage",
         "test": "data"
@@ -8541,6 +10037,10 @@
     },
     "protector_posture": {
         "url_name": "protector_posture",
+        "test": "data"
+    },
+    "orokin_derelict_plaza_scene": {
+        "url_name": "orokin_derelict_plaza_scene",
         "test": "data"
     },
     "arcane_swindle_helmet": {
@@ -8567,6 +10067,10 @@
         "url_name": "persistent_posture",
         "test": "data"
     },
+    "grineer_shipyards_manufactory_scene": {
+        "url_name": "grineer_shipyards_manufactory_scene",
+        "test": "data"
+    },
     "gladiator_vice": {
         "url_name": "gladiator_vice",
         "test": "data"
@@ -8589,6 +10093,10 @@
     },
     "elusive_posture": {
         "url_name": "elusive_posture",
+        "test": "data"
+    },
+    "infested_ship_bridge_scene": {
+        "url_name": "infested_ship_bridge_scene",
         "test": "data"
     },
     "arcane_meridian_helmet": {
@@ -8615,6 +10123,10 @@
         "url_name": "balanced_posture",
         "test": "data"
     },
+    "lua_nursery_scene": {
+        "url_name": "lua_nursery_scene",
+        "test": "data"
+    },
     "legendary_fusion_core": {
         "url_name": "legendary_fusion_core",
         "test": "data"
@@ -8637,6 +10149,10 @@
     },
     "resourceful_retriever": {
         "url_name": "resourceful_retriever",
+        "test": "data"
+    },
+    "corpus_gas_city_conduit_scene": {
+        "url_name": "corpus_gas_city_conduit_scene",
         "test": "data"
     },
     "tigris_prime_stock": {
@@ -8663,6 +10179,10 @@
         "url_name": "loyal_retriever",
         "test": "data"
     },
+    "grineer_settlement_reactor_scene": {
+        "url_name": "grineer_settlement_reactor_scene",
+        "test": "data"
+    },
     "spinning_needle": {
         "url_name": "spinning_needle",
         "test": "data"
@@ -8685,6 +10205,10 @@
     },
     "prosperous_retriever": {
         "url_name": "prosperous_retriever",
+        "test": "data"
+    },
+    "corpus_ice_planet_wreckage_scene": {
+        "url_name": "corpus_ice_planet_wreckage_scene",
         "test": "data"
     },
     "snipetron_vandal_stock": {
@@ -8711,6 +10235,10 @@
         "url_name": "precision_conditioning",
         "test": "data"
     },
+    "eidolon_madurai_lens": {
+        "url_name": "eidolon_madurai_lens",
+        "test": "data"
+    },
     "wildfire": {
         "url_name": "wildfire",
         "test": "data"
@@ -8733,6 +10261,10 @@
     },
     "immunity_resistance": {
         "url_name": "immunity_resistance",
+        "test": "data"
+    },
+    "eidolon_vazarin_lens": {
+        "url_name": "eidolon_vazarin_lens",
         "test": "data"
     },
     "bane_of_grineer": {
@@ -8759,6 +10291,10 @@
         "url_name": "magnetic_strike",
         "test": "data"
     },
+    "eidolon_unairu_lens": {
+        "url_name": "eidolon_unairu_lens",
+        "test": "data"
+    },
     "scimitar_avionics_blueprint": {
         "url_name": "scimitar_avionics_blueprint",
         "test": "data"
@@ -8781,6 +10317,10 @@
     },
     "bell_ringer": {
         "url_name": "bell_ringer",
+        "test": "data"
+    },
+    "zephyr_prime_chassis_blueprint": {
+        "url_name": "zephyr_prime_chassis_blueprint",
         "test": "data"
     },
     "reflex_guard": {
@@ -8807,6 +10347,10 @@
         "url_name": "bloodthirst",
         "test": "data"
     },
+    "mycona_colony_scene": {
+        "url_name": "mycona_colony_scene",
+        "test": "data"
+    },
     "everlasting_ward": {
         "url_name": "everlasting_ward",
         "test": "data"
@@ -8829,6 +10373,10 @@
     },
     "disabling_conditioning": {
         "url_name": "disabling_conditioning",
+        "test": "data"
+    },
+    "pax_soar": {
+        "url_name": "pax_soar",
         "test": "data"
     },
     "ash_prime_neuroptics_blueprint": {
@@ -8855,6 +10403,10 @@
         "url_name": "cull_the_weak",
         "test": "data"
     },
+    "redeemer_prime_blade": {
+        "url_name": "redeemer_prime_blade",
+        "test": "data"
+    },
     "jolt": {
         "url_name": "jolt",
         "test": "data"
@@ -8879,6 +10431,10 @@
         "url_name": "brute_conditioning",
         "test": "data"
     },
+    "akjagara_prime_receiver": {
+        "url_name": "akjagara_prime_receiver",
+        "test": "data"
+    },
     "vectis_prime_stock": {
         "url_name": "vectis_prime_stock",
         "test": "data"
@@ -8901,6 +10457,10 @@
     },
     "galvanized_steel": {
         "url_name": "galvanized_steel",
+        "test": "data"
+    },
+    "kitgun_riven_mod_(veiled)": {
+        "url_name": "kitgun_riven_mod_(veiled)",
         "test": "data"
     },
     "stunning_speed": {
@@ -12357,1566 +13917,6 @@
     },
     "meso_k5_relic": {
         "url_name": "meso_k5_relic",
-        "test": "data"
-    },
-    "sicarus_prime_set": {
-        "url_name": "sicarus_prime_set",
-        "test": "data"
-    },
-    "shedu_set": {
-        "url_name": "shedu_set",
-        "test": "data"
-    },
-    "conductive_blade": {
-        "url_name": "conductive_blade",
-        "test": "data"
-    },
-    "meso_f3_relic": {
-        "url_name": "meso_f3_relic",
-        "test": "data"
-    },
-    "lith_v9_relic": {
-        "url_name": "lith_v9_relic",
-        "test": "data"
-    },
-    "grinloked": {
-        "url_name": "grinloked",
-        "test": "data"
-    },
-    "shedu_chassis": {
-        "url_name": "shedu_chassis",
-        "test": "data"
-    },
-    "zephyr_prime_neuroptics_blueprint": {
-        "url_name": "zephyr_prime_neuroptics_blueprint",
-        "test": "data"
-    },
-    "meso_e1_relic": {
-        "url_name": "meso_e1_relic",
-        "test": "data"
-    },
-    "lith_b10_relic": {
-        "url_name": "lith_b10_relic",
-        "test": "data"
-    },
-    "arcane_victory": {
-        "url_name": "arcane_victory",
-        "test": "data"
-    },
-    "void_cloak": {
-        "url_name": "void_cloak",
-        "test": "data"
-    },
-    "zephyr_prime_set": {
-        "url_name": "zephyr_prime_set",
-        "test": "data"
-    },
-    "meso_n2_relic": {
-        "url_name": "meso_n2_relic",
-        "test": "data"
-    },
-    "neo_a7_relic": {
-        "url_name": "neo_a7_relic",
-        "test": "data"
-    },
-    "hastened_steps": {
-        "url_name": "hastened_steps",
-        "test": "data"
-    },
-    "squad_renew": {
-        "url_name": "squad_renew",
-        "test": "data"
-    },
-    "gnashing_payara": {
-        "url_name": "gnashing_payara",
-        "test": "data"
-    },
-    "meso_v2_relic": {
-        "url_name": "meso_v2_relic",
-        "test": "data"
-    },
-    "axi_g9_relic": {
-        "url_name": "axi_g9_relic",
-        "test": "data"
-    },
-    "lie_in_wait": {
-        "url_name": "lie_in_wait",
-        "test": "data"
-    },
-    "section_density": {
-        "url_name": "section_density",
-        "test": "data"
-    },
-    "kronen_prime_blueprint": {
-        "url_name": "kronen_prime_blueprint",
-        "test": "data"
-    },
-    "meso_r1_relic": {
-        "url_name": "meso_r1_relic",
-        "test": "data"
-    },
-    "baruuk_prime_systems_blueprint": {
-        "url_name": "baruuk_prime_systems_blueprint",
-        "test": "data"
-    },
-    "boltor_prime_receiver": {
-        "url_name": "boltor_prime_receiver",
-        "test": "data"
-    },
-    "flow_burn": {
-        "url_name": "flow_burn",
-        "test": "data"
-    },
-    "tiberon_prime_barrel": {
-        "url_name": "tiberon_prime_barrel",
-        "test": "data"
-    },
-    "meso_d3_relic": {
-        "url_name": "meso_d3_relic",
-        "test": "data"
-    },
-    "neo_d6_relic": {
-        "url_name": "neo_d6_relic",
-        "test": "data"
-    },
-    "boltor_prime_stock": {
-        "url_name": "boltor_prime_stock",
-        "test": "data"
-    },
-    "surging_dash": {
-        "url_name": "surging_dash",
-        "test": "data"
-    },
-    "kronen_prime_blade": {
-        "url_name": "kronen_prime_blade",
-        "test": "data"
-    },
-    "meso_t3_relic": {
-        "url_name": "meso_t3_relic",
-        "test": "data"
-    },
-    "axi_f1_relic": {
-        "url_name": "axi_f1_relic",
-        "test": "data"
-    },
-    "night_stalker": {
-        "url_name": "night_stalker",
-        "test": "data"
-    },
-    "conductor": {
-        "url_name": "conductor",
-        "test": "data"
-    },
-    "winds_of_purity": {
-        "url_name": "winds_of_purity",
-        "test": "data"
-    },
-    "meso_s8_relic": {
-        "url_name": "meso_s8_relic",
-        "test": "data"
-    },
-    "baruuk_prime_neuroptics_blueprint": {
-        "url_name": "baruuk_prime_neuroptics_blueprint",
-        "test": "data"
-    },
-    "synoid_heliocor": {
-        "url_name": "synoid_heliocor",
-        "test": "data"
-    },
-    "accumulating_whipclaw": {
-        "url_name": "accumulating_whipclaw",
-        "test": "data"
-    },
-    "retribution": {
-        "url_name": "retribution",
-        "test": "data"
-    },
-    "meso_c1_relic": {
-        "url_name": "meso_c1_relic",
-        "test": "data"
-    },
-    "meso_r5_relic": {
-        "url_name": "meso_r5_relic",
-        "test": "data"
-    },
-    "elytron_systems_blueprint": {
-        "url_name": "elytron_systems_blueprint",
-        "test": "data"
-    },
-    "heart_noctrul": {
-        "url_name": "heart_noctrul",
-        "test": "data"
-    },
-    "live_wire": {
-        "url_name": "live_wire",
-        "test": "data"
-    },
-    "meso_e5_relic": {
-        "url_name": "meso_e5_relic",
-        "test": "data"
-    },
-    "lith_a5_relic": {
-        "url_name": "lith_a5_relic",
-        "test": "data"
-    },
-    "steel_meridian_augment_mod": {
-        "url_name": "steel_meridian_augment_mod",
-        "test": "data"
-    },
-    "photon_repeater": {
-        "url_name": "photon_repeater",
-        "test": "data"
-    },
-    "ivara_prime_set": {
-        "url_name": "ivara_prime_set",
-        "test": "data"
-    },
-    "meso_n1_relic": {
-        "url_name": "meso_n1_relic",
-        "test": "data"
-    },
-    "baruuk_prime_set": {
-        "url_name": "baruuk_prime_set",
-        "test": "data"
-    },
-    "shadow_harvest": {
-        "url_name": "shadow_harvest",
-        "test": "data"
-    },
-    "redeemer_prime_set": {
-        "url_name": "redeemer_prime_set",
-        "test": "data"
-    },
-    "proof_fragment": {
-        "url_name": "proof_fragment",
-        "test": "data"
-    },
-    "meso_e3_relic": {
-        "url_name": "meso_e3_relic",
-        "test": "data"
-    },
-    "lith_h7_relic": {
-        "url_name": "lith_h7_relic",
-        "test": "data"
-    },
-    "argent_scourge": {
-        "url_name": "argent_scourge",
-        "test": "data"
-    },
-    "hypothermic_shell": {
-        "url_name": "hypothermic_shell",
-        "test": "data"
-    },
-    "empowered_quiver": {
-        "url_name": "empowered_quiver",
-        "test": "data"
-    },
-    "meso_d4_relic": {
-        "url_name": "meso_d4_relic",
-        "test": "data"
-    },
-    "cobra_and_crane_prime_guard": {
-        "url_name": "cobra_and_crane_prime_guard",
-        "test": "data"
-    },
-    "tigris_prime_barrel": {
-        "url_name": "tigris_prime_barrel",
-        "test": "data"
-    },
-    "warhead": {
-        "url_name": "warhead",
-        "test": "data"
-    },
-    "insatiable": {
-        "url_name": "insatiable",
-        "test": "data"
-    },
-    "meso_w1_relic": {
-        "url_name": "meso_w1_relic",
-        "test": "data"
-    },
-    "afuris_prime_barrel": {
-        "url_name": "afuris_prime_barrel",
-        "test": "data"
-    },
-    "eject_magazine": {
-        "url_name": "eject_magazine",
-        "test": "data"
-    },
-    "battle_stations": {
-        "url_name": "battle_stations",
-        "test": "data"
-    },
-    "vigorous_swap": {
-        "url_name": "vigorous_swap",
-        "test": "data"
-    },
-    "meso_v6_relic": {
-        "url_name": "meso_v6_relic",
-        "test": "data"
-    },
-    "afuris_prime_set": {
-        "url_name": "afuris_prime_set",
-        "test": "data"
-    },
-    "plan_b": {
-        "url_name": "plan_b",
-        "test": "data"
-    },
-    "countermeasures": {
-        "url_name": "countermeasures",
-        "test": "data"
-    },
-    "anemic_agility": {
-        "url_name": "anemic_agility",
-        "test": "data"
-    },
-    "meso_s9_relic": {
-        "url_name": "meso_s9_relic",
-        "test": "data"
-    },
-    "afuris_prime_link": {
-        "url_name": "afuris_prime_link",
-        "test": "data"
-    },
-    "burning_wasp": {
-        "url_name": "burning_wasp",
-        "test": "data"
-    },
-    "blood_forge": {
-        "url_name": "blood_forge",
-        "test": "data"
-    },
-    "rolling_guard": {
-        "url_name": "rolling_guard",
-        "test": "data"
-    },
-    "meso_d1_relic": {
-        "url_name": "meso_d1_relic",
-        "test": "data"
-    },
-    "cobra_and_crane_prime_blueprint": {
-        "url_name": "cobra_and_crane_prime_blueprint",
-        "test": "data"
-    },
-    "sharpened_bullets": {
-        "url_name": "sharpened_bullets",
-        "test": "data"
-    },
-    "balefire_surge": {
-        "url_name": "balefire_surge",
-        "test": "data"
-    },
-    "muzzle_flash": {
-        "url_name": "muzzle_flash",
-        "test": "data"
-    },
-    "lith_h2_relic": {
-        "url_name": "lith_h2_relic",
-        "test": "data"
-    },
-    "afuris_prime_blueprint": {
-        "url_name": "afuris_prime_blueprint",
-        "test": "data"
-    },
-    "ripper_rounds": {
-        "url_name": "ripper_rounds",
-        "test": "data"
-    },
-    "sentient_basin_scene": {
-        "url_name": "sentient_basin_scene",
-        "test": "data"
-    },
-    "grineer_forest_water_pump_scene": {
-        "url_name": "grineer_forest_water_pump_scene",
-        "test": "data"
-    },
-    "lith_z1_relic": {
-        "url_name": "lith_z1_relic",
-        "test": "data"
-    },
-    "cobra_and_crane_prime_blade": {
-        "url_name": "cobra_and_crane_prime_blade",
-        "test": "data"
-    },
-    "soma_prime_receiver": {
-        "url_name": "soma_prime_receiver",
-        "test": "data"
-    },
-    "sentient_balcony_scene": {
-        "url_name": "sentient_balcony_scene",
-        "test": "data"
-    },
-    "exodia_might": {
-        "url_name": "exodia_might",
-        "test": "data"
-    },
-    "lith_b1_relic": {
-        "url_name": "lith_b1_relic",
-        "test": "data"
-    },
-    "cobra_and_crane_prime_hilt": {
-        "url_name": "cobra_and_crane_prime_hilt",
-        "test": "data"
-    },
-    "reaping_spiral": {
-        "url_name": "reaping_spiral",
-        "test": "data"
-    },
-    "endless_lullaby": {
-        "url_name": "endless_lullaby",
-        "test": "data"
-    },
-    "avenging_truth": {
-        "url_name": "avenging_truth",
-        "test": "data"
-    },
-    "lith_a2_relic": {
-        "url_name": "lith_a2_relic",
-        "test": "data"
-    },
-    "cobra_and_crane_prime_set": {
-        "url_name": "cobra_and_crane_prime_set",
-        "test": "data"
-    },
-    "soma_prime_stock": {
-        "url_name": "soma_prime_stock",
-        "test": "data"
-    },
-    "magus_accelerant": {
-        "url_name": "magus_accelerant",
-        "test": "data"
-    },
-    "mirage_prime_neuroptics_blueprint": {
-        "url_name": "mirage_prime_neuroptics_blueprint",
-        "test": "data"
-    },
-    "lith_l1_relic": {
-        "url_name": "lith_l1_relic",
-        "test": "data"
-    },
-    "afuris_prime_receiver": {
-        "url_name": "afuris_prime_receiver",
-        "test": "data"
-    },
-    "sharpened_blade": {
-        "url_name": "sharpened_blade",
-        "test": "data"
-    },
-    "galatine_prime_blueprint": {
-        "url_name": "galatine_prime_blueprint",
-        "test": "data"
-    },
-    "teshins_refuge_scene": {
-        "url_name": "teshins_refuge_scene",
-        "test": "data"
-    },
-    "lith_w1_relic": {
-        "url_name": "lith_w1_relic",
-        "test": "data"
-    },
-    "corufell_receiver": {
-        "url_name": "corufell_receiver",
-        "test": "data"
-    },
-    "strafing_slide": {
-        "url_name": "strafing_slide",
-        "test": "data"
-    },
-    "aerial_ace": {
-        "url_name": "aerial_ace",
-        "test": "data"
-    },
-    "ballistica_prime_upper_limb": {
-        "url_name": "ballistica_prime_upper_limb",
-        "test": "data"
-    },
-    "lith_v4_relic": {
-        "url_name": "lith_v4_relic",
-        "test": "data"
-    },
-    "primary_plated_round": {
-        "url_name": "primary_plated_round",
-        "test": "data"
-    },
-    "scimitar_set": {
-        "url_name": "scimitar_set",
-        "test": "data"
-    },
-    "energizing_shot": {
-        "url_name": "energizing_shot",
-        "test": "data"
-    },
-    "dual_rounds": {
-        "url_name": "dual_rounds",
-        "test": "data"
-    },
-    "lith_s6_relic": {
-        "url_name": "lith_s6_relic",
-        "test": "data"
-    },
-    "shattered_storm": {
-        "url_name": "shattered_storm",
-        "test": "data"
-    },
-    "surplus_diverters": {
-        "url_name": "surplus_diverters",
-        "test": "data"
-    },
-    "anchored_glide": {
-        "url_name": "anchored_glide",
-        "test": "data"
-    },
-    "orvius_blade": {
-        "url_name": "orvius_blade",
-        "test": "data"
-    },
-    "lith_n3_relic": {
-        "url_name": "lith_n3_relic",
-        "test": "data"
-    },
-    "cathode_current": {
-        "url_name": "cathode_current",
-        "test": "data"
-    },
-    "cataclysmic_continuum": {
-        "url_name": "cataclysmic_continuum",
-        "test": "data"
-    },
-    "venomous_clip": {
-        "url_name": "venomous_clip",
-        "test": "data"
-    },
-    "burdened_magazine": {
-        "url_name": "burdened_magazine",
-        "test": "data"
-    },
-    "lith_n4_relic": {
-        "url_name": "lith_n4_relic",
-        "test": "data"
-    },
-    "arcane_steadfast": {
-        "url_name": "arcane_steadfast",
-        "test": "data"
-    },
-    "braton_prime_set": {
-        "url_name": "braton_prime_set",
-        "test": "data"
-    },
-    "dera_vandal_barrel": {
-        "url_name": "dera_vandal_barrel",
-        "test": "data"
-    },
-    "nami_skyla_prime_blueprint": {
-        "url_name": "nami_skyla_prime_blueprint",
-        "test": "data"
-    },
-    "lith_m5_relic": {
-        "url_name": "lith_m5_relic",
-        "test": "data"
-    },
-    "lith_d5_relic": {
-        "url_name": "lith_d5_relic",
-        "test": "data"
-    },
-    "relentless_assault": {
-        "url_name": "relentless_assault",
-        "test": "data"
-    },
-    "counterweight": {
-        "url_name": "counterweight",
-        "test": "data"
-    },
-    "sonic_boost": {
-        "url_name": "sonic_boost",
-        "test": "data"
-    },
-    "lith_c6_relic": {
-        "url_name": "lith_c6_relic",
-        "test": "data"
-    },
-    "steflos_barrel": {
-        "url_name": "steflos_barrel",
-        "test": "data"
-    },
-    "silva_and_aegis_prime_hilt": {
-        "url_name": "silva_and_aegis_prime_hilt",
-        "test": "data"
-    },
-    "anti_grav_grenade": {
-        "url_name": "anti_grav_grenade",
-        "test": "data"
-    },
-    "pax_bolt": {
-        "url_name": "pax_bolt",
-        "test": "data"
-    },
-    "lith_c5_relic": {
-        "url_name": "lith_c5_relic",
-        "test": "data"
-    },
-    "steflos_stock": {
-        "url_name": "steflos_stock",
-        "test": "data"
-    },
-    "calculated_spring": {
-        "url_name": "calculated_spring",
-        "test": "data"
-    },
-    "brief_respite": {
-        "url_name": "brief_respite",
-        "test": "data"
-    },
-    "akjagara_prime_set": {
-        "url_name": "akjagara_prime_set",
-        "test": "data"
-    },
-    "lith_v6_relic": {
-        "url_name": "lith_v6_relic",
-        "test": "data"
-    },
-    "steflos_set": {
-        "url_name": "steflos_set",
-        "test": "data"
-    },
-    "comet_rounds": {
-        "url_name": "comet_rounds",
-        "test": "data"
-    },
-    "orthos_prime_set": {
-        "url_name": "orthos_prime_set",
-        "test": "data"
-    },
-    "akjagara_prime_link": {
-        "url_name": "akjagara_prime_link",
-        "test": "data"
-    },
-    "lith_v3_relic": {
-        "url_name": "lith_v3_relic",
-        "test": "data"
-    },
-    "corufell_set": {
-        "url_name": "corufell_set",
-        "test": "data"
-    },
-    "hydroid_prime_chassis_blueprint": {
-        "url_name": "hydroid_prime_chassis_blueprint",
-        "test": "data"
-    },
-    "hysterical_assault": {
-        "url_name": "hysterical_assault",
-        "test": "data"
-    },
-    "magus_melt": {
-        "url_name": "magus_melt",
-        "test": "data"
-    },
-    "lith_b4_relic": {
-        "url_name": "lith_b4_relic",
-        "test": "data"
-    },
-    "corufell_handle": {
-        "url_name": "corufell_handle",
-        "test": "data"
-    },
-    "aklex_prime_blueprint": {
-        "url_name": "aklex_prime_blueprint",
-        "test": "data"
-    },
-    "adept_surge": {
-        "url_name": "adept_surge",
-        "test": "data"
-    },
-    "resolute_focus": {
-        "url_name": "resolute_focus",
-        "test": "data"
-    },
-    "lith_n2_relic": {
-        "url_name": "lith_n2_relic",
-        "test": "data"
-    },
-    "lith_p7_relic": {
-        "url_name": "lith_p7_relic",
-        "test": "data"
-    },
-    "aklex_prime_set": {
-        "url_name": "aklex_prime_set",
-        "test": "data"
-    },
-    "gorgon_frenzy": {
-        "url_name": "gorgon_frenzy",
-        "test": "data"
-    },
-    "magus_firewall": {
-        "url_name": "magus_firewall",
-        "test": "data"
-    },
-    "lith_g1_relic": {
-        "url_name": "lith_g1_relic",
-        "test": "data"
-    },
-    "arcane_double_back": {
-        "url_name": "arcane_double_back",
-        "test": "data"
-    },
-    "ballistica_prime_blueprint": {
-        "url_name": "ballistica_prime_blueprint",
-        "test": "data"
-    },
-    "volt_prime_set": {
-        "url_name": "volt_prime_set",
-        "test": "data"
-    },
-    "magus_destruct": {
-        "url_name": "magus_destruct",
-        "test": "data"
-    },
-    "lith_i1_relic": {
-        "url_name": "lith_i1_relic",
-        "test": "data"
-    },
-    "secondary_kinship": {
-        "url_name": "secondary_kinship",
-        "test": "data"
-    },
-    "tranquil_cleave": {
-        "url_name": "tranquil_cleave",
-        "test": "data"
-    },
-    "esher_devar": {
-        "url_name": "esher_devar",
-        "test": "data"
-    },
-    "desiccations_curse": {
-        "url_name": "desiccations_curse",
-        "test": "data"
-    },
-    "lith_t5_relic": {
-        "url_name": "lith_t5_relic",
-        "test": "data"
-    },
-    "steflos_receiver": {
-        "url_name": "steflos_receiver",
-        "test": "data"
-    },
-    "link_vitality": {
-        "url_name": "link_vitality",
-        "test": "data"
-    },
-    "banshee_prime_neuroptics_blueprint": {
-        "url_name": "banshee_prime_neuroptics_blueprint",
-        "test": "data"
-    },
-    "stradavar_prime_barrel": {
-        "url_name": "stradavar_prime_barrel",
-        "test": "data"
-    },
-    "lith_g3_relic": {
-        "url_name": "lith_g3_relic",
-        "test": "data"
-    },
-    "merulina_guardian": {
-        "url_name": "merulina_guardian",
-        "test": "data"
-    },
-    "pack_leader": {
-        "url_name": "pack_leader",
-        "test": "data"
-    },
-    "electro_pulse": {
-        "url_name": "electro_pulse",
-        "test": "data"
-    },
-    "stradavar_prime_stock": {
-        "url_name": "stradavar_prime_stock",
-        "test": "data"
-    },
-    "lith_b8_relic": {
-        "url_name": "lith_b8_relic",
-        "test": "data"
-    },
-    "mesmer_shield": {
-        "url_name": "mesmer_shield",
-        "test": "data"
-    },
-    "soul_survivor": {
-        "url_name": "soul_survivor",
-        "test": "data"
-    },
-    "neutralize": {
-        "url_name": "neutralize",
-        "test": "data"
-    },
-    "repair_kit": {
-        "url_name": "repair_kit",
-        "test": "data"
-    },
-    "lith_d4_relic": {
-        "url_name": "lith_d4_relic",
-        "test": "data"
-    },
-    "neo_r5_relic": {
-        "url_name": "neo_r5_relic",
-        "test": "data"
-    },
-    "thumper": {
-        "url_name": "thumper",
-        "test": "data"
-    },
-    "retrieve": {
-        "url_name": "retrieve",
-        "test": "data"
-    },
-    "aero_periphery": {
-        "url_name": "aero_periphery",
-        "test": "data"
-    },
-    "lith_t3_relic": {
-        "url_name": "lith_t3_relic",
-        "test": "data"
-    },
-    "secondary_encumber": {
-        "url_name": "secondary_encumber",
-        "test": "data"
-    },
-    "rush": {
-        "url_name": "rush",
-        "test": "data"
-    },
-    "imperator_vandal_receiver": {
-        "url_name": "imperator_vandal_receiver",
-        "test": "data"
-    },
-    "anti_grav_array": {
-        "url_name": "anti_grav_array",
-        "test": "data"
-    },
-    "lith_s9_relic": {
-        "url_name": "lith_s9_relic",
-        "test": "data"
-    },
-    "neo_a9_relic": {
-        "url_name": "neo_a9_relic",
-        "test": "data"
-    },
-    "infected_clip": {
-        "url_name": "infected_clip",
-        "test": "data"
-    },
-    "secura_lecta": {
-        "url_name": "secura_lecta",
-        "test": "data"
-    },
-    "aero_agility": {
-        "url_name": "aero_agility",
-        "test": "data"
-    },
-    "lith_s5_relic": {
-        "url_name": "lith_s5_relic",
-        "test": "data"
-    },
-    "meso_l2_relic": {
-        "url_name": "meso_l2_relic",
-        "test": "data"
-    },
-    "cleanse_infested": {
-        "url_name": "cleanse_infested",
-        "test": "data"
-    },
-    "amesha_systems_blueprint": {
-        "url_name": "amesha_systems_blueprint",
-        "test": "data"
-    },
-    "kavats_grace": {
-        "url_name": "kavats_grace",
-        "test": "data"
-    },
-    "lith_c7_relic": {
-        "url_name": "lith_c7_relic",
-        "test": "data"
-    },
-    "axi_m4_relic": {
-        "url_name": "axi_m4_relic",
-        "test": "data"
-    },
-    "blaze": {
-        "url_name": "blaze",
-        "test": "data"
-    },
-    "amesha_wings_blueprint": {
-        "url_name": "amesha_wings_blueprint",
-        "test": "data"
-    },
-    "stasis_field": {
-        "url_name": "stasis_field",
-        "test": "data"
-    },
-    "lith_k4_relic": {
-        "url_name": "lith_k4_relic",
-        "test": "data"
-    },
-    "citrines_last_wish_factory_scene": {
-        "url_name": "citrines_last_wish_factory_scene",
-        "test": "data"
-    },
-    "vacuum": {
-        "url_name": "vacuum",
-        "test": "data"
-    },
-    "amesha_harness_blueprint": {
-        "url_name": "amesha_harness_blueprint",
-        "test": "data"
-    },
-    "tractor_beam": {
-        "url_name": "tractor_beam",
-        "test": "data"
-    },
-    "lith_t4_relic": {
-        "url_name": "lith_t4_relic",
-        "test": "data"
-    },
-    "corufell_barrel": {
-        "url_name": "corufell_barrel",
-        "test": "data"
-    },
-    "energy_generator": {
-        "url_name": "energy_generator",
-        "test": "data"
-    },
-    "amesha_set": {
-        "url_name": "amesha_set",
-        "test": "data"
-    },
-    "proton_snap": {
-        "url_name": "proton_snap",
-        "test": "data"
-    },
-    "lith_n6_relic": {
-        "url_name": "lith_n6_relic",
-        "test": "data"
-    },
-    "hildryn_prime_blueprint": {
-        "url_name": "hildryn_prime_blueprint",
-        "test": "data"
-    },
-    "scarlet_hurricane": {
-        "url_name": "scarlet_hurricane",
-        "test": "data"
-    },
-    "elytron_harness_blueprint": {
-        "url_name": "elytron_harness_blueprint",
-        "test": "data"
-    },
-    "ventkids_clubhouse_scene": {
-        "url_name": "ventkids_clubhouse_scene",
-        "test": "data"
-    },
-    "lith_b7_relic": {
-        "url_name": "lith_b7_relic",
-        "test": "data"
-    },
-    "hildryn_prime_systems_blueprint": {
-        "url_name": "hildryn_prime_systems_blueprint",
-        "test": "data"
-    },
-    "vicious_approach": {
-        "url_name": "vicious_approach",
-        "test": "data"
-    },
-    "elytron_set": {
-        "url_name": "elytron_set",
-        "test": "data"
-    },
-    "gas_city_lower_foyer_scene": {
-        "url_name": "gas_city_lower_foyer_scene",
-        "test": "data"
-    },
-    "lith_p5_relic": {
-        "url_name": "lith_p5_relic",
-        "test": "data"
-    },
-    "shade_prime_blueprint": {
-        "url_name": "shade_prime_blueprint",
-        "test": "data"
-    },
-    "frost_jaw": {
-        "url_name": "frost_jaw",
-        "test": "data"
-    },
-    "itzal_systems_blueprint": {
-        "url_name": "itzal_systems_blueprint",
-        "test": "data"
-    },
-    "gas_city_corridors_scene": {
-        "url_name": "gas_city_corridors_scene",
-        "test": "data"
-    },
-    "lith_d3_relic": {
-        "url_name": "lith_d3_relic",
-        "test": "data"
-    },
-    "hildryn_prime_set": {
-        "url_name": "hildryn_prime_set",
-        "test": "data"
-    },
-    "shock_collar": {
-        "url_name": "shock_collar",
-        "test": "data"
-    },
-    "itzal_wings_blueprint": {
-        "url_name": "itzal_wings_blueprint",
-        "test": "data"
-    },
-    "gas_city_regulators_scene": {
-        "url_name": "gas_city_regulators_scene",
-        "test": "data"
-    },
-    "lith_n5_relic": {
-        "url_name": "lith_n5_relic",
-        "test": "data"
-    },
-    "shade_prime_systems": {
-        "url_name": "shade_prime_systems",
-        "test": "data"
-    },
-    "thrash_landing": {
-        "url_name": "thrash_landing",
-        "test": "data"
-    },
-    "itzal_harness_blueprint": {
-        "url_name": "itzal_harness_blueprint",
-        "test": "data"
-    },
-    "primed_chamber": {
-        "url_name": "primed_chamber",
-        "test": "data"
-    },
-    "lith_p4_relic": {
-        "url_name": "lith_p4_relic",
-        "test": "data"
-    },
-    "larkspur_prime_set": {
-        "url_name": "larkspur_prime_set",
-        "test": "data"
-    },
-    "motus_impact": {
-        "url_name": "motus_impact",
-        "test": "data"
-    },
-    "itzal_set": {
-        "url_name": "itzal_set",
-        "test": "data"
-    },
-    "odonata_prime_wings_blueprint": {
-        "url_name": "odonata_prime_wings_blueprint",
-        "test": "data"
-    },
-    "lith_s4_relic": {
-        "url_name": "lith_s4_relic",
-        "test": "data"
-    },
-    "hildryn_prime_neuroptics_blueprint": {
-        "url_name": "hildryn_prime_neuroptics_blueprint",
-        "test": "data"
-    },
-    "aero_vantage": {
-        "url_name": "aero_vantage",
-        "test": "data"
-    },
-    "ayatan_vaya_sculpture": {
-        "url_name": "ayatan_vaya_sculpture",
-        "test": "data"
-    },
-    "seeking_fury": {
-        "url_name": "seeking_fury",
-        "test": "data"
-    },
-    "lith_s7_relic": {
-        "url_name": "lith_s7_relic",
-        "test": "data"
-    },
-    "larkspur_prime_barrel": {
-        "url_name": "larkspur_prime_barrel",
-        "test": "data"
-    },
-    "motus_setup": {
-        "url_name": "motus_setup",
-        "test": "data"
-    },
-    "the_perrin_sequence_augment_mod": {
-        "url_name": "the_perrin_sequence_augment_mod",
-        "test": "data"
-    },
-    "eidolon_naramon_lens": {
-        "url_name": "eidolon_naramon_lens",
-        "test": "data"
-    },
-    "lith_c2_relic": {
-        "url_name": "lith_c2_relic",
-        "test": "data"
-    },
-    "shade_prime_cerebrum": {
-        "url_name": "shade_prime_cerebrum",
-        "test": "data"
-    },
-    "gale_kick": {
-        "url_name": "gale_kick",
-        "test": "data"
-    },
-    "new_loka_augment_mod": {
-        "url_name": "new_loka_augment_mod",
-        "test": "data"
-    },
-    "meteor_crash": {
-        "url_name": "meteor_crash",
-        "test": "data"
-    },
-    "lith_k2_relic": {
-        "url_name": "lith_k2_relic",
-        "test": "data"
-    },
-    "shade_prime_set": {
-        "url_name": "shade_prime_set",
-        "test": "data"
-    },
-    "motus_signal": {
-        "url_name": "motus_signal",
-        "test": "data"
-    },
-    "arbiters_of_hexis_augment_mod": {
-        "url_name": "arbiters_of_hexis_augment_mod",
-        "test": "data"
-    },
-    "tiberon_prime_stock": {
-        "url_name": "tiberon_prime_stock",
-        "test": "data"
-    },
-    "lith_b6_relic": {
-        "url_name": "lith_b6_relic",
-        "test": "data"
-    },
-    "larkspur_prime_stock": {
-        "url_name": "larkspur_prime_stock",
-        "test": "data"
-    },
-    "deck_12_scene": {
-        "url_name": "deck_12_scene",
-        "test": "data"
-    },
-    "charm": {
-        "url_name": "charm",
-        "test": "data"
-    },
-    "magus_husk": {
-        "url_name": "magus_husk",
-        "test": "data"
-    },
-    "lith_m3_relic": {
-        "url_name": "lith_m3_relic",
-        "test": "data"
-    },
-    "hildryn_prime_chassis_blueprint": {
-        "url_name": "hildryn_prime_chassis_blueprint",
-        "test": "data"
-    },
-    "ninkondi_prime_blueprint": {
-        "url_name": "ninkondi_prime_blueprint",
-        "test": "data"
-    },
-    "cats_eye": {
-        "url_name": "cats_eye",
-        "test": "data"
-    },
-    "magus_elevate": {
-        "url_name": "magus_elevate",
-        "test": "data"
-    },
-    "lith_c4_relic": {
-        "url_name": "lith_c4_relic",
-        "test": "data"
-    },
-    "larkspur_prime_receiver": {
-        "url_name": "larkspur_prime_receiver",
-        "test": "data"
-    },
-    "zhuge_prime_barrel": {
-        "url_name": "zhuge_prime_barrel",
-        "test": "data"
-    },
-    "medi_pet_kit": {
-        "url_name": "medi_pet_kit",
-        "test": "data"
-    },
-    "hunter_recovery": {
-        "url_name": "hunter_recovery",
-        "test": "data"
-    },
-    "lith_m2_relic": {
-        "url_name": "lith_m2_relic",
-        "test": "data"
-    },
-    "shade_prime_carapace": {
-        "url_name": "shade_prime_carapace",
-        "test": "data"
-    },
-    "ninkondi_prime_handle": {
-        "url_name": "ninkondi_prime_handle",
-        "test": "data"
-    },
-    "reaper_prime_handle": {
-        "url_name": "reaper_prime_handle",
-        "test": "data"
-    },
-    "guardian": {
-        "url_name": "guardian",
-        "test": "data"
-    },
-    "lith_v2_relic": {
-        "url_name": "lith_v2_relic",
-        "test": "data"
-    },
-    "larkspur_prime_blueprint": {
-        "url_name": "larkspur_prime_blueprint",
-        "test": "data"
-    },
-    "ninkondi_prime_set": {
-        "url_name": "ninkondi_prime_set",
-        "test": "data"
-    },
-    "sicarus_prime_barrel": {
-        "url_name": "sicarus_prime_barrel",
-        "test": "data"
-    },
-    "mirage_prime_set": {
-        "url_name": "mirage_prime_set",
-        "test": "data"
-    },
-    "lith_o2_relic": {
-        "url_name": "lith_o2_relic",
-        "test": "data"
-    },
-    "lith_s15_relic": {
-        "url_name": "lith_s15_relic",
-        "test": "data"
-    },
-    "wukong_prime_set": {
-        "url_name": "wukong_prime_set",
-        "test": "data"
-    },
-    "braton_prime_barrel": {
-        "url_name": "braton_prime_barrel",
-        "test": "data"
-    },
-    "smoke_shadow": {
-        "url_name": "smoke_shadow",
-        "test": "data"
-    },
-    "lith_p1_relic": {
-        "url_name": "lith_p1_relic",
-        "test": "data"
-    },
-    "meso_n14_relic": {
-        "url_name": "meso_n14_relic",
-        "test": "data"
-    },
-    "scindo_prime_handle": {
-        "url_name": "scindo_prime_handle",
-        "test": "data"
-    },
-    "purifying_flames": {
-        "url_name": "purifying_flames",
-        "test": "data"
-    },
-    "spectra_vandal_handle": {
-        "url_name": "spectra_vandal_handle",
-        "test": "data"
-    },
-    "lith_t2_relic": {
-        "url_name": "lith_t2_relic",
-        "test": "data"
-    },
-    "lith_r3_relic": {
-        "url_name": "lith_r3_relic",
-        "test": "data"
-    },
-    "vile_precision": {
-        "url_name": "vile_precision",
-        "test": "data"
-    },
-    "overcharged": {
-        "url_name": "overcharged",
-        "test": "data"
-    },
-    "spectra_vandal_blueprint": {
-        "url_name": "spectra_vandal_blueprint",
-        "test": "data"
-    },
-    "lith_v5_relic": {
-        "url_name": "lith_v5_relic",
-        "test": "data"
-    },
-    "meso_d7_relic": {
-        "url_name": "meso_d7_relic",
-        "test": "data"
-    },
-    "parallax_scope": {
-        "url_name": "parallax_scope",
-        "test": "data"
-    },
-    "elytron_wings_blueprint": {
-        "url_name": "elytron_wings_blueprint",
-        "test": "data"
-    },
-    "shatter_burst": {
-        "url_name": "shatter_burst",
-        "test": "data"
-    },
-    "lith_b3_relic": {
-        "url_name": "lith_b3_relic",
-        "test": "data"
-    },
-    "axi_h6_relic": {
-        "url_name": "axi_h6_relic",
-        "test": "data"
-    },
-    "vitality": {
-        "url_name": "vitality",
-        "test": "data"
-    },
-    "mischief": {
-        "url_name": "mischief",
-        "test": "data"
-    },
-    "breach_quanta": {
-        "url_name": "breach_quanta",
-        "test": "data"
-    },
-    "lith_n1_relic": {
-        "url_name": "lith_n1_relic",
-        "test": "data"
-    },
-    "lith_b11_relic": {
-        "url_name": "lith_b11_relic",
-        "test": "data"
-    },
-    "sniper_scavenger": {
-        "url_name": "sniper_scavenger",
-        "test": "data"
-    },
-    "tigris_prime_set": {
-        "url_name": "tigris_prime_set",
-        "test": "data"
-    },
-    "tether": {
-        "url_name": "tether",
-        "test": "data"
-    },
-    "lith_k1_relic": {
-        "url_name": "lith_k1_relic",
-        "test": "data"
-    },
-    "meso_s12_relic": {
-        "url_name": "meso_s12_relic",
-        "test": "data"
-    },
-    "sunika_kubrow_imprint": {
-        "url_name": "sunika_kubrow_imprint",
-        "test": "data"
-    },
-    "shield_charger": {
-        "url_name": "shield_charger",
-        "test": "data"
-    },
-    "prisma_twin_gremlins": {
-        "url_name": "prisma_twin_gremlins",
-        "test": "data"
-    },
-    "lith_c1_relic": {
-        "url_name": "lith_c1_relic",
-        "test": "data"
-    },
-    "lith_h8_relic": {
-        "url_name": "lith_h8_relic",
-        "test": "data"
-    },
-    "adarza_kavat_imprint": {
-        "url_name": "adarza_kavat_imprint",
-        "test": "data"
-    },
-    "rakta_dark_dagger": {
-        "url_name": "rakta_dark_dagger",
-        "test": "data"
-    },
-    "celestial_nightfall": {
-        "url_name": "celestial_nightfall",
-        "test": "data"
-    },
-    "lith_w2_relic": {
-        "url_name": "lith_w2_relic",
-        "test": "data"
-    },
-    "meso_h4_relic": {
-        "url_name": "meso_h4_relic",
-        "test": "data"
-    },
-    "rubico_prime_barrel": {
-        "url_name": "rubico_prime_barrel",
-        "test": "data"
-    },
-    "static_discharge": {
-        "url_name": "static_discharge",
-        "test": "data"
-    },
-    "primed_charged_shell": {
-        "url_name": "primed_charged_shell",
-        "test": "data"
-    },
-    "lith_s10_relic": {
-        "url_name": "lith_s10_relic",
-        "test": "data"
-    },
-    "axi_g10_relic": {
-        "url_name": "axi_g10_relic",
-        "test": "data"
-    },
-    "stormbringer": {
-        "url_name": "stormbringer",
-        "test": "data"
-    },
-    "pain_threshold": {
-        "url_name": "pain_threshold",
-        "test": "data"
-    },
-    "akjagara_prime_barrel": {
-        "url_name": "akjagara_prime_barrel",
-        "test": "data"
-    },
-    "lith_p3_relic": {
-        "url_name": "lith_p3_relic",
-        "test": "data"
-    },
-    "axi_a16_relic": {
-        "url_name": "axi_a16_relic",
-        "test": "data"
-    },
-    "arcane_eruption": {
-        "url_name": "arcane_eruption",
-        "test": "data"
-    },
-    "paris_prime_string": {
-        "url_name": "paris_prime_string",
-        "test": "data"
-    },
-    "charged_bullets": {
-        "url_name": "charged_bullets",
-        "test": "data"
-    },
-    "lith_d2_relic": {
-        "url_name": "lith_d2_relic",
-        "test": "data"
-    },
-    "neo_s17_relic": {
-        "url_name": "neo_s17_relic",
-        "test": "data"
-    },
-    "arcane_vespa_helmet": {
-        "url_name": "arcane_vespa_helmet",
-        "test": "data"
-    },
-    "double_barrel_drift": {
-        "url_name": "double_barrel_drift",
-        "test": "data"
-    },
-    "particle_ram": {
-        "url_name": "particle_ram",
-        "test": "data"
-    },
-    "lith_m6_relic": {
-        "url_name": "lith_m6_relic",
-        "test": "data"
-    },
-    "neo_n22_relic": {
-        "url_name": "neo_n22_relic",
-        "test": "data"
-    },
-    "escape_velocity": {
-        "url_name": "escape_velocity",
-        "test": "data"
-    },
-    "gorgon_wraith_blueprint": {
-        "url_name": "gorgon_wraith_blueprint",
-        "test": "data"
-    },
-    "blackout_pulse": {
-        "url_name": "blackout_pulse",
-        "test": "data"
-    },
-    "lith_s3_relic": {
-        "url_name": "lith_s3_relic",
-        "test": "data"
-    },
-    "axi_b6_relic": {
-        "url_name": "axi_b6_relic",
-        "test": "data"
-    },
-    "expel_infested": {
-        "url_name": "expel_infested",
-        "test": "data"
-    },
-    "argon_scope": {
-        "url_name": "argon_scope",
-        "test": "data"
-    },
-    "sabot_rounds": {
-        "url_name": "sabot_rounds",
-        "test": "data"
-    },
-    "lith_h1_relic": {
-        "url_name": "lith_h1_relic",
-        "test": "data"
-    },
-    "axi_k11_relic": {
-        "url_name": "axi_k11_relic",
-        "test": "data"
-    },
-    "gas_city_cloud_vista_scene": {
-        "url_name": "gas_city_cloud_vista_scene",
-        "test": "data"
-    },
-    "explosive_demise": {
-        "url_name": "explosive_demise",
-        "test": "data"
-    },
-    "rubico_prime_receiver": {
-        "url_name": "rubico_prime_receiver",
-        "test": "data"
-    },
-    "lith_b2_relic": {
-        "url_name": "lith_b2_relic",
-        "test": "data"
-    },
-    "lith_k10_relic": {
-        "url_name": "lith_k10_relic",
-        "test": "data"
-    },
-    "combustion_rounds": {
-        "url_name": "combustion_rounds",
-        "test": "data"
-    },
-    "sicarus_prime_receiver": {
-        "url_name": "sicarus_prime_receiver",
-        "test": "data"
-    },
-    "galatine_prime_blade": {
-        "url_name": "galatine_prime_blade",
-        "test": "data"
-    },
-    "lith_t1_relic": {
-        "url_name": "lith_t1_relic",
-        "test": "data"
-    },
-    "neo_l2_relic": {
-        "url_name": "neo_l2_relic",
         "test": "data"
     }
 }

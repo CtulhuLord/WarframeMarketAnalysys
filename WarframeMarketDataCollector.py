@@ -5,14 +5,8 @@ import json
 import time
 from tqdm.asyncio import tqdm_asyncio
 
-# Logging Configuration (Optional, but recommended)
-logging.basicConfig(
-    filename='collector.log',
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
-# Create the logger (after logging config)
+# Настройка логирования
+logging.basicConfig(filename='collector.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 async def fetch_all_items(session):
@@ -52,6 +46,7 @@ async def fetch_item_data(session, item_url_name):
 async def main():
     start_time = time.time()
     logger.info("Начало сбора данных")
+    print("Начало сбора данных...") # Вывод в консоль
 
     try:
         async with aiohttp.ClientSession() as session:
@@ -59,20 +54,22 @@ async def main():
 
             if all_items_list is None:
                 logger.error("Не удалось получить список всех предметов.")
+                print("Ошибка: не удалось получить список предметов.") # Вывод в консоль
                 return
 
             item_count = len(all_items_list) if all_items_list else 0
             logger.info(f"Получено {item_count} предметов.")
+            print(f"Получено {item_count} предметов.") # Вывод в консоль
 
             if item_count == 0:
                 logger.warning("Список предметов пуст. Проверьте запрос к API.")
+                print("Внимание: список предметов пуст.") # Вывод в консоль
                 return
 
             all_items_data = {}
 
             tasks = [fetch_item_data(session, item["url_name"]) for item in all_items_list]
             for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
-                logger.debug(f"Начало обработки предмета")
                 try:
                     item_data = await future
                     if item_data:
@@ -80,23 +77,35 @@ async def main():
                 except Exception as e:
                     logger.exception(f"Ошибка при обработке предмета: {e}")
 
+            saved_item_count = len(all_items_data)
+            logger.info(f"Количество предметов, готовых к сохранению: {saved_item_count}")
+            print(f"Готово к сохранению: {saved_item_count} предметов.") # Вывод в консоль
+
             with open("all_items_data.json", "w", encoding="utf-8") as f:
                 json.dump(all_items_data, f, indent=4, ensure_ascii=False)
 
             logger.info("Сбор данных завершен.")
+            print("Сбор данных завершен.") # Вывод в консоль
 
             with open("all_items_data.json", "r", encoding="utf-8") as f:
                 loaded_data = json.load(f)
 
-            item_count = len(loaded_data)
-            logger.info(f"Количество сохраненных предметов: {item_count}")
+            loaded_item_count = len(loaded_data)
+            logger.info(f"Количество сохраненных предметов (после чтения из файла): {loaded_item_count}")
+            print(f"Сохранено: {loaded_item_count} предметов.") # Вывод в консоль
+
+            if saved_item_count != loaded_item_count:
+                logger.error(f"Количество предметов перед записью ({saved_item_count}) не совпадает с количеством после чтения ({loaded_item_count})!")
+                print("Ошибка: количество сохраненных предметов не совпадает с ожидаемым!") # Вывод в консоль
 
     except Exception as e:
         logger.exception(f"Произошла непредвиденная ошибка: {e}")
+        print(f"Произошла непредвиденная ошибка: {e}") # Вывод в консоль
     finally:
         end_time = time.time()
         elapsed_time = end_time - start_time
         logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
+        print(f"Время выполнения: {elapsed_time:.2f} секунд") # Вывод в консоль
 
 if __name__ == "__main__":
     asyncio.run(main())

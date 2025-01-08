@@ -66,8 +66,10 @@ async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, ma
                     return None
         except aiohttp.ClientError as e:
             logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
-            delay = min(delay * 2, max_delay)
-            await asyncio.sleep(delay)
+            if attempt < retries - 1: # Добавлена проверка, чтобы не спамить последней ошибкой
+                delay = min(delay * 2, max_delay)
+                logger.info(f"Повторная попытка через {delay} секунд...")
+                await asyncio.sleep(delay)
         except json.JSONDecodeError as e:
             logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:200]}...", exc_info=True)
             delay = min(delay * 2, max_delay)
@@ -104,21 +106,22 @@ async def main():
             logger.info("Список всех предметов сохранен в all_items_list.json")
             print("Список всех предметов сохранен в all_items_list.json")
 
-            all_items_data = {}
+            all_items_data = {} # Инициализация словаря перед циклом
             tasks = [asyncio.create_task(limited_fetch(session, item)) for item in all_items_list]
 
             for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
                 try:
                     item_data = await future
                     if item_data:
-                        all_items_data[item_data['url_name']] = item_data
+                        all_items_data[item_data['url_name']] = item_data # ВОТ ЭТА СТРОКА БЫЛА УДАЛЕНА
                     else:
                         logger.warning("Получены пустые данные для предмета.")
                 except Exception as e:
                     logger.exception(f"Ошибка при обработке результата: {e}")
 
             with open("all_items_data.json", "w", encoding="utf-8") as f:
-                json.dump(all_items_data, f, indent=4, ensure_ascii=False)
+                json.dump(all_items_data, f, indent=4, ensure_ascii=False) # Сохранение данных
+
 
             logger.info("Сбор данных завершен.")
             print("Сбор данных завершен.")

@@ -1,12 +1,11 @@
-import asyncio
-import aiohttp
+import requests
 import json
 import logging
 import time
 import os
 import glob
-from tqdm.asyncio import tqdm_asyncio
 from logging.handlers import RotatingFileHandler
+from tqdm import tqdm
 
 # Настройка логирования
 log_format = '%(asctime)s - %(levelname)s - %(message)s'
@@ -30,117 +29,114 @@ def cleanup_old_logs(log_file_base):
             except OSError as e:
                 logger.error(f"Ошибка при удалении лог-файла {file_to_delete}: {e}")
 
-async def fetch_all_items(session):
+def fetch_all_items():
     url = "https://api.warframe.market/v1/items"
     try:
-        async with session.get(url) as response:
-            response.raise_for_status()
-            data = await response.json()
-            return data["payload"]["items"]
-    except aiohttp.ClientError as e:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+        return data["payload"]["items"]
+    except requests.exceptions.RequestException as e:
         logger.error(f"Ошибка при получении списка предметов: {e}")
         return None
 
-async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, max_delay=60):
+def fetch_item_data(item_url_name, retries=5, initial_delay=1, max_delay=60):
     url = f"https://api.warframe.market/v1/items/{item_url_name}"
     delay = initial_delay
     for attempt in range(retries):
         try:
-            async with session.get(url, timeout=10) as response: # Таймаут 10 секунд
-                if response.status == 429:
-                    retry_after = int(response.headers.get("Retry-After", 1))
-                    delay = min(delay * 2, max_delay)
-                    logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}).")
-                    await asyncio.sleep(retry_after)
-                    continue
-                response.raise_for_status() # Вызывает исключение для 4xx и 5xx ошибок
-                data = await response.json()
-                item_data = data.get("payload", {}).get("item")
-                if item_data:
-                    items_in_set = item_data.get("items_in_set", [])
-                    item_data["items_in_set"] = [item.get("url_name") for item in items_in_set if item.get("url_name")]
+            logger.debug(f"Запрос URL: {url} (Попытка {attempt+1})")
+            response = requests.get(url, timeout=10) # Таймаут 10 секунд
+            logger.debug(f"Статус ответа: {response.status_code}")
+            if response.status_code == 429:
+                retry_after = int(response.headers.get("Retry-After", 1))
+                delay = min(delay * 2, max_delay)
+                logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}).")
+                time.sleep(retry_after)
+                continue
+            response.raise_for_status()
+            text = response.text
+            logger.debug(f"Текст ответа (до 500 символов): {text[:500]}...")
+            data = response.json()
+            logger.debug(f"JSON данные: {data}")
+            item_data = data.get("payload", {}).get("item")
+            logger.debug(f"item_data: {item_data}")
+            if item_data:
+                if 'url_name' in item_data:
                     logger.info(f"Успешно получены данные для предмета: {item_url_name}")
                     return item_data
                 else:
-                    logger.warning(f"Получены пустые данные для предмета {item_url_name}")
+                    logger.error(f"В item_data отсутствует ключ 'url_name' для {item_url_name}. data: {data}")
                     return None
-        except aiohttp.ClientError as e: # Обработка ошибок соединения и других клиентских ошибок
+            else:
+                logger.warning(f"Получены пустые данные для предмета {item_url_name}")
+                return None
+        except requests.exceptions.RequestException as e:
             logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
             if attempt < retries - 1:
                 delay = min(delay * 2, max_delay)
                 logger.info(f"Повторная попытка через {delay} секунд...")
-                await asyncio.sleep(delay)
-        except asyncio.TimeoutError: # Обработка таймаута
-            logger.error(f"Превышен таймаут при получении данных о предмете {item_url_name} (попытка {attempt+1})")
-            if attempt < retries - 1:
-                delay = min(delay * 2, max_delay)
-                logger.info(f"Повторная попытка через {delay} секунд...")
-                await asyncio.sleep(delay)
+                time.sleep(delay)
         except json.JSONDecodeError as e:
-            logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:200]}...", exc_info=True)
-            delay = min(delay * 2, max_delay)
-            await asyncio.sleep(delay)
+            logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:500]}...", exc_info=True)
+            return None
         except (KeyError, TypeError) as e:
             logger.error(f"Ошибка структуры данных для {item_url_name} (попытка {attempt+1}): {e}", exc_info=True)
             return None
-    logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток. Превышено количество попыток.")
+    logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток.")
     return None
 
-semaphore = asyncio.Semaphore(50)
+def main():
+    start_time = time.time()
+    logger.info("Начало сбора данных")
+    print("Начало сбора данных...")
 
-async def limited_fetch(session, item):
-    async with semaphore:
-        return await fetch_item_data(session, item["url_name"])
+    try:
+        cleanup_old_logs(log_file_base)
 
-async def main():
-    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session: # Таймаут сессии
-        start_time = time.time()
-        logger.info("Начало сбора данных")
-        print("Начало сбора данных...")
+        all_items_list = fetch_all_items()
+        if all_items_list is None:
+            logger.error("Не удалось получить список всех предметов.")
+            print("Ошибка: не удалось получить список предметов.")
+            return
 
-        try:
-            cleanup_old_logs(log_file_base)
+        with open("all_items_list.json", "w", encoding="utf-8") as f:
+            json.dump(all_items_list, f, indent=4, ensure_ascii=False)
+        logger.info("Список всех предметов сохранен в all_items_list.json")
+        print("Список всех предметов сохранен в all_items_list.json")
 
-            async with aiohttp.ClientSession() as session:
-                all_items_list = await fetch_all_items(session)
-                if all_items_list is None:
-                    logger.error("Не удалось получить список всех предметов.")
-                    print("Ошибка: не удалось получить список предметов.")
-                    return
+        all_items_data = {}
+        successful_items = 0
+        failed_items = 0
 
-                with open("all_items_list.json", "w", encoding="utf-8") as f:
-                    json.dump(all_items_list, f, indent=4, ensure_ascii=False)
-                logger.info("Список всех предметов сохранен в all_items_list.json")
-                print("Список всех предметов сохранен в all_items_list.json")
+        with tqdm(total=len(all_items_list), desc="Загрузка данных о предметах") as pbar: # Шкала прогресса
+            for item in all_items_list:
+                item_data = fetch_item_data(item["url_name"])
+                if item_data:
+                    all_items_data[item_data['url_name']] = item_data
+                    successful_items += 1
+                else:
+                    logger.warning(f"Не удалось получить данные для {item['url_name']}")
+                    failed_items += 1
+                time.sleep(0.5)
+                pbar.update(1) # Обновление шкалы после каждого запроса
 
-                all_items_data = {} # Инициализация словаря перед циклом
-                tasks = [asyncio.create_task(limited_fetch(session, item)) for item in all_items_list]
+        with open("all_items_data.json", "w", encoding="utf-8") as f:
+            json.dump(all_items_data, f, indent=4, ensure_ascii=False)
 
-                for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
-                    try:
-                        item_data = await future
-                        if item_data:
-                            all_items_data[item_data['url_name']] = item_data # ВОТ ЭТА СТРОКА БЫЛА УДАЛЕНА
-                        else:
-                            logger.warning("Получены пустые данные для предмета.")
-                    except Exception as e:
-                        logger.exception(f"Ошибка при обработке результата: {e}")
+        logger.info(f"Успешно получено {successful_items} предметов.")
+        logger.info(f"Не удалось получить {failed_items} предметов.")
+        logger.info("Сбор данных завершен.")
+        print("Сбор данных завершен.")
 
-                with open("all_items_data.json", "w", encoding="utf-8") as f:
-                    json.dump(all_items_data, f, indent=4, ensure_ascii=False) # Сохранение данных
-
-
-                logger.info("Сбор данных завершен.")
-                print("Сбор данных завершен.")
-
-        except Exception as e:
-            logger.exception(f"Произошла непредвиденная ошибка: {e}")
-            print(f"Произошла непредвиденная ошибка: {e}")
-        finally:
-            end_time = time.time()
-            elapsed_time = end_time - start_time
-            logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
-            print(f"Время выполнения: {elapsed_time:.2f} секунд")
+    except Exception as e:
+        logger.exception(f"Произошла непредвиденная ошибка: {e}")
+        print(f"Произошла непредвиденная ошибка: {e}")
+    finally:
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
+        print(f"Время выполнения: {elapsed_time:.2f} секунд")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

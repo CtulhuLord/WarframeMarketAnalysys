@@ -10,9 +10,9 @@ from logging.handlers import RotatingFileHandler
 
 # Настройка логирования с ротацией
 log_format = '%(asctime)s - %(levelname)s - %(message)s'
-log_file_base = 'collector'  # Базовое имя лог-файла
-log_file = f'{log_file_base}.log' # Имя текущего лог файла
-log_handler = RotatingFileHandler(log_file, maxBytes=3*1024*1024, backupCount=9, encoding='utf-8') # 3MB, 9 бэкапов (итого 10 файлов)
+log_file_base = 'collector'
+log_file = f'{log_file_base}.log'
+log_handler = RotatingFileHandler(log_file, maxBytes=3*1024*1024, backupCount=9, encoding='utf-8')
 log_handler.setFormatter(logging.Formatter(log_format))
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -20,7 +20,7 @@ logger.addHandler(log_handler)
 
 def cleanup_old_logs(log_file_base):
     """Удаляет старые лог-файлы, оставляя последние 10."""
-    log_files = glob.glob(f"{log_file_base}*.log") # Изменено для поиска файлов с расширением .log
+    log_files = glob.glob(f"{log_file_base}*.log")
     log_files.sort(key=os.path.getmtime)
     if len(log_files) > 10:
         files_to_delete = log_files[:-10]
@@ -76,6 +76,11 @@ async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, ma
     logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток. Превышено количество попыток.")
     return None
 
+semaphore = asyncio.Semaphore(50)
+
+async def limited_fetch(session, item):
+    async with semaphore:
+        return await fetch_item_data(session, item["url_name"])
 
 async def main():
     start_time = time.time()
@@ -83,37 +88,39 @@ async def main():
     print("Начало сбора данных...")
 
     try:
-        cleanup_old_logs(log_file) # Очистка логов перед началом работы
+        cleanup_old_logs(log_file_base)
 
         async with aiohttp.ClientSession() as session:
             all_items_list = await fetch_all_items(session)
-
             if all_items_list is None:
                 logger.error("Не удалось получить список всех предметов.")
                 print("Ошибка: не удалось получить список предметов.")
                 return
+            
+            # Сохранение списка всех предметов
+            with open("all_items_list.json", "w", encoding="utf-8") as f:
+                json.dump(all_items_list, f, indent=4, ensure_ascii=False)
+            logger.info("Список всех предметов сохранен в all_items_list.json")
+            print("Список всех предметов сохранен в all_items_list.json")
+
 
             all_items_data = {}
+            successful_fetches = 0
+            failed_fetches = 0
 
-            tasks = [fetch_item_data(session, item["url_name"]) for item in all_items_list]
-
-            semaphore = asyncio.Semaphore(50) # Ограничение количества одновременных запросов
-
-            async def limited_fetch(item):
-                async with semaphore:
-                    return await fetch_item_data(session, item["url_name"])
-
-            tasks = [limited_fetch(item) for item in all_items_list]
+            tasks = [asyncio.create_task(limited_fetch(session, item)) for item in all_items_list]
 
             for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
-                try:
-                    item_data = await future
-                    if item_data:
-                        all_items_data[item_data['url_name']] = item_data
-                    else:
-                        logger.warning("Получены пустые данные для предмета.")
-                except Exception as e:
-                    logger.exception(f"Непредвиденная ошибка при обработке результата: {e}")
+                item_data = await future
+                if item_data:
+                    all_items_data[item_data['url_name']] = item_data
+                    successful_fetches += 1
+                else:
+                    failed_fetches += 1
+                    logger.warning("Получены пустые данные для предмета.")
+
+            logger.info(f"Успешно получено данных о {successful_fetches} предметах.")
+            logger.info(f"Не удалось получить данные о {failed_fetches} предметах.")
 
             saved_item_count = len(all_items_data)
             logger.info(f"Количество предметов, готовых к сохранению: {saved_item_count}")

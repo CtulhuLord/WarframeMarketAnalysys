@@ -8,7 +8,7 @@ import glob
 from tqdm.asyncio import tqdm_asyncio
 from logging.handlers import RotatingFileHandler
 
-# Настройка логирования с ротацией
+# Настройка логирования
 log_format = '%(asctime)s - %(levelname)s - %(message)s'
 log_file_base = 'collector'
 log_file = f'{log_file_base}.log'
@@ -19,7 +19,6 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(log_handler)
 
 def cleanup_old_logs(log_file_base):
-    """Удаляет старые лог-файлы, оставляя последние 10."""
     log_files = glob.glob(f"{log_file_base}*.log")
     log_files.sort(key=os.path.getmtime)
     if len(log_files) > 10:
@@ -42,26 +41,29 @@ async def fetch_all_items(session):
         logger.error(f"Ошибка при получении списка предметов: {e}")
         return None
 
-async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, max_delay=60): # Расширенные параметры
+async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, max_delay=60):
     url = f"https://api.warframe.market/v1/items/{item_url_name}"
-    delay = initial_delay # Начальная задержка
+    delay = initial_delay
     for attempt in range(retries):
         try:
             async with session.get(url) as response:
-                if response.status == 429: # Обработка 429 ошибки
-                    retry_after = int(response.headers.get("Retry-After", 1)) # Получаем время задержки из заголовка
-                    delay = min(delay * 2, max_delay) # Увеличиваем задержку экспоненциально, но не более max_delay
+                if response.status == 429:
+                    retry_after = int(response.headers.get("Retry-After", 1))
+                    delay = min(delay * 2, max_delay)
                     logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}).")
-                    await asyncio.sleep(retry_after) # Задержка, указанная сервером
-                    continue # Переходим к следующей попытке
-                response.raise_for_status() # Проверка на другие ошибки
-                text = await response.text()
-                data = json.loads(text)
+                    await asyncio.sleep(retry_after)
+                    continue
+                response.raise_for_status()
+                data = await response.json()
                 item_data = data.get("payload", {}).get("item")
                 if item_data:
                     items_in_set = item_data.get("items_in_set", [])
                     item_data["items_in_set"] = [item.get("url_name") for item in items_in_set if item.get("url_name")]
-                return item_data
+                    logger.info(f"Успешно получены данные для предмета: {item_url_name}")
+                    return item_data
+                else:
+                    logger.warning(f"Получены пустые данные для предмета {item_url_name}")
+                    return None
         except aiohttp.ClientError as e:
             logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
             delay = min(delay * 2, max_delay)
@@ -96,52 +98,30 @@ async def main():
                 logger.error("Не удалось получить список всех предметов.")
                 print("Ошибка: не удалось получить список предметов.")
                 return
-            
-            # Сохранение списка всех предметов
+
             with open("all_items_list.json", "w", encoding="utf-8") as f:
                 json.dump(all_items_list, f, indent=4, ensure_ascii=False)
             logger.info("Список всех предметов сохранен в all_items_list.json")
             print("Список всех предметов сохранен в all_items_list.json")
 
-
             all_items_data = {}
-            successful_fetches = 0
-            failed_fetches = 0
-
             tasks = [asyncio.create_task(limited_fetch(session, item)) for item in all_items_list]
 
             for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
-                item_data = await future
-                if item_data:
-                    all_items_data[item_data['url_name']] = item_data
-                    successful_fetches += 1
-                else:
-                    failed_fetches += 1
-                    logger.warning("Получены пустые данные для предмета.")
-
-            logger.info(f"Успешно получено данных о {successful_fetches} предметах.")
-            logger.info(f"Не удалось получить данные о {failed_fetches} предметах.")
-
-            saved_item_count = len(all_items_data)
-            logger.info(f"Количество предметов, готовых к сохранению: {saved_item_count}")
-            print(f"Готово к сохранению: {saved_item_count} предметов.")
+                try:
+                    item_data = await future
+                    if item_data:
+                        all_items_data[item_data['url_name']] = item_data
+                    else:
+                        logger.warning("Получены пустые данные для предмета.")
+                except Exception as e:
+                    logger.exception(f"Ошибка при обработке результата: {e}")
 
             with open("all_items_data.json", "w", encoding="utf-8") as f:
                 json.dump(all_items_data, f, indent=4, ensure_ascii=False)
 
             logger.info("Сбор данных завершен.")
             print("Сбор данных завершен.")
-
-            with open("all_items_data.json", "r", encoding="utf-8") as f:
-                loaded_data = json.load(f)
-
-            loaded_item_count = len(loaded_data)
-            logger.info(f"Количество сохраненных предметов (после чтения из файла): {loaded_item_count}")
-            print(f"Сохранено: {loaded_item_count} предметов.")
-
-            if saved_item_count != loaded_item_count:
-                logger.error(f"Количество предметов перед записью ({saved_item_count}) не совпадает с количеством после чтения ({loaded_item_count})!")
-                print("Ошибка: количество сохраненных предметов не совпадает с ожидаемым!")
 
     except Exception as e:
         logger.exception(f"Произошла непредвиденная ошибка: {e}")

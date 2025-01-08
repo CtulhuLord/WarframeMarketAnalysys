@@ -42,14 +42,21 @@ async def fetch_all_items(session):
         logger.error(f"Ошибка при получении списка предметов: {e}")
         return None
 
-async def fetch_item_data(session, item_url_name, retries=3): # Добавлено количество попыток
+async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, max_delay=60): # Расширенные параметры
     url = f"https://api.warframe.market/v1/items/{item_url_name}"
-    for attempt in range(retries): # Цикл повторных попыток
+    delay = initial_delay # Начальная задержка
+    for attempt in range(retries):
         try:
             async with session.get(url) as response:
-                response.raise_for_status()
-                text = await response.text() # Получаем текст ответа
-                data = json.loads(text) # Парсим JSON вручную
+                if response.status == 429: # Обработка 429 ошибки
+                    retry_after = int(response.headers.get("Retry-After", 1)) # Получаем время задержки из заголовка
+                    delay = min(delay * 2, max_delay) # Увеличиваем задержку экспоненциально, но не более max_delay
+                    logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}).")
+                    await asyncio.sleep(retry_after) # Задержка, указанная сервером
+                    continue # Переходим к следующей попытке
+                response.raise_for_status() # Проверка на другие ошибки
+                text = await response.text()
+                data = json.loads(text)
                 item_data = data.get("payload", {}).get("item")
                 if item_data:
                     items_in_set = item_data.get("items_in_set", [])
@@ -57,15 +64,18 @@ async def fetch_item_data(session, item_url_name, retries=3): # Добавлен
                 return item_data
         except aiohttp.ClientError as e:
             logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
-            await asyncio.sleep(1) # Задержка перед повторной попыткой
+            delay = min(delay * 2, max_delay)
+            await asyncio.sleep(delay)
         except json.JSONDecodeError as e:
-            logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:200]}...", exc_info=True) # Добавлено exc_info и вывод части текста
-            await asyncio.sleep(1) # Задержка перед повторной попыткой
+            logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:200]}...", exc_info=True)
+            delay = min(delay * 2, max_delay)
+            await asyncio.sleep(delay)
         except (KeyError, TypeError) as e:
             logger.error(f"Ошибка структуры данных для {item_url_name} (попытка {attempt+1}): {e}", exc_info=True)
-            return None # Возвращаем None при ошибке структуры
-    logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток.")
-    return None # Возвращаем None, если все попытки неудачны
+            return None
+    logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток. Превышено количество попыток.")
+    return None
+
 
 async def main():
     start_time = time.time()
@@ -86,6 +96,15 @@ async def main():
             all_items_data = {}
 
             tasks = [fetch_item_data(session, item["url_name"]) for item in all_items_list]
+
+            semaphore = asyncio.Semaphore(50) # Ограничение количества одновременных запросов
+
+            async def limited_fetch(item):
+                async with semaphore:
+                    return await fetch_item_data(session, item["url_name"])
+
+            tasks = [limited_fetch(item) for item in all_items_list]
+
             for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
                 try:
                     item_data = await future

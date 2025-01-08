@@ -120,7 +120,7 @@ def main():
             for item in items_to_process:
                 item_data = fetch_item_data(item["url_name"])
                 if item_data:
-                    try: # Обертка try-except для предотвращения TypeError
+                    try:
                         all_items_data[item_data['url_name']] = item_data
                         successful_items += 1
                     except TypeError as e:
@@ -128,12 +128,13 @@ def main():
                         failed_items += 1 # Важно учесть и эту ошибку в failed_items
                 else:
                     logger.warning(f"Не удалось получить данные для {item['url_name']}")
-                    failed_items += 1
+                    failed_items += 1 # <- Вот это было пропущено!
+
                 time.sleep(0.5)
                 pbar.update(1)
 
         with open("all_items_data.json", "w", encoding="utf-8") as f:
-            json.dump(all_items_data, f, indent=4, ensure_ascii=False) # Запись в файл происходит только после завершения цикла
+            json.dump(all_items_data, f, indent=4, ensure_ascii=False)
 
         logger.info(f"Успешно получено {successful_items} предметов.")
         logger.info(f"Не удалось получить {failed_items} предметов.")

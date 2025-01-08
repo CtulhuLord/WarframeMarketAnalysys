@@ -4,7 +4,7 @@ import logging
 import time
 import os
 import glob
-import argparse  # Для обработки аргументов командной строки
+import argparse
 from logging.handlers import RotatingFileHandler
 from tqdm import tqdm
 
@@ -114,14 +114,18 @@ def main():
         successful_items = 0
         failed_items = 0
 
-        items_to_process = all_items_list[:args.limit] if args.limit > 0 else all_items_list # Ограничение списка
+        items_to_process = all_items_list[:args.limit] if args.limit > 0 else all_items_list
 
         with tqdm(total=len(items_to_process), desc="Загрузка данных о предметах") as pbar:
             for item in items_to_process:
                 item_data = fetch_item_data(item["url_name"])
                 if item_data:
-                    all_items_data[item_data['url_name']] = item_data
-                    successful_items += 1
+                    try: # Обертка try-except для предотвращения TypeError
+                        all_items_data[item_data['url_name']] = item_data
+                        successful_items += 1
+                    except TypeError as e:
+                        logger.error(f"Ошибка при добавлении данных в all_items_data для {item['url_name']}: {e}, item_data: {item_data}")
+                        failed_items += 1 # Важно учесть и эту ошибку в failed_items
                 else:
                     logger.warning(f"Не удалось получить данные для {item['url_name']}")
                     failed_items += 1
@@ -129,7 +133,7 @@ def main():
                 pbar.update(1)
 
         with open("all_items_data.json", "w", encoding="utf-8") as f:
-            json.dump(all_items_data, f, indent=4, ensure_ascii=False)
+            json.dump(all_items_data, f, indent=4, ensure_ascii=False) # Запись в файл происходит только после завершения цикла
 
         logger.info(f"Успешно получено {successful_items} предметов.")
         logger.info(f"Не удалось получить {failed_items} предметов.")

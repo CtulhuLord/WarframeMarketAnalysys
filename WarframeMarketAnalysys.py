@@ -150,7 +150,7 @@ def count_items(data):
             count_items(data["items_in_set"])
         else:
             total_items += 1
-    else:
+    elif data is not None: # Добавлена проверка на None
         total_items += 1
 
 async def main():
@@ -167,11 +167,13 @@ async def main():
 
             all_tasks = []
             for item_name, item_details in item_data.items():
-                if "items_in_set" in item_details and isinstance(item_details["items_in_set"], list):
-                    for item in item_details["items_in_set"]:
-                        all_tasks.append(process_item_data(session, item))
-                else:
-                    all_tasks.append(process_item_data(session, item_details))
+                if isinstance(item_details, dict): # Проверка, что item_details - словарь
+                    if "items_in_set" in item_details and isinstance(item_details["items_in_set"], list):
+                        for item in item_details["items_in_set"]:
+                            if isinstance(item,dict): #проверка что item это словарь
+                                all_tasks.append(process_item_data(session, item))
+                    else:
+                        all_tasks.append(process_item_data(session, item_details))
 
             processed_items_count = 0
             results = await tqdm_asyncio.gather(*all_tasks, desc="Обработка предметов", total=total_items)

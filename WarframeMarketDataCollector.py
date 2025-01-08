@@ -46,14 +46,14 @@ async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, ma
     delay = initial_delay
     for attempt in range(retries):
         try:
-            async with session.get(url) as response:
+            async with session.get(url, timeout=10) as response: # Таймаут 10 секунд
                 if response.status == 429:
                     retry_after = int(response.headers.get("Retry-After", 1))
                     delay = min(delay * 2, max_delay)
                     logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}).")
                     await asyncio.sleep(retry_after)
                     continue
-                response.raise_for_status()
+                response.raise_for_status() # Вызывает исключение для 4xx и 5xx ошибок
                 data = await response.json()
                 item_data = data.get("payload", {}).get("item")
                 if item_data:
@@ -64,9 +64,15 @@ async def fetch_item_data(session, item_url_name, retries=5, initial_delay=1, ma
                 else:
                     logger.warning(f"Получены пустые данные для предмета {item_url_name}")
                     return None
-        except aiohttp.ClientError as e:
+        except aiohttp.ClientError as e: # Обработка ошибок соединения и других клиентских ошибок
             logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
-            if attempt < retries - 1: # Добавлена проверка, чтобы не спамить последней ошибкой
+            if attempt < retries - 1:
+                delay = min(delay * 2, max_delay)
+                logger.info(f"Повторная попытка через {delay} секунд...")
+                await asyncio.sleep(delay)
+        except asyncio.TimeoutError: # Обработка таймаута
+            logger.error(f"Превышен таймаут при получении данных о предмете {item_url_name} (попытка {attempt+1})")
+            if attempt < retries - 1:
                 delay = min(delay * 2, max_delay)
                 logger.info(f"Повторная попытка через {delay} секунд...")
                 await asyncio.sleep(delay)
@@ -87,53 +93,54 @@ async def limited_fetch(session, item):
         return await fetch_item_data(session, item["url_name"])
 
 async def main():
-    start_time = time.time()
-    logger.info("Начало сбора данных")
-    print("Начало сбора данных...")
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session: # Таймаут сессии
+        start_time = time.time()
+        logger.info("Начало сбора данных")
+        print("Начало сбора данных...")
 
-    try:
-        cleanup_old_logs(log_file_base)
+        try:
+            cleanup_old_logs(log_file_base)
 
-        async with aiohttp.ClientSession() as session:
-            all_items_list = await fetch_all_items(session)
-            if all_items_list is None:
-                logger.error("Не удалось получить список всех предметов.")
-                print("Ошибка: не удалось получить список предметов.")
-                return
+            async with aiohttp.ClientSession() as session:
+                all_items_list = await fetch_all_items(session)
+                if all_items_list is None:
+                    logger.error("Не удалось получить список всех предметов.")
+                    print("Ошибка: не удалось получить список предметов.")
+                    return
 
-            with open("all_items_list.json", "w", encoding="utf-8") as f:
-                json.dump(all_items_list, f, indent=4, ensure_ascii=False)
-            logger.info("Список всех предметов сохранен в all_items_list.json")
-            print("Список всех предметов сохранен в all_items_list.json")
+                with open("all_items_list.json", "w", encoding="utf-8") as f:
+                    json.dump(all_items_list, f, indent=4, ensure_ascii=False)
+                logger.info("Список всех предметов сохранен в all_items_list.json")
+                print("Список всех предметов сохранен в all_items_list.json")
 
-            all_items_data = {} # Инициализация словаря перед циклом
-            tasks = [asyncio.create_task(limited_fetch(session, item)) for item in all_items_list]
+                all_items_data = {} # Инициализация словаря перед циклом
+                tasks = [asyncio.create_task(limited_fetch(session, item)) for item in all_items_list]
 
-            for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
-                try:
-                    item_data = await future
-                    if item_data:
-                        all_items_data[item_data['url_name']] = item_data # ВОТ ЭТА СТРОКА БЫЛА УДАЛЕНА
-                    else:
-                        logger.warning("Получены пустые данные для предмета.")
-                except Exception as e:
-                    logger.exception(f"Ошибка при обработке результата: {e}")
+                for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
+                    try:
+                        item_data = await future
+                        if item_data:
+                            all_items_data[item_data['url_name']] = item_data # ВОТ ЭТА СТРОКА БЫЛА УДАЛЕНА
+                        else:
+                            logger.warning("Получены пустые данные для предмета.")
+                    except Exception as e:
+                        logger.exception(f"Ошибка при обработке результата: {e}")
 
-            with open("all_items_data.json", "w", encoding="utf-8") as f:
-                json.dump(all_items_data, f, indent=4, ensure_ascii=False) # Сохранение данных
+                with open("all_items_data.json", "w", encoding="utf-8") as f:
+                    json.dump(all_items_data, f, indent=4, ensure_ascii=False) # Сохранение данных
 
 
-            logger.info("Сбор данных завершен.")
-            print("Сбор данных завершен.")
+                logger.info("Сбор данных завершен.")
+                print("Сбор данных завершен.")
 
-    except Exception as e:
-        logger.exception(f"Произошла непредвиденная ошибка: {e}")
-        print(f"Произошла непредвиденная ошибка: {e}")
-    finally:
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
-        print(f"Время выполнения: {elapsed_time:.2f} секунд")
+        except Exception as e:
+            logger.exception(f"Произошла непредвиденная ошибка: {e}")
+            print(f"Произошла непредвиденная ошибка: {e}")
+        finally:
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
+            print(f"Время выполнения: {elapsed_time:.2f} секунд")
 
 if __name__ == "__main__":
     asyncio.run(main())

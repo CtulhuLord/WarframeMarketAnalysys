@@ -3,26 +3,26 @@ import aiohttp
 import json
 import logging
 import time
-from tqdm.asyncio import tqdm_asyncio
-from logging.handlers import RotatingFileHandler
 import os
 import glob
+from tqdm.asyncio import tqdm_asyncio
+from logging.handlers import RotatingFileHandler
 
-# Настройка логирования с ротацией и удалением старых файлов
+# Настройка логирования с ротацией
 log_format = '%(asctime)s - %(levelname)s - %(message)s'
 log_file = 'warframe_market_orders.log'
-log_handler = RotatingFileHandler(log_file, maxBytes=10*1024*1024, backupCount=1, encoding='utf-8') # 1 бэкап, т.е. всего 2 файла
+log_handler = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=1, encoding='utf-8')
 log_handler.setFormatter(logging.Formatter(log_format))
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.WARNING)
+logger.setLevel(logging.INFO)  # Уровень INFO, чтобы видеть важные сообщения
 logger.addHandler(log_handler)
 
 def cleanup_old_logs(log_file_base):
-    """Удаляет старые лог-файлы, оставляя только 2 последних."""
-    log_files = glob.glob(f"{log_file_base}*") # Получаем список всех лог-файлов
-    log_files.sort(key=os.path.getmtime) # Сортируем по времени изменения
+    """Удаляет старые лог-файлы, оставляя последние 2."""
+    log_files = glob.glob(f"{log_file_base}*")
+    log_files.sort(key=os.path.getmtime)
     if len(log_files) > 2:
-        files_to_delete = log_files[:-2] # Выбираем файлы для удаления (все, кроме последних 2)
+        files_to_delete = log_files[:-2]
         for file_to_delete in files_to_delete:
             try:
                 os.remove(file_to_delete)
@@ -39,19 +39,16 @@ if os.path.exists(CACHE_FILE):
             cache = json.load(f)
         except json.JSONDecodeError:
             logger.error("Ошибка декодирования кэша. Создан новый кэш.")
+            cache = {} # Инициализация пустого кэша в случае ошибки
 
 # URL API
 BASE_URL = "https://api.warframe.market/v1"
-
-# Заголовки запроса
 HEADERS = {"Accept": "application/json"}
 
-# Начальные и максимальные значения задержки
+# Задержки и количество запросов
 INITIAL_DELAY = 0.1
 MAX_DELAY = 30.0
-
-# Семафор для ограничения количества одновременных запросов
-CONCURRENT_REQUESTS = 2
+CONCURRENT_REQUESTS = 5 # Увеличил количество одновременных запросов для ускорения
 
 async def fetch_data(session, url, current_delay=INITIAL_DELAY):
     """Асинхронно получает данные по URL с динамической задержкой и обработкой ошибок."""
@@ -157,61 +154,64 @@ def count_items(data):
 
 async def main():
     start_time = time.time()
+    processed_items_count = 0 # Инициализация счетчика обработанных предметов
     try:
         async with aiohttp.ClientSession() as session:
-            with open("all_items_data_filtered.json", "r", encoding="utf-8") as f:
+            with open("all_items_data.json", "r", encoding="utf-8") as f:
                 item_data = json.load(f)
 
             total_items = count_items(item_data)
             print(f"Найдено {total_items} предметов для обработки.")
+            logger.info(f"Найдено {total_items} предметов для обработки.")
 
             all_tasks = []
-            for item_group in item_data.values(): # перебираем значения основного словаря
+            for item_group in item_data.values():
                 if isinstance(item_group, dict) and "items_in_set" in item_group and isinstance(item_group["items_in_set"], list):
                     for item in item_group["items_in_set"]:
                         all_tasks.append(process_item_data(session, item))
 
             results = await tqdm_asyncio.gather(*all_tasks, desc="Обработка предметов", total=len(all_tasks))
-            while True:
-                filtered_results = [result for result in results if result is not None]
-                processed_items_count += len(filtered_results)
-                if processed_items_count == total_items:
-                    break
 
+            filtered_results = [result for result in results if result is not None] # Фильтрация None результатов
+            processed_items_count = len(filtered_results) # Обновление счетчика после первой обработки
+
+            # Цикл повторных попыток обработки неудачных запросов
+            while processed_items_count < total_items:
                 failed_tasks_indices = [i for i, result in enumerate(results) if result is None]
                 if not failed_tasks_indices:
-                    break
+                    break  # Выход, если все задачи выполнены успешно
                 logger.warning(f"Обработано {processed_items_count} из {total_items} предметов. Повторная попытка через 10 секунд.")
+                print(f"Обработано {processed_items_count} из {total_items} предметов. Повторная попытка через 10 секунд.")
                 await asyncio.sleep(10)
                 new_tasks = [all_tasks[i] for i in failed_tasks_indices]
-                results = await asyncio.gather(*new_tasks)
+                results = await asyncio.gather(*new_tasks, desc=f"Повторная обработка {len(new_tasks)} предметов", total=len(new_tasks))
+                filtered_results.extend([result for result in results if result is not None]) # Добавляем успешные результаты к общему списку
+                processed_items_count = len(filtered_results) # Обновляем счетчик
 
             cleanup_old_logs(log_file)
-
-            for result in filtered_results:
-                if result: #проверка на None
-                    print(
-                        f"Предмет: {result['item_name']}"
-                        f"\n Минимальная цена покупки: {result['lowest_buy_price']}"
-                        f"\n Максимальная цена продажи: {result['highest_sell_price']}"
-                        f"\n Разница цен: {result['price_difference']}\n"
-                    )
 
             output_filename = "orders_data.json"
             with open(output_filename, "w", encoding="utf-8") as f:
                 json.dump(filtered_results, f, indent=4, ensure_ascii=False)
             logger.info(f"Данные об ордерах сохранены в {output_filename}")
+            print(f"Данные об ордерах сохранены в {output_filename}")
+            print(f"Всего обработано {len(filtered_results)} предметов.") # Вывод общего количества обработанных предметов.
+            logger.info(f"Всего обработано {len(filtered_results)} предметов.")
 
     except FileNotFoundError:
-        logger.error("Файл all_items_data_filtered.json не найден.")
+        logger.error("Файл all_items_data.json не найден.")
+        print("Ошибка: файл all_items_data.json не найден. Запустите скрипт WarframeMarketAnalysys.py.")
     except json.JSONDecodeError:
-        logger.error("Ошибка декодирования JSON в файле all_items_data_filtered.json")
+        logger.error("Ошибка декодирования JSON в файле all_items_data.json")
+        print("Ошибка: поврежден файл all_items_data.json.")
     except Exception as e:
         logger.exception(f"Произошла непредвиденная ошибка: {e}")
+        print(f"Произошла непредвиденная ошибка: {e}")
     finally:
         end_time = time.time()
         elapsed_time = end_time - start_time
         logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
+        print(f"Время выполнения: {elapsed_time:.2f} секунд")
 
 if __name__ == "__main__":
     asyncio.run(main())

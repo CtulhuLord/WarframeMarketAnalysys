@@ -42,26 +42,30 @@ async def fetch_all_items(session):
         logger.error(f"Ошибка при получении списка предметов: {e}")
         return None
 
-async def fetch_item_data(session, item_url_name):
+async def fetch_item_data(session, item_url_name, retries=3): # Добавлено количество попыток
     url = f"https://api.warframe.market/v1/items/{item_url_name}"
-    try:
-        async with session.get(url) as response:
-            response.raise_for_status()
-            data = await response.json()
-            item_data = data.get("payload", {}).get("item") # Безопасный доступ к данным
-            if item_data:
-                items_in_set = item_data.get("items_in_set", [])
-                item_data["items_in_set"] = [item.get("url_name") for item in items_in_set if item.get("url_name")]
-            return item_data # Возвращаем непосредственно item_data
-    except aiohttp.ClientError as e:
-        logger.error(f"Ошибка при получении данных о предмете {item_url_name}: {e}")
-        return None
-    except (KeyError, TypeError) as e: # Обработка KeyError и TypeError
-        logger.error(f"Ошибка структуры данных для {item_url_name}: {e}")
-        return None
-    except json.JSONDecodeError as e:
-        logger.error(f"Ошибка декодирования JSON для {item_url_name}: {e}")
-        return None
+    for attempt in range(retries): # Цикл повторных попыток
+        try:
+            async with session.get(url) as response:
+                response.raise_for_status()
+                text = await response.text() # Получаем текст ответа
+                data = json.loads(text) # Парсим JSON вручную
+                item_data = data.get("payload", {}).get("item")
+                if item_data:
+                    items_in_set = item_data.get("items_in_set", [])
+                    item_data["items_in_set"] = [item.get("url_name") for item in items_in_set if item.get("url_name")]
+                return item_data
+        except aiohttp.ClientError as e:
+            logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
+            await asyncio.sleep(1) # Задержка перед повторной попыткой
+        except json.JSONDecodeError as e:
+            logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:200]}...", exc_info=True) # Добавлено exc_info и вывод части текста
+            await asyncio.sleep(1) # Задержка перед повторной попыткой
+        except (KeyError, TypeError) as e:
+            logger.error(f"Ошибка структуры данных для {item_url_name} (попытка {attempt+1}): {e}", exc_info=True)
+            return None # Возвращаем None при ошибке структуры
+    logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток.")
+    return None # Возвращаем None, если все попытки неудачны
 
 async def main():
     start_time = time.time()

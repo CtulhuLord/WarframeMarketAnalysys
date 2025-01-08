@@ -4,6 +4,7 @@ import logging
 import time
 import os
 import glob
+import argparse  # Для обработки аргументов командной строки
 from logging.handlers import RotatingFileHandler
 from tqdm import tqdm
 
@@ -87,6 +88,10 @@ def fetch_item_data(item_url_name, retries=5, initial_delay=1, max_delay=60):
     return None
 
 def main():
+    parser = argparse.ArgumentParser(description="Сбор данных с Warframe Market.")
+    parser.add_argument("--limit", type=int, default=0, help="Ограничение количества обрабатываемых предметов (0 - все).")
+    args = parser.parse_args()
+
     start_time = time.time()
     logger.info("Начало сбора данных")
     print("Начало сбора данных...")
@@ -109,8 +114,10 @@ def main():
         successful_items = 0
         failed_items = 0
 
-        with tqdm(total=len(all_items_list), desc="Загрузка данных о предметах") as pbar: # Шкала прогресса
-            for item in all_items_list:
+        items_to_process = all_items_list[:args.limit] if args.limit > 0 else all_items_list # Ограничение списка
+
+        with tqdm(total=len(items_to_process), desc="Загрузка данных о предметах") as pbar:
+            for item in items_to_process:
                 item_data = fetch_item_data(item["url_name"])
                 if item_data:
                     all_items_data[item_data['url_name']] = item_data
@@ -119,7 +126,7 @@ def main():
                     logger.warning(f"Не удалось получить данные для {item['url_name']}")
                     failed_items += 1
                 time.sleep(0.5)
-                pbar.update(1) # Обновление шкалы после каждого запроса
+                pbar.update(1)
 
         with open("all_items_data.json", "w", encoding="utf-8") as f:
             json.dump(all_items_data, f, indent=4, ensure_ascii=False)

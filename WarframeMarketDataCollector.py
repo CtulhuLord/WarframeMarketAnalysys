@@ -10,44 +10,22 @@ logging.basicConfig(filename='collector.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-async def fetch_item_data(session, item_url_name):
-    """Получает данные об одном предмете."""
-    try:
-        url = f"https://api.warframe.market/v1/items/{item_url_name}"
-        async with session.get(url) as response:
-            if response.status != 200:
-                logger.error(f"Ошибка при запросе {item_url_name}: статус {response.status}")
-                return None
-            data = await response.json()
-            return data["payload"]["item"] # Возвращаем непосредственно данные предмета
-    except aiohttp.ClientError as e:
-        logger.error(f"Ошибка сети при запросе {item_url_name}: {e}")
-        return None
-    except json.JSONDecodeError as e:
-        logger.error(f"Ошибка декодирования JSON для {item_url_name}: {e}")
-        return None
-    except KeyError as e:
-        logger.error(f"Ошибка структуры JSON для {item_url_name}: Отсутствует ключ {e}")
-        return None
-    except Exception as e:
-        logger.exception(f"Непредвиденная ошибка при запросе {item_url_name}: {e}")
-        return None
-
 async def fetch_all_items(session):
     try:
         url = "https://api.warframe.market/v1/items"
-        async with session.get(url) as response:
+        headers = {"Language": "en"}  # <-- Используем headers вместо params
+        async with session.get(url, headers=headers) as response:  # <-- Передаем headers
             if response.status != 200:
                 logger.error(f"Ошибка при запросе списка всех предметов: {response.status}")
                 return None
             data = await response.json()
 
-            # Добавляем отладочный вывод:
-            logger.debug(f"Ответ API (all_items): {json.dumps(data, indent=4, ensure_ascii=False)}") # Выводим весь ответ
+            # Отладочный вывод (оставьте для проверки):
+            logger.debug(f"Ответ API (all_items): {json.dumps(data, indent=4, ensure_ascii=False)}")
             if "payload" not in data or "items" not in data["payload"]:
               logger.error(f"Некорректная структура ответа API: Отсутствуют ключи 'payload' или 'items'")
               return None
-            
+
             return data["payload"]["items"]
 
     except aiohttp.ClientError as e:

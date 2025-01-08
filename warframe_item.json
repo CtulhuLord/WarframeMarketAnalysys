@@ -1,0 +1,620 @@
+{
+  "payload": {
+    "item": {
+      "id": "6139101a30dd5b004b7f90a4",
+      "items_in_set": [
+        {
+          "id": "6139101830dd5b004b7f9096",
+          "set_root": true,
+          "icon_format": "land",
+          "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+          "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+          "ducats": 205,
+          "trading_tax": 8000,
+          "mastery_level": 14,
+          "sub_icon": null,
+          "url_name": "strun_prime_set",
+          "tags": [
+            "primary",
+            "weapon",
+            "prime",
+            "set"
+          ],
+          "en": {
+            "item_name": "Strun Prime Set",
+            "description": "A classic shotgun design, embellished for the elite as only the Orokin could.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "ru": {
+            "item_name": "Стран Прайм: Комплект",
+            "description": "Классический дизайн дробовика, мастерски украшенный для избранных, как могли украшать только Орокин.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "ko": {
+            "item_name": "스트런 프라임 세트",
+            "description": "엘리트 계층을 위해 오로킨만이 할 수 있는 방식으로 장식된, 고전적인 설계의 산탄총입니다.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "fr": {
+            "item_name": "Strun Prime - Set",
+            "description": "Un Fusil à Pompe classique, embelli pour l'élite comme seul les Orokins pouvaient le faire.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "sv": {
+            "item_name": "Strun Prime Set",
+            "description": "A classic shotgun design, embellished for the elite as only the Orokin could.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "de": {
+            "item_name": "Strun Prime: Set",
+            "description": "Ein klassisches Schrotflintendesign, das für die Elite veredelt wurde, wie es nur die Orokin vermochten.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hant": {
+            "item_name": "斯特朗 Prime 一套",
+            "description": "（英文：STRUN PRIME）經典的霰彈槍設計為精英加以精心改造，也只有 Orokin 才辦得到。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hans": {
+            "item_name": "斯特朗 Prime 一套",
+            "description": "（英文：STRUN PRIME）只有 Orokin 能为精英们打造出如此经典的霰弹枪设计。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pt": {
+            "item_name": "Strun Prime: Conjunto",
+            "description": "Um modelo clássico de escopeta, feito para a elite, com uma beleza que somente os Orokins poderiam produzir.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "es": {
+            "item_name": "Set de Strun Prime",
+            "description": "Un diseño de escopeta clásico, embellecido para la élite como solo los orokin podrían hacerlo.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pl": {
+            "item_name": "Strun Prime: Zestaw",
+            "description": "Klasyczny projekt strzelby, ozdobiony dla elity tak, jak tylko mogli Orokin.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "cs": {
+            "item_name": "Strun Prime Set",
+            "description": "A classic shotgun design, embellished for the elite as only the Orokin could.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "uk": {
+            "item_name": "Стран-Прайм (комплект)",
+            "description": "Класична рушниця, оздоблена майстерними орокінами для верхівки суспільства.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_set.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_set.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          }
+        },
+        {
+          "id": "6139101930dd5b004b7f909f",
+          "set_root": false,
+          "quantity_for_set": 1,
+          "icon_format": "land",
+          "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+          "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+          "ducats": 100,
+          "trading_tax": 2000,
+          "mastery_level": 14,
+          "sub_icon": "sub_icons/blueprint_128x128.png",
+          "url_name": "strun_prime_blueprint",
+          "tags": [
+            "primary",
+            "weapon",
+            "prime",
+            "blueprint"
+          ],
+          "en": {
+            "item_name": "Strun Prime Blueprint",
+            "description": "A classic shotgun design, embellished for the elite as only the Orokin could.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "ru": {
+            "item_name": "Стран Прайм (Чертеж)",
+            "description": "Классический дизайн дробовика, мастерски украшенный для избранных, как могли украшать только Орокин.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "ko": {
+            "item_name": "스트런 프라임 설계도",
+            "description": "엘리트 계층을 위해 오로킨만이 할 수 있는 방식으로 장식된, 고전적인 설계의 산탄총입니다.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "fr": {
+            "item_name": "Strun Prime (Schéma)",
+            "description": "Un Fusil à Pompe classique, embelli pour l'élite comme seul les Orokins pouvaient le faire.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "sv": {
+            "item_name": "Strun Prime Blueprint",
+            "description": "A classic shotgun design, embellished for the elite as only the Orokin could.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "de": {
+            "item_name": "Strun Prime Blaupause",
+            "description": "Ein klassisches Schrotflintendesign, das für die Elite veredelt wurde, wie es nur die Orokin vermochten.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hant": {
+            "item_name": "斯特朗 Prime 藍圖",
+            "description": "（英文：STRUN PRIME）經典的霰彈槍設計為精英加以精心改造，也只有 Orokin 才辦得到。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hans": {
+            "item_name": "斯特朗 Prime 蓝图",
+            "description": "（英文：STRUN PRIME）只有 Orokin 能为精英们打造出如此经典的霰弹枪设计。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pt": {
+            "item_name": "Strun Prime (Diagrama)",
+            "description": "Um modelo clássico de escopeta, feito para a elite, com uma beleza que somente os Orokins poderiam produzir.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "es": {
+            "item_name": "Plano de Strun Prime",
+            "description": "Un diseño de escopeta clásico, embellecido para la élite como solo los orokin podrían hacerlo.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pl": {
+            "item_name": "Strun Prime - Schemat",
+            "description": "Klasyczny projekt strzelby, ozdobiony dla elity tak, jak tylko mogli Orokin.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "cs": {
+            "item_name": "Strun Prime Blueprint",
+            "description": "A classic shotgun design, embellished for the elite as only the Orokin could.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "uk": {
+            "item_name": "Стран-Прайм (креслення)",
+            "description": "Класична рушниця, оздоблена майстерними орокінами для верхівки суспільства.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_blueprint.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          }
+        },
+        {
+          "id": "6139101a30dd5b004b7f90a4",
+          "set_root": false,
+          "quantity_for_set": 1,
+          "icon_format": "land",
+          "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+          "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+          "ducats": 15,
+          "trading_tax": 2000,
+          "mastery_level": 14,
+          "sub_icon": "sub_icons/weapon/prime_receiver_128x128.png",
+          "url_name": "strun_prime_receiver",
+          "tags": [
+            "component",
+            "weapon",
+            "prime"
+          ],
+          "en": {
+            "item_name": "Strun Prime Receiver",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "ru": {
+            "item_name": "Стран Прайм: Приёмник",
+            "description": "Прайм-компонент оружия.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "ko": {
+            "item_name": "스트런 프라임 리시버",
+            "description": "프라임 무기 제작 부품입니다.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "fr": {
+            "item_name": "Strun Prime - Culasse",
+            "description": "Un composant servant à la fabrication d'armes Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "sv": {
+            "item_name": "Strun Prime Receiver",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "de": {
+            "item_name": "Strun Prime: Gehäuse",
+            "description": "Eine Komponente für die Herstellung von Prime Waffen.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hant": {
+            "item_name": "斯特朗 Prime 槍機",
+            "description": "製作 Prime 武器的部件。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hans": {
+            "item_name": "斯特朗 Prime 枪机",
+            "description": "一个 Prime 武器的制作部件。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pt": {
+            "item_name": "Strun Prime: Receptor",
+            "description": "Um componente de fabricação de Armas Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "es": {
+            "item_name": "Receptor De Strun Prime",
+            "description": "Un componente de fabricación de arma prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pl": {
+            "item_name": "Strun Prime: Korpus",
+            "description": "Element wytwarzania broni Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "cs": {
+            "item_name": "Strun Prime Receiver",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "uk": {
+            "item_name": "Стран-Прайм: Ствольна Коробка",
+            "description": "Деталь прайм-зброї.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_receiver.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_receiver.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          }
+        },
+        {
+          "id": "6139101a30dd5b004b7f90a7",
+          "set_root": false,
+          "quantity_for_set": 1,
+          "icon_format": "land",
+          "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+          "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+          "ducats": 45,
+          "trading_tax": 2000,
+          "mastery_level": 14,
+          "sub_icon": "sub_icons/weapon/prime_barrel_128x128.png",
+          "url_name": "strun_prime_barrel",
+          "tags": [
+            "component",
+            "weapon",
+            "prime"
+          ],
+          "en": {
+            "item_name": "Strun Prime Barrel",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "ru": {
+            "item_name": "Стран Прайм: Ствол",
+            "description": "Прайм-компонент оружия.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "ko": {
+            "item_name": "스트런 프라임 배럴",
+            "description": "프라임 무기 제작 부품입니다.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "fr": {
+            "item_name": "Strun Prime - Canon",
+            "description": "Un composant servant à la fabrication d'armes Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "sv": {
+            "item_name": "Strun Prime Barrel",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "de": {
+            "item_name": "Strun Prime: Lauf",
+            "description": "Eine Komponente für die Herstellung von Prime Waffen.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hant": {
+            "item_name": "斯特朗 Prime 槍管",
+            "description": "製作 Prime 武器的部件。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hans": {
+            "item_name": "斯特朗 Prime 枪管",
+            "description": "一个 Prime 武器的制作部件。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pt": {
+            "item_name": "Strun Prime: Cano",
+            "description": "Um componente de fabricação de Armas Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "es": {
+            "item_name": "Cañón De Strun Prime",
+            "description": "Un componente de fabricación de arma prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pl": {
+            "item_name": "Strun Prime: Lufa",
+            "description": "Element wytwarzania broni Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "cs": {
+            "item_name": "Strun Prime Barrel",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "uk": {
+            "item_name": "Стран-Прайм: Ствол",
+            "description": "Деталь прайм-зброї.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_barrel.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_barrel.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          }
+        },
+        {
+          "id": "6139101a30dd5b004b7f90a9",
+          "set_root": false,
+          "quantity_for_set": 1,
+          "icon_format": "land",
+          "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+          "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+          "ducats": 45,
+          "trading_tax": 2000,
+          "mastery_level": 14,
+          "sub_icon": "sub_icons/weapon/prime_stock_128x128.png",
+          "url_name": "strun_prime_stock",
+          "tags": [
+            "component",
+            "weapon",
+            "prime"
+          ],
+          "en": {
+            "item_name": "Strun Prime Stock",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "ru": {
+            "item_name": "Стран Прайм: Приклад",
+            "description": "Прайм-компонент оружия.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "ko": {
+            "item_name": "스트런 프라임 스톡",
+            "description": "프라임 무기 제작 부품입니다.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "fr": {
+            "item_name": "Strun Prime - Crosse",
+            "description": "Un composant servant à la fabrication d'armes Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "sv": {
+            "item_name": "Strun Prime Stock",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "de": {
+            "item_name": "Strun Prime: Schaft",
+            "description": "Eine Komponente für die Herstellung von Prime Waffen.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hant": {
+            "item_name": "斯特朗 Prime 槍托",
+            "description": "製作 Prime 武器的部件。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "zh-hans": {
+            "item_name": "斯特朗 Prime 枪托",
+            "description": "一个 Prime 武器的制作部件。",
+            "wiki_link": "https://warframe.huijiwiki.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pt": {
+            "item_name": "Strun Prime: Coronha",
+            "description": "Um componente de fabricação de Armas Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "es": {
+            "item_name": "Culata De Strun Prime",
+            "description": "Un componente de fabricación de arma prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "pl": {
+            "item_name": "Strun Prime: Kolba",
+            "description": "Element wytwarzania broni Prime.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          },
+          "cs": {
+            "item_name": "Strun Prime Stock",
+            "description": "A prime weapon-crafting component.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "drop": []
+          },
+          "uk": {
+            "item_name": "Стран-Прайм: Ложе",
+            "description": "Деталь прайм-зброї.",
+            "wiki_link": "https://warframe.fandom.com/wiki/Strun_Prime",
+            "icon": "items/images/en/strun_prime_stock.e7f858160a34886c105633deab6b343e.png",
+            "thumb": "items/images/en/thumbs/strun_prime_stock.e7f858160a34886c105633deab6b343e.128x128.png",
+            "drop": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,162 +1,121 @@
 import requests
 import json
-import logging
 import time
-import os
-import glob
 import argparse
-from logging.handlers import RotatingFileHandler
+import sys
 from tqdm import tqdm
 
-# Настройка логирования
-log_format = '%(asctime)s - %(levelname)s - %(message)s'
-log_file_base = 'collector'
-log_file = f'{log_file_base}.log'
-log_handler = RotatingFileHandler(log_file, maxBytes=3*1024*1024, backupCount=9, encoding='utf-8')
-log_handler.setFormatter(logging.Formatter(log_format))
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-logger.addHandler(log_handler)
+def get_item_data(item_url):
+    """Получает данные об отдельном предмете."""
+    try:
+        response = requests.get(item_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Ошибка при получении данных с {item_url}: {e}")
+        return None
 
-def cleanup_old_logs(log_file_base):
-    log_files = glob.glob(f"{log_file_base}*.log")
-    log_files.sort(key=os.path.getmtime)
-    if len(log_files) > 10:
-        files_to_delete = log_files[:-10]
-        for file_to_delete in files_to_delete:
-            try:
-                os.remove(file_to_delete)
-                logger.info(f"Удален старый лог-файл: {file_to_delete}")
-            except OSError as e:
-                logger.error(f"Ошибка при удалении лог-файла {file_to_delete}: {e}")
+def process_item_data(item_data):
+    """Извлекает нужные поля из данных предмета, обрабатывая наборы."""
 
-def fetch_all_items():
-    url = "https://api.warframe.market/v1/items"
+    if not item_data or "payload" not in item_data or "item" not in item_data["payload"]:
+        print(f"Некорректные данные предмета: {item_data}")
+        return None
+
+    item = item_data["payload"]["item"]
+    item_id = item.get("id")
+
+    if not item_id:
+        print(f"Отсутствует id для предмета: {item}")
+        return None
+
+    result = {
+        "id": item_id,
+    }
+
+    if "items_in_set" in item and isinstance(item["items_in_set"], list):
+        for set_item in item["items_in_set"]:
+            if set_item.get("id") == item_id:
+                result["url_name"] = set_item.get("url_name")
+                result["ducats"] = set_item.get("ducats")
+                result["trading_tax"] = set_item.get("trading_tax")
+
+                # Проверяем, является ли найденный элемент сетом
+                if result["url_name"] and result["url_name"].endswith("set"):
+                    set_components = []
+                    for component in item["items_in_set"]:
+                        if component.get("url_name") and component.get("url_name") != result["url_name"]:
+                            set_components.append(component.get("url_name"))
+                    result["components"] = set_components
+                break  # Прерываем цикл после обработки нужного элемента
+    return result
+
+def fetch_item_data(item_name):
+    """Получает данные о предмете с warframe.market."""
+    url = f"https://api.warframe.market/v1/items/{item_name}"
     try:
         response = requests.get(url)
         response.raise_for_status()
-        data = response.json()
-        return data["payload"]["items"]
+        return response.json()
     except requests.exceptions.RequestException as e:
-        logger.error(f"Ошибка при получении списка предметов: {e}")
+        print(f"Ошибка при запросе к warframe.market: {e}")
         return None
 
-def fetch_item_data(item_url_name, retries=5, initial_delay=1, max_delay=60):
-    url = f"https://api.warframe.market/v1/items/{item_url_name}"
-    delay = initial_delay
-    for attempt in range(retries):
-        try:
-            logger.debug(f"Запрос URL: {url} (Попытка {attempt+1}/{retries})")
-            response = requests.get(url, timeout=10)
-            logger.debug(f"Статус ответа: {response.status_code}")
-
-            if response.status_code == 429:
-                retry_after = int(response.headers.get("Retry-After", 1))
-                delay = min(delay * 2, max_delay)
-                logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}/{retries}).")
-                time.sleep(retry_after)
-                continue
-
-            response.raise_for_status()
-            text = response.text
-
-            if not text:
-                logger.warning(f"Получен пустой ответ от сервера для {item_url_name} (попытка {attempt+1}/{retries}).")
-                return None
-
-            try:
-                data = response.json()
-                logger.debug(f"JSON данные: {data}")
-                logger.info(f"Успешно получены данные для предмета: {item_url_name}")
-                return data
-            except json.JSONDecodeError as e:
-                logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}/{retries}): {e}, текст ответа: {text}", exc_info=True)
-                return None
-
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}/{retries}): {e}")
-            if attempt < retries - 1:
-                delay = min(delay * 2, max_delay)
-                logger.info(f"Повторная попытка через {delay} секунд...")
-                time.sleep(delay)
-        except (KeyError, TypeError) as e:
-            logger.error(f"Ошибка структуры данных для {item_url_name} (попытка {attempt+1}/{retries}): {e}", exc_info=True)
-            return None
-
-    logger.error(f"Превышено количество попыток ({retries}) для {item_url_name}.")
-    return None
-
 def main():
-    parser = argparse.ArgumentParser(description="Сбор данных с Warframe Market.")
-    parser.add_argument("--limit", type=int, default=0, help="Ограничение количества обрабатываемых предметов (0 - все).")
-    args = parser.parse_args()
+    """Собирает информацию о предметах и сохраняет в файл."""
+    parser = argparse.ArgumentParser(description="Собирает данные о предметах Warframe Market.")
+    parser.add_argument("-n", "--num_items", type=int, default=0,
+                        help="Количество предметов для проверки (0 - все).")
+    parser.add_argument("--test", action="store_true", help="Запустить в тестовом режиме для strun_prime_receiver.")
+    parser.add_argument("--item", type=str, help="Запустить в тестовом режиме для указанного предмета")
+    parser.add_argument("-o", "--output", type=str, default="warframe_items.json", help="Имя выходного файла") # Добавлено
 
-    start_time = time.time()
-    logger.info("Начало сбора данных")
-    print("Начало сбора данных...")
+    args = parser.parse_args()
+    output_filename = args.output  # Получаем имя файла из аргументов
+
+    items_to_process = []
+
+    if args.test or args.item:
+        item_name = args.item if args.item else "strun_prime_receiver"
+        items_to_process.append({"url_name": item_name})
+        print(f"Запуск в тестовом режиме. Запрос для: {item_name}")
+    else:  # Обычный режим
+        base_url = "https://api.warframe.market/v1"
+        items_url = f"{base_url}/items"
+
+        try:
+            items_response = requests.get(items_url)
+            items_response.raise_for_status()
+            items_data = items_response.json()["payload"]["items"]
+            num_items_to_check = args.num_items if args.num_items > 0 else len(items_data)
+            items_to_process = items_data[:num_items_to_check]  # Используем список из API
+        except requests.exceptions.RequestException as e:
+            print(f"Ошибка при получении списка предметов: {e}")
+            return
+        except json.JSONDecodeError as e:
+            print(f"Ошибка при разборе JSON: {e}")
+            return
+        except Exception as e:
+            print(f"Произошла непредвиденная ошибка: {e}")
+            return
+    
+    all_items_data = []
+    with tqdm(total=len(items_to_process), desc="Обработка предметов") as pbar:
+        for item in items_to_process: # Используем созданный список
+            item_details_url = f"https://api.warframe.market/v1/items/{item['url_name']}"
+            item_data = get_item_data(item_details_url)
+            if item_data:
+                processed_item = process_item_data(item_data)
+                all_items_data.append(processed_item)
+            time.sleep(0.1)
+            pbar.update(1)
 
     try:
-        cleanup_old_logs(log_file_base)
-
-        all_items_list = fetch_all_items()
-        if all_items_list is None:
-            logger.error("Не удалось получить список всех предметов.")
-            print("Ошибка: не удалось получить список предметов.")
-            return
-
-        with open("all_items_list.json", "w", encoding="utf-8") as f:
-            json.dump(all_items_list, f, indent=4, ensure_ascii=False)
-        logger.info("Список всех предметов сохранен в all_items_list.json")
-        print("Список всех предметов сохранен в all_items_list.json")
-
-        all_items_data = {}
-        successful_items = 0
-        failed_items = 0
-
-        items_to_process = all_items_list[:args.limit] if args.limit > 0 else all_items_list
-
-        with tqdm(total=len(items_to_process), desc="Загрузка данных о предметах") as pbar:
-            for item in items_to_process:
-                item_data = fetch_item_data(item["url_name"])
-                if item_data:
-                    try:
-                        item = item_data.get('payload', {}).get('item')
-                        if item is None:
-                            logger.warning(f"В ответе отсутствует 'payload' или 'item' для {item['url_name']}. item_data: {item_data}")
-                            failed_items += 1
-                            continue
-                        url_name = item['url_name']
-                        all_items_data[url_name] = item_data
-                        successful_items += 1
-                    except KeyError as e:
-                        logger.error(f"Ошибка при добавлении данных в all_items_data для {item['url_name']}: {e}, item_data: {item_data}")
-                        failed_items += 1
-                    except TypeError as e:
-                        logger.error(f"Ошибка типа данных при обработке ответа для {item['url_name']}: {e}, item_data: {item_data}")
-                        failed_items += 1
-                else:
-                    logger.warning(f"Не удалось получить данные для {item['url_name']}")
-                    failed_items += 1
-
-                time.sleep(0.5)
-                pbar.update(1)
-
-        with open("all_items_data.json", "w", encoding="utf-8") as f:
+        with open(output_filename, "w", encoding="utf-8") as f:
             json.dump(all_items_data, f, indent=4, ensure_ascii=False)
-
-        logger.info(f"Успешно получено {successful_items} предметов.")
-        logger.info(f"Не удалось получить {failed_items} предметов.")
-        logger.info("Сбор данных завершен.")
-        print("Сбор данных завершен.")
-
+        print(f"Данные о {len(all_items_data)} предметах сохранены в файл {output_filename}")
     except Exception as e:
-        logger.exception(f"Произошла непредвиденная ошибка: {e}")
-        print(f"Произошла непредвиденная ошибка: {e}")
-    finally:
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        logger.info(f"Время выполнения скрипта: {elapsed_time:.2f} секунд")
-        print(f"Время выполнения: {elapsed_time:.2f} секунд")
+        print(f"Ошибка при записи в файл: {e}")
 
 if __name__ == "__main__":
     main()

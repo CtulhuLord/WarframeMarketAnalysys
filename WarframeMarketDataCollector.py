@@ -34,27 +34,34 @@ async def fetch_item_data(session, item_url_name):
         return None
 
 async def fetch_all_items(session):
-    """Получает список всех предметов."""
     try:
         url = "https://api.warframe.market/v1/items"
         async with session.get(url) as response:
             if response.status != 200:
-                logger.error(f"Ошибка при запросе списка всех предметов: статус {response.status}")
+                logger.error(f"Ошибка при запросе списка всех предметов: {response.status}")
                 return None
             data = await response.json()
+
+            # Добавляем отладочный вывод:
+            logger.debug(f"Ответ API (all_items): {json.dumps(data, indent=4, ensure_ascii=False)}") # Выводим весь ответ
+            if "payload" not in data or "items" not in data["payload"]:
+              logger.error(f"Некорректная структура ответа API: Отсутствуют ключи 'payload' или 'items'")
+              return None
+            
             return data["payload"]["items"]
+
     except aiohttp.ClientError as e:
         logger.error(f"Ошибка сети при запросе списка всех предметов: {e}")
         return None
     except json.JSONDecodeError as e:
-        logger.error(f"Ошибка декодирования JSON списка предметов: {e}")
+        logger.error(f"Ошибка декодирования JSON списка всех предметов: {e}")
         return None
     except KeyError as e:
-        logger.error(f"Ошибка структуры JSON списка предметов: Отсутствует ключ {e}")
+        logger.error(f"Ошибка структуры JSON списка всех предметов: Отсутствует ключ {e}")
         return None
     except Exception as e:
-        logger.exception(f"Непредвиденная ошибка при запросе списка предметов: {e}")
-        return None
+      logger.exception(f"Непредвиденная ошибка: {e}")
+      return None
 
 async def main():
     start_time = time.time()

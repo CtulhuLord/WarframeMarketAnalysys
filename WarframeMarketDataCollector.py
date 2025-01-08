@@ -46,45 +46,44 @@ def fetch_item_data(item_url_name, retries=5, initial_delay=1, max_delay=60):
     delay = initial_delay
     for attempt in range(retries):
         try:
-            logger.debug(f"Запрос URL: {url} (Попытка {attempt+1})")
-            response = requests.get(url, timeout=10) # Таймаут 10 секунд
+            logger.debug(f"Запрос URL: {url} (Попытка {attempt+1}/{retries})")
+            response = requests.get(url, timeout=10)
             logger.debug(f"Статус ответа: {response.status_code}")
+
             if response.status_code == 429:
                 retry_after = int(response.headers.get("Retry-After", 1))
                 delay = min(delay * 2, max_delay)
-                logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}).")
+                logger.warning(f"Получена ошибка 429 для {item_url_name}, повтор через {retry_after} секунд (попытка {attempt+1}/{retries}).")
                 time.sleep(retry_after)
                 continue
+
             response.raise_for_status()
             text = response.text
-            logger.debug(f"Текст ответа (до 500 символов): {text[:500]}...")
-            data = response.json()
-            logger.debug(f"JSON данные: {data}")
-            item_data = data.get("payload", {}).get("item")
-            logger.debug(f"item_data: {item_data}")
-            if item_data:
-                if 'url_name' in item_data:
-                    logger.info(f"Успешно получены данные для предмета: {item_url_name}")
-                    return item_data
-                else:
-                    logger.error(f"В item_data отсутствует ключ 'url_name' для {item_url_name}. data: {data}")
-                    return None
-            else:
-                logger.warning(f"Получены пустые данные для предмета {item_url_name}")
+
+            if not text:
+                logger.warning(f"Получен пустой ответ от сервера для {item_url_name} (попытка {attempt+1}/{retries}).")
                 return None
+
+            try:
+                data = response.json()
+                logger.debug(f"JSON данные: {data}")
+                logger.info(f"Успешно получены данные для предмета: {item_url_name}")
+                return data
+            except json.JSONDecodeError as e:
+                logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}/{retries}): {e}, текст ответа: {text}", exc_info=True)
+                return None
+
         except requests.exceptions.RequestException as e:
-            logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}): {e}")
+            logger.error(f"Ошибка при получении данных о предмете {item_url_name} (попытка {attempt+1}/{retries}): {e}")
             if attempt < retries - 1:
                 delay = min(delay * 2, max_delay)
                 logger.info(f"Повторная попытка через {delay} секунд...")
                 time.sleep(delay)
-        except json.JSONDecodeError as e:
-            logger.error(f"Ошибка декодирования JSON для {item_url_name} (попытка {attempt+1}): {e}, текст ответа: {text[:500]}...", exc_info=True)
-            return None
         except (KeyError, TypeError) as e:
-            logger.error(f"Ошибка структуры данных для {item_url_name} (попытка {attempt+1}): {e}", exc_info=True)
+            logger.error(f"Ошибка структуры данных для {item_url_name} (попытка {attempt+1}/{retries}): {e}", exc_info=True)
             return None
-    logger.error(f"Не удалось получить данные для {item_url_name} после {retries} попыток.")
+
+    logger.error(f"Превышено количество попыток ({retries}) для {item_url_name}.")
     return None
 
 def main():
@@ -121,14 +120,23 @@ def main():
                 item_data = fetch_item_data(item["url_name"])
                 if item_data:
                     try:
-                        all_items_data[item_data['url_name']] = item_data
+                        item = item_data.get('payload', {}).get('item')
+                        if item is None:
+                            logger.warning(f"В ответе отсутствует 'payload' или 'item' для {item['url_name']}. item_data: {item_data}")
+                            failed_items += 1
+                            continue
+                        url_name = item['url_name']
+                        all_items_data[url_name] = item_data
                         successful_items += 1
-                    except TypeError as e:
+                    except KeyError as e:
                         logger.error(f"Ошибка при добавлении данных в all_items_data для {item['url_name']}: {e}, item_data: {item_data}")
-                        failed_items += 1 # Важно учесть и эту ошибку в failed_items
+                        failed_items += 1
+                    except TypeError as e:
+                        logger.error(f"Ошибка типа данных при обработке ответа для {item['url_name']}: {e}, item_data: {item_data}")
+                        failed_items += 1
                 else:
                     logger.warning(f"Не удалось получить данные для {item['url_name']}")
-                    failed_items += 1 # <- Вот это было пропущено!
+                    failed_items += 1
 
                 time.sleep(0.5)
                 pbar.update(1)

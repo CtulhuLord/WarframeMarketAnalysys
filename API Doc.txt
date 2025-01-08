@@ -1,0 +1,2766 @@
+Warframe.market API
+Documentation is under very slow and heavy development
+This document will gradually be supplemented and updated over some extended period of time.
+
+Unstable endpoints
+Endpoint that is not stable and probably will be changed in the future will be marked with exclamation sign -> вљ 
+
+More information: https://openapi-generator.tech
+Contact Info: team@openapitools.org
+Version: 1.14.0
+BasePath:/v1
+All rights reserved
+http://apache.org/licenses/LICENSE-2.0.html
+Access
+APIKey KeyParamName:JWT KeyInQuery:false KeyInHeader:false
+APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true
+Methods
+[ Jump to Models ]
+Table of Contents
+AuctionEntry
+get /auctions/entry/{auction_id}/bids
+get /auctions/entry/{auction_id}
+Auctions
+post /auctions/create
+get /auctions/search?type=lich
+get /auctions/search?type=riven
+Auth
+post /auth/registration
+post /auth/restore
+post /auth/signin
+Items
+get /items/{url_name}
+get /items
+get /items/{url_name}/dropsources
+get /items/{url_name}/orders
+Liches
+get /lich/ephemeras
+get /lich/quirks
+get /lich/weapons
+Misc
+get /locations
+get /missions
+get /npc
+Profile
+post /profile/orders
+PushNotifications
+delete /settings/notifications/push
+get /settings/notifications/push
+post /settings/notifications/push
+Rivens
+get /riven/attributes
+get /riven/items
+Sisters
+get /sister/ephermeras
+get /sister/quirks
+get /sister/weapons
+AuctionEntry
+Up
+get /auctions/entry/{auction_id}/bids
+Gets auction bids by auction Id (auctionsEntryAuctionIdBidsGet)
+Path parameters
+auction_id (required)
+Path Parameter — ObjectId of auction default: null format: ObjectId
+Query parameters
+include (optional)
+Query Parameter — Include additional information.
+Will add a new response section with all information about requested model. default: null
+Return type
+_auctions_entry__auction_id__bids_get_200_response
+Example data
+Content-Type: application/json
+{
+  "include" : {
+    "auction" : {
+      "owner" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    }
+  },
+  "payload" : {
+    "bids" : [ {
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "id" : "id",
+      "user" : "user",
+      "value" : 0,
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "auction" : "auction"
+    }, {
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "id" : "id",
+      "user" : "user",
+      "value" : 0,
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "auction" : "auction"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _auctions_entry__auction_id__bids_get_200_response
+Up
+get /auctions/entry/{auction_id}
+Gets information about auction by auction Id (auctionsEntryAuctionIdGet)
+Path parameters
+auction_id (required)
+Path Parameter — ObjectId of auction default: null format: ObjectId
+Return type
+_auctions_entry__auction_id__get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "auction" : {
+      "owner" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    }
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _auctions_entry__auction_id__get_200_response
+Auctions
+Up
+post /auctions/create
+вљ  Auction creation. (auctionsCreatePost)
+Create auction, for riven or lich item types.
+Consumes
+This API call consumes the following media types via the Content-Type request header:
+application/json
+Request body
+_auctions_create_post_request _auctions_create_post_request (required)
+Body Parameter —
+Return type
+_auctions_create_post_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "auction" : {
+      "owner" : "owner",
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    }
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _auctions_create_post_200_response
+Up
+get /auctions/search?type=lich
+Get a list of lich auctions by given search params. (auctionsSearchtypelichGet)
+Auctions from banned users will be excluded.
+Request headers
+Platform (optional)
+Header Parameter — Asks the server to return content for specified platform, default: pc. default: null
+Query parameters
+buyout_policy (optional)
+Query Parameter — auction type, if not specified implied: all default: null
+weapon_url_name (optional)
+Query Parameter — lich weapon url_name property default: null
+element (optional)
+Query Parameter — lich element default: null
+ephemera (optional)
+Query Parameter — lich is having ephemera
+ephemera is based on lich element. default: null
+damage_min (optional)
+Query Parameter — Minimum bonus damage value of desirable lich default: null
+damage_max (optional)
+Query Parameter — Minimum bonus damage value of desirable lich default: null
+quirk (optional)
+Query Parameter — Lich quirk url_name property default: null
+sort_by (optional)
+Query Parameter — Sorting, by prices or by weapon damage bonus value, ascending and descending. default: null
+Return type
+_auctions_search_type_riven_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "auctions" : [ {
+      "owner" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    }, {
+      "owner" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _auctions_search_type_riven_get_200_response
+Up
+get /auctions/search?type=riven
+Get a list of riven auctions by given search params. (auctionsSearchtyperivenGet)
+Auctions from banned users will be excluded.
+You must specify weapon or one positive atttribute, at least.
+Request headers
+Platform (optional)
+Header Parameter — Asks the server to return content for specified platform, default: pc. default: null
+Query parameters
+buyout_policy (optional)
+Query Parameter — auction type, if not specified implied: all default: null
+weapon_url_name (optional)
+Query Parameter — riven weapon url_name property default: null
+positive_stats (optional)
+Query Parameter — Positive attributes in for of string: attr1,attr2,attr3 default: null
+negative_stats (optional)
+Query Parameter — Negative attributes in for of string: attr1,attr2,attr3 For None use the string: None default: null
+operation (optional)
+Query Parameter —
+Not used on the frontend right now, becuse this is not a very usefull flag. Used in conjuction with positive stats, like:
+
+allOf will get riven auction that contains all of defined positive attributes
+anyOf will get riven auction that contains any of defined positive attributes
+Default value is allOf
+
+default: null
+mastery_rank_min (optional)
+Query Parameter — Minimum rank value of riven mod default: null
+mastery_rank_max (optional)
+Query Parameter — Maximum rank value of riven mod default: null
+re_rolls_min (optional)
+Query Parameter — Minimum amount of rolls default: null
+re_rolls_max (optional)
+Query Parameter — Maximum amount of rolls default: null
+mod_rank (optional)
+Query Parameter — Should mod be maxed or whatever. default: null
+polarity (optional)
+Query Parameter — default: null
+sort_by (optional)
+Query Parameter — Sorting, by prices or by attributes value, ascending and descending. default: null
+Return type
+_auctions_search_type_riven_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "auctions" : [ {
+      "owner" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    }, {
+      "owner" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "top_bid" : 5,
+      "note" : "note",
+      "private" : true,
+      "item" : {
+        "mod_rank" : 3,
+        "name" : "conci-hexacron",
+        "re_rolls" : 9,
+        "attributes" : [ {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        }, {
+          "url_name" : "url_name",
+          "positive" : true,
+          "value" : 2
+        } ],
+        "type" : "riven",
+        "weapon_url_name" : "weapon_url_name",
+        "mastery_level" : 13,
+        "polarity" : "madurai"
+      },
+      "visible" : true,
+      "is_direct_sell" : true,
+      "created" : "2000-01-23T04:56:07.000+00:00",
+      "platform" : "switch",
+      "buyout_price" : 1,
+      "minimal_increment" : 5,
+      "winner" : "winner",
+      "starting_price" : 1,
+      "marked_operation_at" : "2000-01-23T04:56:07.000+00:00",
+      "note_raw" : "note_raw",
+      "closed" : true,
+      "id" : "id",
+      "updated" : "2000-01-23T04:56:07.000+00:00",
+      "minimal_reputation" : 0
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _auctions_search_type_riven_get_200_response
+Auth
+Up
+post /auth/registration
+Registration of new user and their device. (authRegistrationPost)
+There is 2 types of registration, for web browser and for Android device. Android device could avoid to include reCaptha toke by using secret DeviceKey in the request headers.
+Consumes
+This API call consumes the following media types via the Content-Type request header:
+application/json
+Request body
+_auth_registration_post_request _auth_registration_post_request (required)
+Body Parameter —
+Return type
+currentUser
+Example data
+Content-Type: application/json
+{
+  "role" : "anonymous",
+  "patreon_profile" : {
+    "patreon_founder" : true,
+    "subscription" : true,
+    "patreon_badge" : "bronze"
+  },
+  "unread_messages" : 6,
+  "avatar" : "avatar",
+  "platform" : "ps4",
+  "linked_accounts" : {
+    "steam_profile" : true,
+    "xbox_profile" : true,
+    "patreon_profile" : true
+  },
+  "written_reviews" : 0,
+  "ingame_name" : "ingame_name",
+  "ban_reason" : "ban_reason",
+  "background" : "background",
+  "check_code" : "check_code",
+  "anonymous" : true,
+  "id" : "id",
+  "banned" : true,
+  "region" : "region",
+  "has_email" : true,
+  "verification" : true
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+A JSON representation of currentUser currentUser
+Up
+post /auth/restore
+Password restoration. (authRestorePost)
+You will recieve mail with the new password, short after api call.
+Consumes
+This API call consumes the following media types via the Content-Type request header:
+application/json
+Request body
+_auth_restore_post_request _auth_restore_post_request (required)
+Body Parameter —
+Return type
+Object
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Empty object Object
+Up
+post /auth/signin
+Simple login. (authSigninPost)
+There is 2 ways to maintain authorization:
+
+Through Cookie for Web browsers.
+Through Header for other devices.
+Consumes
+This API call consumes the following media types via the Content-Type request header:
+application/json
+Request body
+_auth_signin_post_request _auth_signin_post_request (required)
+Body Parameter —
+Return type
+currentUser
+Example data
+Content-Type: application/json
+{
+  "role" : "anonymous",
+  "patreon_profile" : {
+    "patreon_founder" : true,
+    "subscription" : true,
+    "patreon_badge" : "bronze"
+  },
+  "unread_messages" : 6,
+  "avatar" : "avatar",
+  "platform" : "ps4",
+  "linked_accounts" : {
+    "steam_profile" : true,
+    "xbox_profile" : true,
+    "patreon_profile" : true
+  },
+  "written_reviews" : 0,
+  "ingame_name" : "ingame_name",
+  "ban_reason" : "ban_reason",
+  "background" : "background",
+  "check_code" : "check_code",
+  "anonymous" : true,
+  "id" : "id",
+  "banned" : true,
+  "region" : "region",
+  "has_email" : true,
+  "verification" : true
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+A JSON representation of currentUser currentUser
+Items
+Up
+get /items/{url_name}
+Gets information about an item (getItemInfo)
+Path parameters
+url_name (required)
+Path Parameter — url_name of an item default: null
+Request headers
+Platform (optional)
+Header Parameter — Asks the server to return content for specified platform, default: pc. default: null
+Return type
+getItemInfo_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "item" : {
+      "id" : "5a2feeb2c2c9e90cbdaa23d4",
+      "items_in_set" : [ {
+        "set_root" : false,
+        "thumb" : "/icons/en/thumbs/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.128x128.png",
+        "icon" : "icons/en/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.png",
+        "icon_format" : "land",
+        "subtypes" : [ "intact", "exceptional", "flawless", "radiant" ],
+        "id" : "604f697f7bdb09603b885d1e",
+        "sub_icon" : "sub_icons/systems_128x128.png",
+        "ducats" : 45,
+        "quantity_for_set" : 1,
+        "mastery_level" : 12,
+        "tags" : [ "relic", "axi" ],
+        "mod_max_rank" : 10,
+        "url_name" : "axi_a1_relic",
+        "trading_tax" : 8000,
+        "rarity" : "rare"
+      }, {
+        "set_root" : false,
+        "thumb" : "/icons/en/thumbs/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.128x128.png",
+        "icon" : "icons/en/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.png",
+        "icon_format" : "land",
+        "subtypes" : [ "intact", "exceptional", "flawless", "radiant" ],
+        "id" : "604f697f7bdb09603b885d1e",
+        "sub_icon" : "sub_icons/systems_128x128.png",
+        "ducats" : 45,
+        "quantity_for_set" : 1,
+        "mastery_level" : 12,
+        "tags" : [ "relic", "axi" ],
+        "mod_max_rank" : 10,
+        "url_name" : "axi_a1_relic",
+        "trading_tax" : 8000,
+        "rarity" : "rare"
+      } ]
+    }
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation getItemInfo_200_response
+Up
+get /items
+Get list of all tradable items. (itemsGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_items_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "items" : [ {
+      "url_name" : "mirage_prime_systems",
+      "thumb" : "icons/en/thumbs/Mirage_Prime_Set.e7f8f484dd6ae6c35f0767fff35a5109.128x128.png",
+      "item_name" : "Mirage Prime Systems",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2"
+    }, {
+      "url_name" : "mirage_prime_systems",
+      "thumb" : "icons/en/thumbs/Mirage_Prime_Set.e7f8f484dd6ae6c35f0767fff35a5109.128x128.png",
+      "item_name" : "Mirage Prime Systems",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Succesfull _items_get_200_response
+Up
+get /items/{url_name}/dropsources
+Get dropsources for a given item (itemsUrlNameDropsourcesGet)
+Path parameters
+url_name (required)
+Path Parameter — url_name of an item default: null
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Query parameters
+include (optional)
+Query Parameter — Include additional information.
+Will add a new response section with all information about requested model. default: null
+Return type
+_items__url_name__dropsources_get_200_response
+Example data
+Content-Type: application/json
+{
+  "include" : {
+    "item" : {
+      "id" : "5a2feeb2c2c9e90cbdaa23d4",
+      "items_in_set" : [ {
+        "set_root" : false,
+        "thumb" : "/icons/en/thumbs/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.128x128.png",
+        "icon" : "icons/en/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.png",
+        "icon_format" : "land",
+        "subtypes" : [ "intact", "exceptional", "flawless", "radiant" ],
+        "id" : "604f697f7bdb09603b885d1e",
+        "sub_icon" : "sub_icons/systems_128x128.png",
+        "ducats" : 45,
+        "quantity_for_set" : 1,
+        "mastery_level" : 12,
+        "tags" : [ "relic", "axi" ],
+        "mod_max_rank" : 10,
+        "url_name" : "axi_a1_relic",
+        "trading_tax" : 8000,
+        "rarity" : "rare"
+      }, {
+        "set_root" : false,
+        "thumb" : "/icons/en/thumbs/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.128x128.png",
+        "icon" : "icons/en/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.png",
+        "icon_format" : "land",
+        "subtypes" : [ "intact", "exceptional", "flawless", "radiant" ],
+        "id" : "604f697f7bdb09603b885d1e",
+        "sub_icon" : "sub_icons/systems_128x128.png",
+        "ducats" : 45,
+        "quantity_for_set" : 1,
+        "mastery_level" : 12,
+        "tags" : [ "relic", "axi" ],
+        "mod_max_rank" : 10,
+        "url_name" : "axi_a1_relic",
+        "trading_tax" : 8000,
+        "rarity" : "rare"
+      } ]
+    }
+  },
+  "payload" : {
+    "dropsources" : "{}"
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _items__url_name__dropsources_get_200_response
+Up
+get /items/{url_name}/orders
+Get list of orders for a given item_id (itemsUrlNameOrdersGet)
+Path parameters
+url_name (required)
+Path Parameter — url_name of an item default: null
+Request headers
+Platform (optional)
+Header Parameter — Asks the server to return content for specified platform, default: pc. default: null
+Query parameters
+include (optional)
+Query Parameter — Include additional information.
+Will add a new response section with all information about requested model. default: null
+Return type
+_items__url_name__orders_get_200_response
+Example data
+Content-Type: application/json
+{
+  "include" : {
+    "item" : {
+      "id" : "5a2feeb2c2c9e90cbdaa23d4",
+      "items_in_set" : [ {
+        "set_root" : false,
+        "thumb" : "/icons/en/thumbs/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.128x128.png",
+        "icon" : "icons/en/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.png",
+        "icon_format" : "land",
+        "subtypes" : [ "intact", "exceptional", "flawless", "radiant" ],
+        "id" : "604f697f7bdb09603b885d1e",
+        "sub_icon" : "sub_icons/systems_128x128.png",
+        "ducats" : 45,
+        "quantity_for_set" : 1,
+        "mastery_level" : 12,
+        "tags" : [ "relic", "axi" ],
+        "mod_max_rank" : 10,
+        "url_name" : "axi_a1_relic",
+        "trading_tax" : 8000,
+        "rarity" : "rare"
+      }, {
+        "set_root" : false,
+        "thumb" : "/icons/en/thumbs/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.128x128.png",
+        "icon" : "icons/en/axi_a1_relic.a74c06f0cae21bdb8933685c867385f8.png",
+        "icon_format" : "land",
+        "subtypes" : [ "intact", "exceptional", "flawless", "radiant" ],
+        "id" : "604f697f7bdb09603b885d1e",
+        "sub_icon" : "sub_icons/systems_128x128.png",
+        "ducats" : 45,
+        "quantity_for_set" : 1,
+        "mastery_level" : 12,
+        "tags" : [ "relic", "axi" ],
+        "mod_max_rank" : 10,
+        "url_name" : "axi_a1_relic",
+        "trading_tax" : 8000,
+        "rarity" : "rare"
+      } ]
+    }
+  },
+  "payload" : {
+    "orders" : [ {
+      "platinum" : 2,
+      "quantity" : 12,
+      "visible" : true,
+      "subtype" : "exceptional",
+      "last_update" : "2021-03-15T15:53:38Z",
+      "id" : "604f83027bdb097a7567b75d",
+      "creation_date" : "2021-03-15T15:53:38Z",
+      "region" : "region",
+      "order_type" : "sell",
+      "user" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "platform" : "xbox"
+    }, {
+      "platinum" : 2,
+      "quantity" : 12,
+      "visible" : true,
+      "subtype" : "exceptional",
+      "last_update" : "2021-03-15T15:53:38Z",
+      "id" : "604f83027bdb097a7567b75d",
+      "creation_date" : "2021-03-15T15:53:38Z",
+      "region" : "region",
+      "order_type" : "sell",
+      "user" : {
+        "last_seen" : "2021-03-15T15:53:16.133Z",
+        "ingame_name" : "KycKyc",
+        "reputation" : 12,
+        "id" : "54e0cdf8e77989024a1e34b2",
+        "avatar" : "user/avatar/54e0cdf8e77989024a1e34b2.png?0148cdbc2f95ae09d1b7dc863bbff8a9",
+        "region" : "en",
+        "status" : "online"
+      },
+      "platform" : "xbox"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation, with ?include=item _items__url_name__orders_get_200_response
+Liches
+Up
+get /lich/ephemeras
+Get a list of lich ephemeras. (lichEphemerasGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_lich_ephemeras_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "ephemeras" : [ {
+      "url_name" : "vengeful_shockwave",
+      "thumb" : "icons/en/thumbs/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.128x128.png",
+      "icon" : "icons/en/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.png",
+      "animation_format" : "land",
+      "item_name" : "Vengeful Shockwave Ephemera",
+      "id" : "5e9854b93d9f64004f9136bd",
+      "icon_format" : "port",
+      "animation" : "animations/vengeful_shockwave.971437bf48dec307ed268285b8798228.gif",
+      "element" : "impact"
+    }, {
+      "url_name" : "vengeful_shockwave",
+      "thumb" : "icons/en/thumbs/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.128x128.png",
+      "icon" : "icons/en/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.png",
+      "animation_format" : "land",
+      "item_name" : "Vengeful Shockwave Ephemera",
+      "id" : "5e9854b93d9f64004f9136bd",
+      "icon_format" : "port",
+      "animation" : "animations/vengeful_shockwave.971437bf48dec307ed268285b8798228.gif",
+      "element" : "impact"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _lich_ephemeras_get_200_response
+Up
+get /lich/quirks
+Get a list of lich quirks. (lichQuirksGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_lich_quirks_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "quirks" : [ {
+      "url_name" : "poor_sense_of_balance",
+      "description" : "The lich will retreat after kneeling down and without stabbing",
+      "item_name" : "Poor Sense of Balance",
+      "id" : "5e9855a43d9f6400697e895c",
+      "group" : "default"
+    }, {
+      "url_name" : "poor_sense_of_balance",
+      "description" : "The lich will retreat after kneeling down and without stabbing",
+      "item_name" : "Poor Sense of Balance",
+      "id" : "5e9855a43d9f6400697e895c",
+      "group" : "default"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _lich_quirks_get_200_response
+Up
+get /lich/weapons
+Get a list of lich weapons. (lichWeaponsGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_lich_weapons_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "weapons" : [ {
+      "url_name" : "kuva_bramma",
+      "thumb" : "icons/en/thumbs/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.128x128.png",
+      "icon" : "icons/en/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.png",
+      "item_name" : "item_name",
+      "id" : "5e98559a3d9f64005cd702eb",
+      "icon_format" : "land"
+    }, {
+      "url_name" : "kuva_bramma",
+      "thumb" : "icons/en/thumbs/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.128x128.png",
+      "icon" : "icons/en/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.png",
+      "item_name" : "item_name",
+      "id" : "5e98559a3d9f64005cd702eb",
+      "icon_format" : "land"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _lich_weapons_get_200_response
+Misc
+Up
+get /locations
+Get a list of known game locations. (locationsGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_locations_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "locations" : [ {
+      "url_name" : "plains_of_eidolon",
+      "thumb" : "thumb",
+      "max_level" : 6.027456183070403,
+      "faction" : "infested",
+      "system_name" : "Earth",
+      "icon" : "icon",
+      "node_name" : "Plains of Eidolon",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2",
+      "min_level" : 0.8008281904610115
+    }, {
+      "url_name" : "plains_of_eidolon",
+      "thumb" : "thumb",
+      "max_level" : 6.027456183070403,
+      "faction" : "infested",
+      "system_name" : "Earth",
+      "icon" : "icon",
+      "node_name" : "Plains of Eidolon",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2",
+      "min_level" : 0.8008281904610115
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _locations_get_200_response
+Up
+get /missions
+Get a list of known NPCs. (missionsGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_missions_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "missions" : [ {
+      "url_name" : "void_storm",
+      "thumb" : "thumb",
+      "icon" : "icon",
+      "name" : "Void Storm",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2"
+    }, {
+      "url_name" : "void_storm",
+      "thumb" : "thumb",
+      "icon" : "icon",
+      "name" : "Void Storm",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _missions_get_200_response
+Up
+get /npc
+Get a list of known NPCs. (npcGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_npc_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "npc" : [ {
+      "url_name" : "infested_corpus",
+      "thumb" : "thumb",
+      "icon" : "icon",
+      "name" : "Infested Corpus",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2"
+    }, {
+      "url_name" : "infested_corpus",
+      "thumb" : "thumb",
+      "icon" : "icon",
+      "name" : "Infested Corpus",
+      "id" : "5a2feeb1c2c9e90cbdaa23d2"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _npc_get_200_response
+Profile
+Up
+post /profile/orders
+Create an order (profileOrdersPost)
+Consumes
+This API call consumes the following media types via the Content-Type request header:
+application/json
+Request body
+_profile_orders_post_request _profile_orders_post_request (required)
+Body Parameter —
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_profile_orders_post_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "order" : {
+      "platinum" : 2,
+      "quantity" : 12,
+      "visible" : true,
+      "subtype" : "exceptional",
+      "last_update" : "2021-03-15T15:53:38Z",
+      "id" : "604f83027bdb097a7567b75d",
+      "creation_date" : "2021-03-15T15:53:38Z",
+      "region" : "region",
+      "order_type" : "sell",
+      "platform" : "xbox"
+    }
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+created _profile_orders_post_200_response
+PushNotifications
+Up
+delete /settings/notifications/push
+Push Unsubscribe (settingsNotificationsPushDelete)
+Unflag subscribed in our DB from currentUser.
+Return type
+_settings_notifications_push_post_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : "ok"
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _settings_notifications_push_post_200_response
+Up
+get /settings/notifications/push
+Get subscription (settingsNotificationsPushGet)
+Not implemented
+Responses
+200
+Nothing
+Up
+post /settings/notifications/push
+Push subscribe (settingsNotificationsPushPost)
+There is 3 formats, for web for android
+
+Web usage:
+{
+    'device': 'web'
+    'subscription':
+        {
+        "endpointeger":"https://fcm.googleapis.com/fcm/send/...",
+        "keys":{
+            "p256dh":"BBya_RhGe...",
+            "auth":"2PFoLO3K..."
+            }
+        }
+}
+Android usage:
+  {
+    'device': 'android'
+    'subscription':
+        {
+        "push_token":"asdnOIHSD2134..."
+        }
+}
+Consumes
+This API call consumes the following media types via the Content-Type request header:
+application/json
+Request body
+_settings_notifications_push_post_request _settings_notifications_push_post_request (optional)
+Body Parameter —
+Return type
+_settings_notifications_push_post_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : "ok"
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Ok _settings_notifications_push_post_200_response
+Rivens
+Up
+get /riven/attributes
+Get a list of riven attributes. (rivenAttributesGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_riven_attributes_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "attributes" : [ {
+      "url_name" : "ammo_maximum",
+      "prefix" : "Ampi",
+      "negative_only" : false,
+      "effect" : "Ammo Maximum",
+      "search_only" : true,
+      "id" : "5c5ca81a96e8d2003834fe63",
+      "units" : "seconds",
+      "suffix" : "Bin",
+      "exclusive_to" : "kitgun",
+      "positive_is_negative" : false,
+      "group" : "default"
+    }, {
+      "url_name" : "ammo_maximum",
+      "prefix" : "Ampi",
+      "negative_only" : false,
+      "effect" : "Ammo Maximum",
+      "search_only" : true,
+      "id" : "5c5ca81a96e8d2003834fe63",
+      "units" : "seconds",
+      "suffix" : "Bin",
+      "exclusive_to" : "kitgun",
+      "positive_is_negative" : false,
+      "group" : "default"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _riven_attributes_get_200_response
+Up
+get /riven/items
+Get a list of riven items. (rivenItemsGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_riven_items_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "items" : [ {
+      "url_name" : "falcor",
+      "thumb" : "thumb",
+      "icon" : "icon",
+      "item_name" : "item_name",
+      "id" : "5cf5724f9597e1019b1678c7",
+      "icon_format" : "land",
+      "riven_type" : "shotgun",
+      "group" : "primary"
+    }, {
+      "url_name" : "falcor",
+      "thumb" : "thumb",
+      "icon" : "icon",
+      "item_name" : "item_name",
+      "id" : "5cf5724f9597e1019b1678c7",
+      "icon_format" : "land",
+      "riven_type" : "shotgun",
+      "group" : "primary"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _riven_items_get_200_response
+Sisters
+Up
+get /sister/ephermeras
+Get a list of sister ephemras. (sisterEphermerasGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_lich_ephemeras_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "ephemeras" : [ {
+      "url_name" : "vengeful_shockwave",
+      "thumb" : "icons/en/thumbs/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.128x128.png",
+      "icon" : "icons/en/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.png",
+      "animation_format" : "land",
+      "item_name" : "Vengeful Shockwave Ephemera",
+      "id" : "5e9854b93d9f64004f9136bd",
+      "icon_format" : "port",
+      "animation" : "animations/vengeful_shockwave.971437bf48dec307ed268285b8798228.gif",
+      "element" : "impact"
+    }, {
+      "url_name" : "vengeful_shockwave",
+      "thumb" : "icons/en/thumbs/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.128x128.png",
+      "icon" : "icons/en/vengeful_shockwave.6020e14eb5e9516d4bc6ccf5023c864c.png",
+      "animation_format" : "land",
+      "item_name" : "Vengeful Shockwave Ephemera",
+      "id" : "5e9854b93d9f64004f9136bd",
+      "icon_format" : "port",
+      "animation" : "animations/vengeful_shockwave.971437bf48dec307ed268285b8798228.gif",
+      "element" : "impact"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _lich_ephemeras_get_200_response
+Up
+get /sister/quirks
+Get a list of sister quirks. (sisterQuirksGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_lich_quirks_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "quirks" : [ {
+      "url_name" : "poor_sense_of_balance",
+      "description" : "The lich will retreat after kneeling down and without stabbing",
+      "item_name" : "Poor Sense of Balance",
+      "id" : "5e9855a43d9f6400697e895c",
+      "group" : "default"
+    }, {
+      "url_name" : "poor_sense_of_balance",
+      "description" : "The lich will retreat after kneeling down and without stabbing",
+      "item_name" : "Poor Sense of Balance",
+      "id" : "5e9855a43d9f6400697e895c",
+      "group" : "default"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _lich_quirks_get_200_response
+Up
+get /sister/weapons
+Get a list of sister weapons. (sisterWeaponsGet)
+Request headers
+Language (optional)
+Header Parameter — Asks the server to return content translated into the specified language, default: en. default: null
+Return type
+_lich_weapons_get_200_response
+Example data
+Content-Type: application/json
+{
+  "payload" : {
+    "weapons" : [ {
+      "url_name" : "kuva_bramma",
+      "thumb" : "icons/en/thumbs/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.128x128.png",
+      "icon" : "icons/en/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.png",
+      "item_name" : "item_name",
+      "id" : "5e98559a3d9f64005cd702eb",
+      "icon_format" : "land"
+    }, {
+      "url_name" : "kuva_bramma",
+      "thumb" : "icons/en/thumbs/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.128x128.png",
+      "icon" : "icons/en/kuva_bramma.eaf6bd5d4a8f1413764771719ca2cc27.png",
+      "item_name" : "item_name",
+      "id" : "5e98559a3d9f64005cd702eb",
+      "icon_format" : "land"
+    } ]
+  }
+}
+Produces
+This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
+application/json
+Responses
+200
+Successful operation _lich_weapons_get_200_response
+Models
+[ Jump to Methods ]
+Table of Contents
+Dropsource -
+Dropsource_missions_inner -
+Dropsource_npc_inner -
+Dropsource_relics_inner -
+Dropsource_relics_inner_rate -
+ItemCommon -
+ItemFull -
+ItemInOrder -
+ItemInOrder_allOf_de -
+ItemInOrder_allOf_en -
+ItemInOrder_allOf_es -
+ItemInOrder_allOf_fr -
+ItemInOrder_allOf_ko -
+ItemInOrder_allOf_pl -
+ItemInOrder_allOf_pt -
+ItemInOrder_allOf_ru -
+ItemInOrder_allOf_zh_hans -
+ItemInOrder_allOf_zh_hant -
+ItemShort -
+Location -
+Mission -
+MissionDropData -
+Npc -
+NpcDropData -
+OrderCommon -
+OrderFull -
+OrderRow -
+RelicDropData -
+RelicDropData_rates -
+_auctions_create_post_200_response -
+_auctions_create_post_200_response_payload -
+_auctions_create_post_request -
+_auctions_create_post_request_item -
+_auctions_entry__auction_id__bids_get_200_response -
+_auctions_entry__auction_id__bids_get_200_response_payload -
+_auctions_entry__auction_id__get_200_response -
+_auctions_entry__auction_id__get_200_response_payload -
+_auctions_search_type_riven_get_200_response -
+_auctions_search_type_riven_get_200_response_payload -
+_auth_registration_post_request -
+_auth_restore_post_request -
+_auth_signin_post_request -
+_items__url_name__dropsources_get_200_response -
+_items__url_name__dropsources_get_200_response_payload -
+_items__url_name__orders_get_200_response -
+_items__url_name__orders_get_200_response_payload -
+_items__url_name__orders_get_200_response_payload_orders_inner -
+_items_get_200_response -
+_items_get_200_response_payload -
+_lich_ephemeras_get_200_response -
+_lich_ephemeras_get_200_response_payload -
+_lich_quirks_get_200_response -
+_lich_quirks_get_200_response_payload -
+_lich_weapons_get_200_response -
+_lich_weapons_get_200_response_payload -
+_locations_get_200_response -
+_locations_get_200_response_payload -
+_missions_get_200_response -
+_missions_get_200_response_payload -
+_npc_get_200_response -
+_npc_get_200_response_payload -
+_profile_orders_post_200_response -
+_profile_orders_post_200_response_payload -
+_profile_orders_post_200_response_payload_order -
+_profile_orders_post_request -
+_riven_attributes_get_200_response -
+_riven_attributes_get_200_response_payload -
+_riven_items_get_200_response -
+_riven_items_get_200_response_payload -
+_settings_notifications_push_post_200_response -
+_settings_notifications_push_post_request -
+_settings_notifications_push_post_request_oneOf -
+_settings_notifications_push_post_request_oneOf_1 -
+_settings_notifications_push_post_request_oneOf_1_subscription -
+_settings_notifications_push_post_request_oneOf_subscription -
+_settings_notifications_push_post_request_oneOf_subscription_keys -
+auctionEntry -
+auctionEntryExpanded -
+bid -
+currentUser -
+currentUser_linked_accounts -
+currentUser_patreon_profile -
+element -
+getItemInfo_200_response -
+getItemInfo_200_response_payload -
+getItemInfo_200_response_payload_item -
+kubrowAuction -
+langInItem -
+langInItem_drop_inner -
+lichAuction -
+nemesisEphemera -
+nemesisQuirk -
+nemesisWeapon -
+rarities -
+rivenAttribute -
+rivenAuction -
+rivenAuction_attributes_inner -
+rivenItem -
+userShort -
+Dropsource -Up
+missions (optional)
+array[Dropsource_missions_inner]
+relics (optional)
+array[Dropsource_relics_inner]
+npc (optional)
+array[Dropsource_npc_inner]
+Dropsource_missions_inner -Up
+mission_id (optional)
+String
+node_id (optional)
+String
+rarity (optional)
+String How rare item is
+Enum:
+very_common
+common
+uncommon
+rare
+legendary
+rate (optional)
+BigDecimal
+item_subtype (optional)
+String
+Enum:
+intact
+exceptional
+flawless
+radiant
+small
+medium
+large
+basic
+adorned
+magnificent
+rotation (optional)
+String
+Enum:
+a
+b
+c
+stage (optional)
+String openworld missions only
+Enum:
+1
+2
+3
+4
+final
+Dropsource_npc_inner -Up
+item drop from enemy
+id (optional)
+String format: ObjectId
+rarity (optional)
+String How rare item is
+Enum:
+very_common
+common
+uncommon
+rare
+legendary
+rate (optional)
+BigDecimal the droprate of the item being dropped from the enemy's drop list, the final droprate should be multipled with chance
+Dropsource_relics_inner -Up
+id (optional)
+String format: ObjectId
+rarity (optional)
+String How rare item is
+Enum:
+common
+uncommon
+rare
+rate (optional)
+Dropsource_relics_inner_rate
+Dropsource_relics_inner_rate -Up
+intact (optional)
+BigDecimal
+exceptional (optional)
+BigDecimal
+flawless (optional)
+BigDecimal
+radiant (optional)
+BigDecimal
+ItemCommon -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String [a-z] snake case name of the item
+icon (optional)
+String it's a part of url, if you want to get an image you need to prepend assets root dirrectory: http://warframe.market/static/assets/
+icon_format (optional)
+String
+Enum:
+land
+port
+thumb (optional)
+String Thumb of an icon
+sub_icon (optional)
+String Usually, if item is part of set and not set itself, it will have sub_icon like: Mirage Blueprint is part of Mirage Set, therefore the icon will be the Mirage warframe icon, and the sub_icon will be the blueprint icon
+mod_max_rank (optional)
+Integer in the next api version will be renamed to max_rank
+subtypes (optional)
+array[String] relics and fishes are having this field
+tags (optional)
+array[String]
+ducats (optional)
+Integer
+quantity_for_set (optional)
+Integer
+ItemFull -Up
+same as ItemInOrder, but lang related fields contain more infos, + rarity, set_root, MR, trading tax.
+id (optional)
+String format: ObjectId
+url_name (optional)
+String [a-z] snake case name of the item
+icon (optional)
+String it's a part of url, if you want to get an image you need to prepend assets root dirrectory: http://warframe.market/static/assets/
+icon_format (optional)
+String
+Enum:
+land
+port
+thumb (optional)
+String Thumb of an icon
+sub_icon (optional)
+String Usually, if item is part of set and not set itself, it will have sub_icon like: Mirage Blueprint is part of Mirage Set, therefore the icon will be the Mirage warframe icon, and the sub_icon will be the blueprint icon
+mod_max_rank (optional)
+Integer in the next api version will be renamed to max_rank
+subtypes (optional)
+array[String] relics and fishes are having this field
+tags (optional)
+array[String]
+ducats (optional)
+Integer
+quantity_for_set (optional)
+Integer
+set_root (optional)
+Boolean This item represents set itself
+mastery_level (optional)
+Integer Mastery requirenment fro this item
+rarity (optional)
+String Item rarity
+Enum:
+common
+uncommon
+rare
+legendary
+peculiar
+trading_tax (optional)
+Integer
+en (optional)
+Object
+ru (optional)
+Object
+ko (optional)
+Object
+fr (optional)
+Object
+de (optional)
+Object
+sv (optional)
+Object
+zh_hant (optional)
+Object
+zh_hans (optional)
+Object
+pt (optional)
+Object
+es (optional)
+Object
+pl (optional)
+Object
+ItemInOrder -Up
+same as ItemFull, but with dried up lang related fields and without rarity, set_root, MR, trading tax
+id (optional)
+String format: ObjectId
+url_name (optional)
+String [a-z] snake case name of the item
+icon (optional)
+String it's a part of url, if you want to get an image you need to prepend assets root dirrectory: http://warframe.market/static/assets/
+icon_format (optional)
+String
+Enum:
+land
+port
+thumb (optional)
+String Thumb of an icon
+sub_icon (optional)
+String Usually, if item is part of set and not set itself, it will have sub_icon like: Mirage Blueprint is part of Mirage Set, therefore the icon will be the Mirage warframe icon, and the sub_icon will be the blueprint icon
+mod_max_rank (optional)
+Integer in the next api version will be renamed to max_rank
+subtypes (optional)
+array[String] relics and fishes are having this field
+tags (optional)
+array[String]
+ducats (optional)
+Integer
+quantity_for_set (optional)
+Integer
+en (optional)
+ItemInOrder_allOf_en
+ru (optional)
+ItemInOrder_allOf_ru
+ko (optional)
+ItemInOrder_allOf_ko
+fr (optional)
+ItemInOrder_allOf_fr
+de (optional)
+ItemInOrder_allOf_de
+sv (optional)
+ItemInOrder_allOf_en
+zh_hant (optional)
+ItemInOrder_allOf_zh_hant
+zh_hans (optional)
+ItemInOrder_allOf_zh_hans
+pt (optional)
+ItemInOrder_allOf_pt
+es (optional)
+ItemInOrder_allOf_es
+pl (optional)
+ItemInOrder_allOf_pl
+ItemInOrder_allOf_de -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_en -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_es -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_fr -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_ko -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_pl -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_pt -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_ru -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_zh_hans -Up
+item_name (optional)
+String Name of the item
+ItemInOrder_allOf_zh_hant -Up
+item_name (optional)
+String Name of the item
+ItemShort -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+thumb (optional)
+String Small icon
+item_name (optional)
+String depends on you Language header
+Location -Up
+SolNodes basically
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+icon (optional)
+String
+thumb (optional)
+String
+min_level (optional)
+BigDecimal min lvl of npc on this location
+max_level (optional)
+BigDecimal max lvl of npc on this location
+faction (optional)
+String
+Enum:
+infested
+grineer
+corpus
+corrupted
+node_name (optional)
+String Node name
+system_name (optional)
+String System name
+Mission -Up
+Known missions
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+icon (optional)
+String
+thumb (optional)
+String
+name (optional)
+String Mission name
+MissionDropData -Up
+What you can get from this mission as reward
+type (optional)
+String
+Enum:
+mission
+item (optional)
+String id of an item format: ObjectId
+mission (optional)
+String id of a mission format: ObjectId
+location (optional)
+String id of a location format: ObjectId
+rate (optional)
+BigDecimal Chance to get item on mission completion or rotation completion
+rarity (optional)
+rarities
+rotation (optional)
+String
+Enum:
+b
+a
+c
+Npc -Up
+Known npc
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+icon (optional)
+String
+thumb (optional)
+String
+name (optional)
+String Npc name
+NpcDropData -Up
+What you can get from this npc
+type (optional)
+String
+Enum:
+npc
+item (optional)
+String id of an item format: ObjectId
+npc (optional)
+String id of an npc format: ObjectId
+rate (optional)
+BigDecimal Chance to get item on kill
+rarity (optional)
+rarities
+OrderCommon -Up
+id (optional)
+String format: ObjectId
+platinum (optional)
+Integer
+quantity (optional)
+Integer
+order_type (optional)
+String
+Enum:
+sell
+buy
+platform (optional)
+String
+Enum:
+xbox
+pc
+ps4
+switch
+region (optional)
+String will be deprecated eventually
+creation_date (optional)
+Date format: date-time
+last_update (optional)
+Date format: date-time
+subtype (optional)
+String subtyppe oof an item, all valid subtypes defined inside Item model subtypes field
+visible (optional)
+Boolean Is this order visible? All public orders will be visible, and only orders in your profile could be invisible.
+OrderFull -Up
+id (optional)
+String format: ObjectId
+platinum (optional)
+Integer
+quantity (optional)
+Integer
+order_type (optional)
+String
+Enum:
+sell
+buy
+platform (optional)
+String
+Enum:
+xbox
+pc
+ps4
+switch
+region (optional)
+String will be deprecated eventually
+creation_date (optional)
+Date format: date-time
+last_update (optional)
+Date format: date-time
+subtype (optional)
+String subtyppe oof an item, all valid subtypes defined inside Item model subtypes field
+visible (optional)
+Boolean Is this order visible? All public orders will be visible, and only orders in your profile could be invisible.
+user (optional)
+userShort
+item (optional)
+ItemInOrder
+OrderRow -Up
+id (optional)
+String format: ObjectId
+platinum (optional)
+Integer
+quantity (optional)
+Integer
+order_type (optional)
+String
+Enum:
+sell
+buy
+platform (optional)
+String
+Enum:
+xbox
+pc
+ps4
+switch
+region (optional)
+String will be deprecated eventually
+creation_date (optional)
+Date format: date-time
+last_update (optional)
+Date format: date-time
+subtype (optional)
+String subtyppe oof an item, all valid subtypes defined inside Item model subtypes field
+visible (optional)
+Boolean Is this order visible? All public orders will be visible, and only orders in your profile could be invisible.
+user (optional)
+userShort
+RelicDropData -Up
+What you can get from this relic
+type (optional)
+String
+Enum:
+relic
+item (optional)
+String id of an item format: ObjectId
+relic (optional)
+String id of a relic format: ObjectId
+rates (optional)
+RelicDropData_rates
+rarity (optional)
+rarities
+RelicDropData_rates -Up
+intact (optional)
+BigDecimal chance to get an item from intact relic
+exceptional (optional)
+BigDecimal chance to get an item from exceptional relic
+flawless (optional)
+BigDecimal chance to get an item from flawless relic
+radiant (optional)
+BigDecimal chance to get an item from radiant relic
+_auctions_create_post_200_response -Up
+payload (optional)
+_auctions_create_post_200_response_payload
+_auctions_create_post_200_response_payload -Up
+auction (optional)
+auctionEntry
+_auctions_create_post_request -Up
+note (optional)
+String
+starting_price
+Integer
+buyout_price
+Integer If you want в€ћ as buyout price, set this to null
+minimal_increment (optional)
+Integer Minimum delta between the bids, Not appliable right now
+minimal_reputation (optional)
+Integer Minimum reputation requirenment for participation in this auction.
+private (optional)
+Boolean is this auction is private and only accesibly by direct link.
+item
+_auctions_create_post_request_item
+_auctions_create_post_request_item -Up
+type (optional)
+String type of the item, in this case it's kubrow
+attributes (optional)
+array[rivenAuction_attributes_inner]
+name (optional)
+String
+mastery_level (optional)
+Integer Mastery level requirennment for that mod.
+re_rolls (optional)
+Integer
+weapon_url_name (optional)
+String url_name of any Kuva weapon
+polarity (optional)
+String
+Enum:
+madurai
+vazarin
+naramon
+zenurik
+mod_rank (optional)
+Integer
+element (optional)
+element
+damage (optional)
+Integer
+ephemera (optional)
+Boolean Lich having Kuva ephemera (based on element)
+quirk (optional)
+String url_name of any Kuva quirk
+_auctions_entry__auction_id__bids_get_200_response -Up
+payload
+_auctions_entry__auction_id__bids_get_200_response_payload
+include (optional)
+_auctions_entry__auction_id__get_200_response_payload
+_auctions_entry__auction_id__bids_get_200_response_payload -Up
+bids (optional)
+array[bid]
+_auctions_entry__auction_id__get_200_response -Up
+payload (optional)
+_auctions_entry__auction_id__get_200_response_payload
+_auctions_entry__auction_id__get_200_response_payload -Up
+auction (optional)
+auctionEntryExpanded
+_auctions_search_type_riven_get_200_response -Up
+payload (optional)
+_auctions_search_type_riven_get_200_response_payload
+_auctions_search_type_riven_get_200_response_payload -Up
+auctions (optional)
+array[auctionEntryExpanded]
+_auth_registration_post_request -Up
+auth_type (optional)
+String
+Enum:
+cookie
+header
+email
+String
+password
+String format: password
+password_second
+String format: password
+region (optional)
+String
+device_id (optional)
+String Optional device_id, defined on client side. This param help us to keep push subscription between login and logout. And clearer identify your device.
+recaptcha (optional)
+String Google reCaptcha, required if you are not using special device auth.
+_auth_restore_post_request -Up
+email
+String
+_auth_signin_post_request -Up
+auth_type (optional)
+String
+Enum:
+cookie
+header
+email
+String
+password
+String format: password
+device_id (optional)
+String Optional device_id, defined on client side.
+This param help us to identify your device between login sessions.
+_items__url_name__dropsources_get_200_response -Up
+payload
+_items__url_name__dropsources_get_200_response_payload
+include (optional)
+getItemInfo_200_response_payload
+_items__url_name__dropsources_get_200_response_payload -Up
+dropsources (optional)
+Dropsource
+_items__url_name__orders_get_200_response -Up
+payload
+_items__url_name__orders_get_200_response_payload
+include (optional)
+getItemInfo_200_response_payload
+_items__url_name__orders_get_200_response_payload -Up
+orders (optional)
+array[_items__url_name__orders_get_200_response_payload_orders_inner]
+_items__url_name__orders_get_200_response_payload_orders_inner -Up
+id (optional)
+String format: ObjectId
+platinum (optional)
+Integer
+quantity (optional)
+Integer
+order_type (optional)
+String
+Enum:
+sell
+buy
+platform (optional)
+String
+Enum:
+xbox
+pc
+ps4
+switch
+region (optional)
+String will be deprecated eventually
+creation_date (optional)
+Date format: date-time
+last_update (optional)
+Date format: date-time
+subtype (optional)
+String subtyppe oof an item, all valid subtypes defined inside Item model subtypes field
+visible (optional)
+Boolean Is this order visible? All public orders will be visible, and only orders in your profile could be invisible.
+user (optional)
+userShort
+_items_get_200_response -Up
+payload (optional)
+_items_get_200_response_payload
+_items_get_200_response_payload -Up
+items (optional)
+array[ItemShort]
+_lich_ephemeras_get_200_response -Up
+payload (optional)
+_lich_ephemeras_get_200_response_payload
+_lich_ephemeras_get_200_response_payload -Up
+ephemeras (optional)
+array[nemesisEphemera]
+_lich_quirks_get_200_response -Up
+payload (optional)
+_lich_quirks_get_200_response_payload
+_lich_quirks_get_200_response_payload -Up
+quirks (optional)
+array[nemesisQuirk]
+_lich_weapons_get_200_response -Up
+payload (optional)
+_lich_weapons_get_200_response_payload
+_lich_weapons_get_200_response_payload -Up
+weapons (optional)
+array[nemesisWeapon]
+_locations_get_200_response -Up
+payload (optional)
+_locations_get_200_response_payload
+_locations_get_200_response_payload -Up
+locations (optional)
+array[Location]
+_missions_get_200_response -Up
+payload (optional)
+_missions_get_200_response_payload
+_missions_get_200_response_payload -Up
+missions (optional)
+array[Mission]
+_npc_get_200_response -Up
+payload (optional)
+_npc_get_200_response_payload
+_npc_get_200_response_payload -Up
+npc (optional)
+array[Npc]
+_profile_orders_post_200_response -Up
+payload (optional)
+_profile_orders_post_200_response_payload
+_profile_orders_post_200_response_payload -Up
+order (optional)
+_profile_orders_post_200_response_payload_order
+_profile_orders_post_200_response_payload_order -Up
+id (optional)
+String format: ObjectId
+platinum (optional)
+Integer
+quantity (optional)
+Integer
+order_type (optional)
+String
+Enum:
+sell
+buy
+platform (optional)
+String
+Enum:
+xbox
+pc
+ps4
+switch
+region (optional)
+String will be deprecated eventually
+creation_date (optional)
+Date format: date-time
+last_update (optional)
+Date format: date-time
+subtype (optional)
+String subtyppe oof an item, all valid subtypes defined inside Item model subtypes field
+visible (optional)
+Boolean Is this order visible? All public orders will be visible, and only orders in your profile could be invisible.
+item (optional)
+Object
+_profile_orders_post_request -Up
+item (optional)
+String ObjectId of an item format: ObjectID
+order_type (optional)
+String
+Enum:
+sell
+buy
+platinum (optional)
+Integer
+quantity (optional)
+Integer
+visible (optional)
+Boolean
+rank (optional)
+Integer
+subtype (optional)
+String Check item subtypes field for possible values
+_riven_attributes_get_200_response -Up
+payload (optional)
+_riven_attributes_get_200_response_payload
+_riven_attributes_get_200_response_payload -Up
+attributes (optional)
+array[rivenAttribute]
+_riven_items_get_200_response -Up
+payload (optional)
+_riven_items_get_200_response_payload
+_riven_items_get_200_response_payload -Up
+items (optional)
+array[rivenItem]
+_settings_notifications_push_post_200_response -Up
+payload (optional)
+String
+Enum:
+ok
+_settings_notifications_push_post_request -Up
+device
+String
+Enum:
+android
+subscription
+_settings_notifications_push_post_request_oneOf_1_subscription
+_settings_notifications_push_post_request_oneOf -Up
+device
+String
+Enum:
+web
+subscription
+_settings_notifications_push_post_request_oneOf_subscription
+_settings_notifications_push_post_request_oneOf_1 -Up
+device
+String
+Enum:
+android
+subscription
+_settings_notifications_push_post_request_oneOf_1_subscription
+_settings_notifications_push_post_request_oneOf_1_subscription -Up
+push_token
+String
+_settings_notifications_push_post_request_oneOf_subscription -Up
+endpointeger
+String
+keys
+_settings_notifications_push_post_request_oneOf_subscription_keys
+_settings_notifications_push_post_request_oneOf_subscription_keys -Up
+p256dh
+String
+auth
+String
+auctionEntry -Up
+id (optional)
+String format: ObjectId
+minimal_reputation (optional)
+Integer Minimal amount of reputation that is required to participate in this auction.
+winner (optional)
+String If winner is set, auction is in the paused state. While on pause, bids can't be added, but can be removed. format: ObjectId
+private (optional)
+Boolean
+visible (optional)
+Boolean
+note_raw (optional)
+String Raw format string, use it inside textarea, for editing purposes.
+note (optional)
+String It's safe to inject this into html, this is refined, formatted string from MD processor.
+owner (optional)
+String format: ObjectId
+starting_price (optional)
+Integer
+buyout_price (optional)
+Integer if buyout_price is set to null, that means в€ћ
+minimal_increment (optional)
+Integer Minimum bid increase value
+is_direct_sell (optional)
+Boolean Shortcut to starting_price == buyout_price, means that auction is not an auction, but an order.
+top_bid (optional)
+Integer
+created (optional)
+Date format: date-time
+updated (optional)
+Date Last time auction was updated, eighter by owner or by placing a bid. format: date-time
+platform (optional)
+String
+Enum:
+switch
+pc
+ps4
+xbox
+closed (optional)
+Boolean Auction is closed, and was marked for removal or archiving, no one can add or remove bids now.
+is_marked_for (optional)
+String Auction will be removed or archivated after marked_operation_at
+Enum:
+removing
+archiving
+marked_operation_at (optional)
+Date format: date-time
+item (optional)
+_auctions_create_post_request_item
+auctionEntryExpanded -Up
+owner will contain userShort model.
+
+id (optional)
+String format: ObjectId
+minimal_reputation (optional)
+Integer Minimal amount of reputation that is required to participate in this auction.
+winner (optional)
+String If winner is set, auction is in the paused state. While on pause, bids can't be added, but can be removed. format: ObjectId
+private (optional)
+Boolean
+visible (optional)
+Boolean
+note_raw (optional)
+String Raw format string, use it inside textarea, for editing purposes.
+note (optional)
+String It's safe to inject this into html, this is refined, formatted string from MD processor.
+owner (optional)
+userShort
+starting_price (optional)
+Integer
+buyout_price (optional)
+Integer if buyout_price is set to null, that means в€ћ
+minimal_increment (optional)
+Integer Minimum bid increase value
+is_direct_sell (optional)
+Boolean Shortcut to starting_price == buyout_price, means that auction is not an auction, but an order.
+top_bid (optional)
+Integer
+created (optional)
+Date format: date-time
+updated (optional)
+Date Last time auction was updated, eighter by owner or by placing a bid. format: date-time
+platform (optional)
+String
+Enum:
+switch
+pc
+ps4
+xbox
+closed (optional)
+Boolean Auction is closed, and was marked for removal or archiving, no one can add or remove bids now.
+is_marked_for (optional)
+String Auction will be removed or archivated after marked_operation_at
+Enum:
+removing
+archiving
+marked_operation_at (optional)
+Date format: date-time
+item (optional)
+_auctions_create_post_request_item
+bid -Up
+id (optional)
+String format: ObjectId
+auction (optional)
+String format: ObjectId
+user (optional)
+String format: ObjectId
+value (optional)
+Integer
+created (optional)
+Date format: date-time
+updated (optional)
+Date format: date-time
+currentUser -Up
+id (optional)
+String format: ObjectId
+anonymous (optional)
+Boolean
+verification (optional)
+Boolean
+ingame_name (optional)
+String
+check_code (optional)
+String
+role (optional)
+String
+Enum:
+anonymous
+user
+moderator
+admin
+patreon_profile (optional)
+currentUser_patreon_profile
+platform (optional)
+String
+Enum:
+ps4
+pc
+xbox
+region (optional)
+String
+banned (optional)
+Boolean
+ban_reason (optional)
+String
+avatar (optional)
+String Path to user avatar in static folder.
+background (optional)
+String Path to user background in static folder.
+linked_accounts (optional)
+currentUser_linked_accounts
+has_email (optional)
+Boolean
+written_reviews (optional)
+Integer how much reviews user wrote today.
+unread_messages (optional)
+Integer
+currentUser_linked_accounts -Up
+steam_profile (optional)
+Boolean
+patreon_profile (optional)
+Boolean
+xbox_profile (optional)
+Boolean
+currentUser_patreon_profile -Up
+patreon_founder (optional)
+Boolean
+subscription (optional)
+Boolean
+patreon_badge (optional)
+String
+Enum:
+bronze
+gold
+silver
+platinum
+element -Up
+getItemInfo_200_response -Up
+payload (optional)
+getItemInfo_200_response_payload
+getItemInfo_200_response_payload -Up
+item (optional)
+getItemInfo_200_response_payload_item
+getItemInfo_200_response_payload_item -Up
+id (optional)
+String Object id of requested item
+items_in_set (optional)
+array[ItemFull]
+kubrowAuction -Up
+type (optional)
+String type of the item, in this case it's kubrow
+name (optional)
+String
+langInItem -Up
+item_name (optional)
+String
+description (optional)
+String
+wiki_link (optional)
+String
+drop (optional)
+array[langInItem_drop_inner]
+langInItem_drop_inner -Up
+name (optional)
+String translated name of the location \ item
+link (optional)
+String link to the internal or extarnal source with information about that location
+lichAuction -Up
+type (optional)
+String type of the item, in this case it's lich
+weapon_url_name (optional)
+String url_name of any Kuva weapon
+element (optional)
+element
+damage (optional)
+Integer
+ephemera (optional)
+Boolean Lich having Kuva ephemera (based on element)
+quirk (optional)
+String url_name of any Kuva quirk
+name (optional)
+String Will not be used for now (?)
+nemesisEphemera -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+icon (optional)
+String it's a part of url, if you want to get an image you need to prepend assets root dirrectory: http://warframe.market/static/assets/
+icon_format (optional)
+String
+Enum:
+land
+port
+thumb (optional)
+String thumb of an icon
+animation (optional)
+String Path to the GIF animatgion of ephemera
+animation_format (optional)
+String
+Enum:
+land
+port
+element (optional)
+element
+item_name (optional)
+String Name of the ephemera
+nemesisQuirk -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+item_name (optional)
+String Name of the quirk
+description (optional)
+String Description of the quirk
+group (optional)
+String which group this element belongs to, is used to display specific groups on the frontend.
+nemesisWeapon -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+icon (optional)
+String it's a part of url, if you want to get an image you need to prepend assets root dirrectory: http://warframe.market/static/assets/
+icon_format (optional)
+String
+Enum:
+land
+port
+thumb (optional)
+String thumb of an icon
+item_name (optional)
+String Name of the weapon
+rarities -Up
+How rare something can be considered
+rivenAttribute -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+group (optional)
+String Group of the attribute, like top, melee, etc.
+Used for grouping within UI elements.
+Enum:
+default
+melee
+top
+prefix (optional)
+String
+suffix (optional)
+String
+positive_is_negative (optional)
+Boolean Negative value of this attribute indicate that attribute is positive, e.g. Recoil.
+exclusive_to (optional)
+String This attribute is only available on specific types of items, check item property: riven_type
+If null, then this attribute can be selected on every item.
+Enum:
+kitgun
+pistol
+rifle
+shotgun
+melee
+zaw
+effect (optional)
+String Name of the attribute, depends on the requested language (headers)
+units (optional)
+String measurement units
+Enum:
+percent
+seconds
+negative_only (optional)
+Boolean This attribute occurs only as a negative.
+search_only (optional)
+Boolean used only while searching for auctions
+rivenAuction -Up
+type (optional)
+String type of the item, in this case it's riven
+attributes (optional)
+array[rivenAuction_attributes_inner]
+name (optional)
+String Riven mod name
+mastery_level (optional)
+Integer Mastery level requirennment for that mod.
+re_rolls (optional)
+Integer
+weapon_url_name (optional)
+String weapon name in url format.
+polarity (optional)
+String
+Enum:
+madurai
+vazarin
+naramon
+zenurik
+mod_rank (optional)
+Integer
+rivenAuction_attributes_inner -Up
+positive (optional)
+Boolean
+value (optional)
+Integer
+url_name (optional)
+String
+rivenItem -Up
+id (optional)
+String format: ObjectId
+url_name (optional)
+String
+group (optional)
+String Group of the item, like shotgin, rifle, melee, etc.
+Used for grouping within UI elements.
+Enum:
+primary
+secondary
+melee
+zaw
+sentinel
+archgun
+kitgun
+riven_type (optional)
+String Type of the riven mod, to restrict certain attributes to specific types.
+Enum:
+shotgun
+rifle
+pistol
+melee
+zaw
+kitgun
+icon (optional)
+String path to the icon asset file
+icon_format (optional)
+String
+Enum:
+land
+port
+thumb (optional)
+String
+item_name (optional)
+String Name of the weapon, depends on the requested language (headers)
+userShort -Up
+id (optional)
+String format: ObjectId
+ingame_name (optional)
+String
+status (optional)
+String
+Enum:
+ingame
+online
+offline
+region (optional)
+String
+reputation (optional)
+Integer
+avatar (optional)
+String
+last_seen (optional)
+Date format: date-time

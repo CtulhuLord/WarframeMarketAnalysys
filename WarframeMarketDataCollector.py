@@ -3,7 +3,7 @@ import aiohttp
 import json
 import logging
 import time
-from tqdm.asyncio import tqdm_asyncio  # Импортируем tqdm для asyncio
+from tqdm.asyncio import tqdm_asyncio
 
 # Настройка логирования
 logging.basicConfig(filename='collector.log', level=logging.INFO, 
@@ -70,11 +70,12 @@ async def main():
 
             all_items_data = {}
 
-            # Используем tqdm_asyncio.as_completed для отображения прогресса
+            # Правильное использование tqdm_asyncio.as_completed с await
             tasks = [fetch_item_data(session, item["url_name"]) for item in all_items_list]
-            for item_data in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
+            for future in tqdm_asyncio.as_completed(tasks, desc="Загрузка данных о предметах", total=len(tasks)):
+                item_data = await future  # <-- Ключевое изменение: await future
                 if item_data:
-                    all_items_data[item_data['url_name']] = item_data # Используем url_name из полученных данных
+                    all_items_data[item_data['url_name']] = item_data
 
             with open("all_items_data.json", "w", encoding="utf-8") as f:
                 json.dump(all_items_data, f, indent=4, ensure_ascii=False)

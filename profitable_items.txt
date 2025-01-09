@@ -1,3 +1,14 @@
-hydroid_prime_set
-dual_kamas_prime_set
-latron_prime_set
+dual_kamas_prime_set;41
+ninkondi_prime_set;13
+bo_prime_set;18
+boar_prime_set;12
+kogake_prime_set;27
+braton_vandal_set;13
+ankyros_prime_set;11
+venka_prime_set;30
+aksomati_prime_set;16
+hikou_prime_set;11
+shedu_set;13
+pangolin_prime_set;54
+glaive_prime_set;17
+akstiletto_prime_set;34

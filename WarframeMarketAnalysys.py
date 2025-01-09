@@ -129,7 +129,7 @@ def get_lowest_price(url_name):
         print(f"Ошибка структуры JSON ответа для {url_name}: Отсутствует ключ {e}")
         return 0, "json_structure_error", "unknown", "unknown"
 
-def process_items_with_components(items, min_difference, num_items=None, shutdown=False): # Добавляем аргумент shutdown
+def process_items_with_components(items, min_difference, num_items=None, shutdown=False):
     if not items:
         return
 
@@ -140,13 +140,18 @@ def process_items_with_components(items, min_difference, num_items=None, shutdow
 
     output_filename = "profitable_items.txt"
 
-    while True:  # Бесконечный цикл для повторной проверки
-        profitable_items = []
+    while True:
+        profitable_items = {}  # Изменяем на словарь для хранения разницы
 
         if os.path.exists(output_filename):
             try:
                 with open(output_filename, "r", encoding="utf-8") as f:
-                    profitable_items = [line.strip() for line in f]
+                    for line in f:
+                        try:
+                            item_name, difference = line.strip().split(";") # Разделяем строку по ;
+                            profitable_items[item_name] = int(difference)
+                        except ValueError:
+                            print(f"Некорректная строка в файле: {line.strip()}")
             except Exception as e:
                 print(f"Ошибка при чтении файла {output_filename}: {e}")
 
@@ -179,35 +184,35 @@ def process_items_with_components(items, min_difference, num_items=None, shutdow
 
             # Обновляем список и файл после *каждой* проверки предмета
             if isinstance(difference, int) and difference >= min_difference:
-                if item['url_name'] not in profitable_items:
-                    profitable_items.append(item['url_name'])
-                    print(f"{item['url_name']} added to the list.")
+                profitable_items[item['url_name']] = difference # Записываем разницу в словарь
+                print(f"{item['url_name']} added to the list with difference: {difference}")
             elif item['url_name'] in profitable_items:
-                profitable_items.remove(item['url_name'])
+                del profitable_items[item['url_name']]  # Удаляем из словаря
                 print(f"{item['url_name']} removed from the list.")
-                
+
             try:
                 with open(output_filename, "w", encoding="utf-8") as f:
-                    for item_name in profitable_items:
-                        f.write(item_name + "\n")
+                    for item_name, diff in profitable_items.items(): # Итерируемся по словарю
+                        f.write(f"{item_name};{diff}\n") # Записываем url_name и разницу через ;
                 print(f"Profitable items updated in {output_filename}")
             except Exception as e:
                 print(f"Ошибка при записи в файл {output_filename}: {e}")
 
             print("-" * 20)
 
-        if shutdown:  # Проверяем аргумент shutdown
+        if shutdown:
             print("Shutdown argument provided. Initiating shutdown...")
-            if os.name == 'nt':  # Для Windows
-                subprocess.call(["shutdown", "/s", "/t", "1"]) # Выключение через 1 секунду
-            elif os.name == 'posix':  # Для Linux/macOS
-                subprocess.call(["shutdown", "-h", "now"]) # Немедленное выключение
+            if os.name == 'nt':
+                subprocess.call(["shutdown", "/s", "/t", "1"])
+            elif os.name == 'posix':
+                subprocess.call(["shutdown", "-h", "now"])
             else:
                 print("Shutdown command not implemented for this operating system.")
-            break # Выходим из цикла после выключения
+            break
 
-        time.sleep(60)  # Пауза перед следующей итерацией
+        time.sleep(60)
     print("Processing complete.")
+
 
 
 def main():
